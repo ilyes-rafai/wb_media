@@ -9,7 +9,7 @@ import SecondaryButton from "@/Components/SecondaryButton";
 import TextArea from "@/Components/TextArea";
 import TextInput from "@/Components/TextInput";
 import TitleSection from "@/Components/TitleSection";
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import AuthenticatedLayout from "@/Layouts/Layout";
 import { Head, useForm } from "@inertiajs/react";
 import React, { useEffect, useState } from "react";
 import { InstructionCard } from "../Instruction/InstructionCard";
@@ -52,7 +52,7 @@ function EditProjectInstructions({ project, createdBy }) {
         <AuthenticatedLayout header="Projects">
             <Head title="Edit Project" />
 
-            <div className="p-3 sm:p-6 lg:p-12 rounded-lg border border-zinc-200 dark:border-zinc-800">
+            <div className="p-3 sm:p-6 lg:p-12 rounded-lg border border-slate-200 dark:border-slate-800">
                 <header className="mb-3 sm:mb-6 lg:mb-12">
                     <NavLink href={route("projects.index")} active={route().current("projects.index")}>
                         <i className="fa-solid fa-arrow-left-long me-2 text-lg"></i>
@@ -60,7 +60,7 @@ function EditProjectInstructions({ project, createdBy }) {
                     </NavLink>
                     <TitleSection title="Instructions" />
 
-                    <h3 className="text-xl my-6 font-bold leading-tight text-balance space-x-2 dark:text-zinc-400 text-zinc-600">
+                    <h3 className="text-xl my-6 font-bold leading-tight text-balance space-x-2 dark:text-slate-400 text-slate-600">
                         <sup className="text-ilyes">
                             <i className="fa-solid fa-quote-left"></i>
                         </sup>
@@ -75,10 +75,10 @@ function EditProjectInstructions({ project, createdBy }) {
                 </header>
 
                 {isFormAddInstructionOpen && (
-                    <div className="p-3 sm:p-6 lg:p-12 rounded-lg border border-zinc-200 dark:border-zinc-800">
+                    <div className="p-3 sm:p-6 lg:p-12 rounded-lg border border-slate-200 dark:border-slate-800">
                         <div className="flex justify-between items-center mb-6">
-                            <h2 className="text-xl font-bold leading-tight dark:text-zinc-400 text-zinc-600">
-                                Add new <span className="dark:text-zinc-200 text-zinc-600">Instruction</span>
+                            <h2 className="text-xl font-bold leading-tight dark:text-slate-400 text-slate-600">
+                                Add new <span className="dark:text-slate-200 text-slate-600">Instruction</span>
                             </h2>
                             <ButtonCircle icon="times" action={closeFormAddInstruction} />
                         </div>

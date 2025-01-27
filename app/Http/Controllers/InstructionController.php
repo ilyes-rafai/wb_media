@@ -32,7 +32,7 @@ class InstructionController extends Controller
      */
     public function store(StoreInstructionRequest $request)
     {
-        if (Gate::denies('is_mentor_or_admin')) {
+        if (Gate::denies('is_admin_or_mentor')) {
             abort(404);
         }
         try {
@@ -91,7 +91,7 @@ class InstructionController extends Controller
      */
     public function destroy(Instruction $instruction)
     {
-        if (Gate::denies('is_mentor_or_admin')) {
+        if (Gate::denies('is_admin_or_mentor')) {
             abort(404);
         }
         try {

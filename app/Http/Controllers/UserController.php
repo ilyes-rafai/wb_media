@@ -29,6 +29,7 @@ class UserController extends Controller
         $users  = User::orderby('created_at', 'DESC')
             ->withCount('topics')
             ->withCount('projects')
+            ->withCount('courses')
             ->with('roles')
             ->get();
         return Inertia::render('Partials/User/Index', ['users' => $users]);
@@ -215,11 +216,11 @@ class UserController extends Controller
 
             return redirect()
                 ->route('users.index')
-                ->with('success', 'The password has been successfully updated.');
+                ->with('success', 'The avatar has been successfully updated.');
         } catch (\Exception $e) {
             return redirect()
                 ->route('users.index')
-                ->with('error', 'An error occurred while updating the password. Please try again.');
+                ->with('error', 'An error occurred while updating the avatar. Please try again.');
         }
     }
 

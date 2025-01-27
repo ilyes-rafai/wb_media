@@ -21,10 +21,10 @@ export default forwardRef(function TextInput(
             {...props}
             type={type}
             placeholder={`Enter ${placeholder} here...`}
-            className={`font-semibold border text-zinc-700 dark:text-zinc-300 placeholder:font-medium dark:placeholder-zinc-700 placeholder-zinc-400 text-sm rounded-lg block w-full p-2.5 bg-transparent ${
+            className={`font-semibold border text-slate-700 dark:text-slate-300 placeholder:font-medium dark:placeholder-slate-700 placeholder-slate-400 text-sm rounded-lg block w-full p-2.5 bg-transparent ${
                 onError
-                    ? "border-pink-500 focus:ring-pink-500 focus:border-pink-500"
-                    : "dark:border-zinc-900 border-zinc-300 focus:ring-ilyes focus:border-ilyes"
+                    ? "border-rose-500 focus:ring-rose-500 focus:border-rose-500"
+                    : "dark:border-slate-900 border-slate-300 focus:ring-ilyes focus:border-ilyes"
             }`}
             ref={localRef}
         />

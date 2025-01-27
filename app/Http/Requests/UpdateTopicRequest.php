@@ -28,7 +28,6 @@ class UpdateTopicRequest extends FormRequest
                 Rule::unique('topics', 'name')->ignore($this->topic->id), // Exclude current topic ID
             ],
             'description' => ['required'],
-            'svg' => ['required'],
         ];
     }
 }

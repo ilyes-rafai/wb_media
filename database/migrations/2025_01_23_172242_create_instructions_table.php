@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->longText('description')->nullable();
             $table->longText('code')->nullable();
+            $table->string('language')->nullable();
             $table->boolean('premium')->default(false);
             $table->foreignId('user_id')->constrained();
             $table->foreignId('project_id')->constrained();

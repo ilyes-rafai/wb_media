@@ -18,7 +18,7 @@ export default forwardRef(function FileInput({ className = "", isFocused = false
             {...props}
             type="file"
             className={
-                "rounded-md border-zinc-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 " + className
+                "rounded-md border-slate-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 " + className
             }
             ref={localRef}
             accept={accept} // Accept specific file types (e.g., image/*)

@@ -1,4 +1,6 @@
 import ButtonCircle from "@/Components/ButtonCircle";
+import Code from "@/Components/Code";
+import { Free } from "@/Components/Free";
 import Modal from "@/Components/Modal";
 import { Premium } from "@/Components/Premium";
 import PrimaryButton from "@/Components/PrimaryButton";
@@ -29,44 +31,76 @@ export const InstructionCard = ({ instruction }) => {
     const truncatedText = (text, length) => (text?.length > length ? text.slice(0, length) + "..." : text);
     const code = instruction.code || ""; // Provide a default empty string
 
+    const [isCopied, setIsCopied] = useState(false); // State to track if the text is copied
+
+    const handleCopy = () => {
+        if (instruction.code) {
+            navigator.clipboard
+                .writeText(instruction.code)
+                .then(() => {
+                    setIsCopied(true); // Set "Copied" state to true
+                    setTimeout(() => setIsCopied(false), 2000); // Revert back after 3 seconds
+                })
+                .catch((err) => {
+                    console.error("Failed to copy: ", err);
+                });
+        }
+    };
+
     return (
         <>
-            <div className="border-b last:border-0 border-zinc-200 dark:border-zinc-800 pb-6 last:pb-0">
+            <div className="pb-6 last:pb-0">
                 <div className="mb-1 flex items-center gap-3">
                     <ButtonCircle icon="trash" action={confirmInstructionDeletion} />
-                    <h3 className="text-2xl font-normal leading-tight dark:text-zinc-600 text-zinc-400">
+                    <h3 className="text-2xl font-normal leading-tight dark:text-slate-600 text-slate-400">
                         {instruction.title}
                     </h3>
-                    <span>{instruction.premium == 1 ? <Premium /> : ""}</span>
+                    <span>{instruction.premium == 1 ? <Premium /> : <Free />}</span>
                 </div>
 
                 {/* Description */}
                 {instruction.description && (
-                    <p className="mb-6 dark:text-zinc-400 text-zinc-600 whitespace-pre-line">
+                    <p className="mt-6 dark:text-slate-400 text-slate-600 whitespace-pre-line">
                         {instruction.description}
                     </p>
                 )}
 
                 {/* Code */}
                 {instruction.code && (
-                    <pre className="dark:text-zinc-200 text-zinc-800">
+                    <p className="rounded-lg mt-6 p-6 border border-slate-200 dark:border-slate-800">
+                        <div className="flex justify-between items-center mb-6">
+                            <span className="uppercase dark:text-slate-500 text-slate-500">
+                                {instruction.language && instruction.language}
+                            </span>
+                            <div
+                                onClick={handleCopy}
+                                className="hover:text-slate-300 text-slate-500 flex items-baseline gap-2 cursor-pointer"
+                            >
+                                {isCopied ? (
+                                    <>
+                                        <i className="fa-solid fa-check"></i>
+                                        <span>Copied!</span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <i className="fa-solid fa-copy"></i>
+                                        <span>Copy</span>
+                                    </>
+                                )}
+                            </div>
+                        </div>
                         <strong>
-                            {showFullCode ? code : truncatedText(code, 100)}
-                            {code.length > 100 && (
-                                <button onClick={toggleCode} className="ml-2 text-ilyes hover:underline">
-                                    {showFullCode ? "Show Less" : "Show More"}
-                                </button>
-                            )}
+                            <Code language={instruction.language}>{instruction.code}</Code>
                         </strong>
-                    </pre>
+                    </p>
                 )}
             </div>
 
             <Modal show={confirmingInstructionDeletion} onClose={closeModal}>
                 <form onSubmit={submit} className="p-6 text-center">
-                    <h2 className="text-lg font-medium text-zinc-500 dark:text-zinc-500">
+                    <h2 className="text-lg font-medium text-slate-500 dark:text-slate-500">
                         Are you sure you want to delete the{" "}
-                        <span className="text-zinc-700 dark:text-zinc-300">{instruction.title}</span> instruction?
+                        <span className="text-slate-700 dark:text-slate-300">{instruction.title}</span> instruction?
                     </h2>
 
                     <div className="mt-6 flex gap-6 justify-center">

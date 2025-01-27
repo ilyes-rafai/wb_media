@@ -196,5 +196,96 @@ class TopicSeeder extends Seeder
             'description' => 'SPA without APIs',
             'svg' => 'img/topics/inertia.png',
         ]);
+
+        Topic::create([
+            'user_id' => 1,
+            'name' => 'Git',
+            'description' => 'Version control system',
+            'svg' => 'img/topics/git.png',
+        ]);
+
+        Topic::create([
+            'user_id' => 1,
+            'name' => 'Typescript',
+            'description' => 'Typed JavaScript language',
+            'svg' => 'img/topics/typescript.png',
+        ]);
+
+        Topic::create([
+            'user_id' => 1,
+            'name' => 'Filament',
+            'description' => 'Admin panel builder',
+            'svg' => 'img/topics/filament.png',
+        ]);
+
+        Topic::create([
+            'user_id' => 1,
+            'name' => 'VS Code',
+            'description' => 'Code editor tool',
+            'svg' => 'img/topics/vscode.png',
+        ]);
+
+        Topic::create([
+            'user_id' => 1,
+            'name' => 'APIs',
+            'description' => 'Application programming interface',
+            'svg' => 'img/topics/api.png',
+        ]);
+
+        Topic::create([
+            'user_id' => 1,
+            'name' => 'MySQL',
+            'description' => 'Relational database management',
+            'svg' => 'img/topics/mysql.png',
+        ]);
+
+        Topic::create([
+            'user_id' => 1,
+            'name' => 'PostgreSQL',
+            'description' => 'Advanced SQL database',
+            'svg' => 'img/topics/postgresql.png',
+        ]);
+
+        Topic::create([
+            'user_id' => 1,
+            'name' => 'MongoDB',
+            'description' => 'NoSQL database solution',
+            'svg' => 'img/topics/mongo.png',
+        ]);
+
+        Topic::create([
+            'user_id' => 1,
+            'name' => 'OOP',
+            'description' => 'Object-oriented programming',
+            'svg' => 'img/topics/oop.png',
+        ]);
+
+        Topic::create([
+            'user_id' => 1,
+            'name' => 'UML',
+            'description' => 'Unified Modelling Language',
+            'svg' => 'img/topics/uml.png',
+        ]);
+
+        Topic::create([
+            'user_id' => 1,
+            'name' => 'MERISE',
+            'description' => 'System design methodology',
+            'svg' => 'img/topics/merise.png',
+        ]);
+
+        Topic::create([
+            'user_id' => 1,
+            'name' => 'Wordpress',
+            'description' => 'Content management system',
+            'svg' => 'img/topics/wordpress.png',
+        ]);
+
+        Topic::create([
+            'user_id' => 1,
+            'name' => 'Figma',
+            'description' => 'Design collaboration tool',
+            'svg' => 'img/topics/figma.png',
+        ]);
     }
 }

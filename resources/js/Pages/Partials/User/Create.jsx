@@ -6,7 +6,7 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import Radio from "@/Components/Radio";
 import TextInput from "@/Components/TextInput";
 import TitleSection from "@/Components/TitleSection";
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import AuthenticatedLayout from "@/Layouts/Layout";
 import { Head, useForm } from "@inertiajs/react";
 import React, { useState } from "react";
 
@@ -46,7 +46,7 @@ function Create({ roles }) {
         <AuthenticatedLayout header="Users">
             <Head title="Create User" />
 
-            <div className="p-3 sm:p-6 lg:p-12 rounded-lg border border-zinc-200 dark:border-zinc-800">
+            <div className="p-3 sm:p-6 lg:p-12 rounded-lg border border-slate-200 dark:border-slate-800">
                 <header className="mb-3 sm:mb-6 lg:mb-12">
                     <NavLink href={route("users.index")} active={route().current("users.index")}>
                         <i className="fa-solid fa-arrow-left-long me-2 text-lg"></i>

@@ -31,7 +31,7 @@ function Usercard({ user }) {
             {/* gender */}
             <span title="User gender" className="absolute top-4 right-4 text-xl">
                 {user.gender ? (
-                    <i className="fa-solid fa-venus text-pink-500"></i>
+                    <i className="fa-solid fa-venus text-rose-500"></i>
                 ) : (
                     <i className="fa-solid fa-mars text-blue-500"></i>
                 )}
@@ -41,7 +41,7 @@ function Usercard({ user }) {
             <div className="flex md:items-center flex-col md:flex-row gap-3">
                 {/* avatar */}
                 {user.avatar ? (
-                    <Avatar src={user.avatar} alt={user.username} width={80} height={80} />
+                    <Avatar src={user.avatar} alt={user.username} width={16} height={16} />
                 ) : (
                     <AvatarInconu user={user} width={16} height={16} size={4} />
                 )}
@@ -49,7 +49,7 @@ function Usercard({ user }) {
                 {/* fullname & username */}
                 <div className="">
                     <h4
-                        className="dark:text-zinc-300 text-zinc-600 font-semibold text-lg flex items-center"
+                        className="dark:text-slate-300 text-slate-600 font-semibold text-lg flex items-center"
                         title="Fullname"
                     >
                         {user.fullname}
@@ -72,10 +72,10 @@ function Usercard({ user }) {
                             )}
                         </small>
                     </h4>
-                    <p className="dark:text-zinc-500 text-zinc-400 text-sm" title="Username">
+                    <p className="dark:text-slate-500 text-slate-400 text-sm" title="Username">
                         @{user.username}
                     </p>
-                    <p className="dark:text-zinc-500 text-zinc-400 text-sm" title="User email">
+                    <p className="dark:text-slate-500 text-slate-400 text-sm" title="User email">
                         {user.email}
                     </p>
                 </div>
@@ -92,11 +92,14 @@ function Usercard({ user }) {
 
             {/* stats count */}
             <div className="mt-3 flex gap-2">
-                <p className="dark:text-zinc-500 text-zinc-400 text-xs font-semibold" title="Total topics">
+                <p className="dark:text-slate-500 text-slate-400 text-xs font-semibold" title="Total topics">
                     <i className="fa-solid fa-book"></i> ({user.topics_count})
                 </p>
-                <p className="dark:text-zinc-500 text-zinc-400 text-xs font-semibold" title="Total projects">
+                <p className="dark:text-slate-500 text-slate-400 text-xs font-semibold" title="Total projects">
                     <i className="fa-solid fa-boxes-stacked"></i> ({user.projects_count})
+                </p>
+                <p className="dark:text-slate-500 text-slate-400 text-xs font-semibold" title="Total courses">
+                    <i className="fa-solid fa-video"></i> ({user.courses_count})
                 </p>
             </div>
 
@@ -104,7 +107,7 @@ function Usercard({ user }) {
             <div className="mt-6 flex justify-between items-center">
                 {/* timestamp */}
                 <div className="flex flex-col gap-1">
-                    <span className="text-xs font-semibold text-zinc-500 text-zinc-40" title="Created at">
+                    <span className="text-xs font-semibold text-slate-500 text-slate-40" title="Created at">
                         {new Date(user.created_at)
                             .toLocaleDateString("en-GB", {
                                 day: "2-digit",
@@ -119,7 +122,7 @@ function Usercard({ user }) {
                 <div className="flex justify-end gap-3">
                     <Link
                         title="Update user avatar"
-                        className={`text-zinc-500 dark:text-zinc-400 hover:bg-ilyes dark:hover:bg-ilyes hover:text-white dark:hover:text-zinc-800 w-8 h-8 rounded-full flex items-center justify-center transition duration-300 text-sm cursor-pointer dark:bg-zinc-900 bg-white`}
+                        className={`text-slate-500 dark:text-slate-400 hover:bg-ilyes dark:hover:bg-ilyes hover:text-white dark:hover:text-slate-800 w-8 h-8 rounded-full flex items-center justify-center transition duration-300 text-sm cursor-pointer dark:bg-slate-900 bg-white`}
                         href={route("users.edit_avatar", user)}
                     >
                         <i className="fa-solid fa-image"></i>
@@ -127,7 +130,7 @@ function Usercard({ user }) {
 
                     <Link
                         title="Update user password"
-                        className={`text-zinc-500 dark:text-zinc-400 hover:bg-ilyes dark:hover:bg-ilyes hover:text-white dark:hover:text-zinc-800 w-8 h-8 rounded-full flex items-center justify-center transition duration-300 text-sm cursor-pointer dark:bg-zinc-900 bg-white`}
+                        className={`text-slate-500 dark:text-slate-400 hover:bg-ilyes dark:hover:bg-ilyes hover:text-white dark:hover:text-slate-800 w-8 h-8 rounded-full flex items-center justify-center transition duration-300 text-sm cursor-pointer dark:bg-slate-900 bg-white`}
                         href={route("users.edit_password", user)}
                     >
                         <i className="fa-solid fa-key"></i>
@@ -135,7 +138,7 @@ function Usercard({ user }) {
 
                     <Link
                         title="Update user information"
-                        className={`text-zinc-500 dark:text-zinc-400 hover:bg-ilyes dark:hover:bg-ilyes hover:text-white dark:hover:text-zinc-800 w-8 h-8 rounded-full flex items-center justify-center transition duration-300 text-sm cursor-pointer dark:bg-zinc-900 bg-white`}
+                        className={`text-slate-500 dark:text-slate-400 hover:bg-ilyes dark:hover:bg-ilyes hover:text-white dark:hover:text-slate-800 w-8 h-8 rounded-full flex items-center justify-center transition duration-300 text-sm cursor-pointer dark:bg-slate-900 bg-white`}
                         href={route("users.edit", user)}
                     >
                         <i className="fa-solid fa-pen"></i>
@@ -148,9 +151,9 @@ function Usercard({ user }) {
             {/* delete user modal */}
             <Modal show={confirmingUserDeletion} onClose={closeModal}>
                 <form onSubmit={submit} className="p-6 text-center">
-                    <h2 className="text-lg font-medium text-zinc-500 dark:text-zinc-500">
+                    <h2 className="text-lg font-medium text-slate-500 dark:text-slate-500">
                         Are you sure you want to delete{" "}
-                        <span className="text-zinc-700 dark:text-zinc-300">@{user.username}</span>?
+                        <span className="text-slate-700 dark:text-slate-300">@{user.username}</span>?
                     </h2>
 
                     <div className="mt-6 flex gap-6 justify-center">

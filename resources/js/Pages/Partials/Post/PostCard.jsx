@@ -32,7 +32,7 @@ function PostCard({ post }) {
                 <div className="flex md:items-center gap-3">
                     {/* avatar */}
                     {post.user.avatar ? (
-                        <Avatar src={post.user.avatar} alt={post.user.username} width={40} height={40} />
+                        <Avatar src={post.user.avatar} alt={post.user.username} width={10} height={10} />
                     ) : (
                         <AvatarInconu user={post.user} width={10} height={10} size={2} />
                     )}
@@ -41,7 +41,7 @@ function PostCard({ post }) {
 
                     <div className="">
                         <h4
-                            className="dark:text-zinc-400 text-zinc-600 font-semibold text-base flex items-center"
+                            className="dark:text-slate-400 text-slate-600 font-semibold text-base flex items-center"
                             title="Fullname"
                         >
                             {post.user.fullname}
@@ -66,7 +66,7 @@ function PostCard({ post }) {
                         </h4>
 
                         <div className="flex gap-2">
-                            <span className="text-xs font-semibold text-zinc-500 text-zinc-40">
+                            <span className="text-xs font-semibold text-slate-500 text-slate-40">
                                 {new Date(post.created_at)
                                     .toLocaleDateString("en-GB", {
                                         day: "2-digit",
@@ -75,7 +75,7 @@ function PostCard({ post }) {
                                     })
                                     .toUpperCase()}
                             </span>
-                            <span className="text-xs font-semibold text-zinc-500 text-zinc-40">
+                            <span className="text-xs font-semibold text-slate-500 text-slate-40">
                                 {new Date(post.created_at).toLocaleTimeString("en-GB", {
                                     hour: "2-digit",
                                     minute: "2-digit",
@@ -87,14 +87,14 @@ function PostCard({ post }) {
 
                 {/* body */}
                 <div className="mt-4">
-                    <h4 className="dark:text-zinc-300 text-zinc-600 font-semibold break-words">{post.body}</h4>
+                    <h4 className="dark:text-slate-300 text-slate-600 font-semibold break-words">{post.body}</h4>
                 </div>
             </div>
             <div className="mt-4">
                 <div className="flex gap-4">
                     <div title="Comments">
                         <Link
-                            className={`text-zinc-500 dark:text-zinc-400 hover:text-zinc-400 dark:hover:text-zinc-300 flex items-center justify-center transition duration-300 text-sm cursor-pointer`}
+                            className={`text-slate-500 dark:text-slate-400 hover:text-slate-400 dark:hover:text-slate-300 flex items-center justify-center transition duration-300 text-sm cursor-pointer`}
                             href={route("posts.edit", post)}
                         >
                             <span className="me-1">
@@ -106,10 +106,10 @@ function PostCard({ post }) {
 
                     <div title="Like">
                         <Link
-                            className={`text-zinc-500 dark:text-zinc-400 hover:text-zinc-400 dark:hover:text-zinc-300 flex items-center justify-center transition duration-300 text-sm cursor-pointer`}
+                            className={`text-slate-500 dark:text-slate-400 hover:text-slate-400 dark:hover:text-slate-300 flex items-center justify-center transition duration-300 text-sm cursor-pointer`}
                             href={route("posts.edit", post)}
                         >
-                            <span className={`me-1 ${post.id == 1 ? "text-pink-500" : ""}`}>
+                            <span className={`me-1 ${post.id == 1 ? "text-rose-500" : ""}`}>
                                 <i className={`${post.id == 1 ? "fa-solid" : "fa-regular"} fa-heart`}></i>
                             </span>
 

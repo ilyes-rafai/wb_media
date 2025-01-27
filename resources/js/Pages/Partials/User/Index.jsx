@@ -4,7 +4,7 @@ import InputError from "@/Components/InputError";
 import NavLink from "@/Components/NavLink";
 import Search from "@/Components/Search";
 import TitleSection from "@/Components/TitleSection";
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import AuthenticatedLayout from "@/Layouts/Layout";
 import { Head, useForm } from "@inertiajs/react";
 import React, { useState } from "react";
 import UserCard from "./UserCard";
@@ -28,7 +28,7 @@ export default function Index({ users }) {
         <AuthenticatedLayout header="Users">
             <Head title="Users List" />
 
-            <div className="p-3 sm:p-6 lg:p-12 rounded-lg border border-zinc-200 dark:border-zinc-800">
+            <div className="p-3 sm:p-6 lg:p-12 rounded-lg border border-slate-200 dark:border-slate-800">
                 <header className="mb-3 sm:mb-6 lg:mb-12">
                     <div className="flex justify-between">
                         <div className="flex items-center gap-3">
@@ -60,7 +60,7 @@ export default function Index({ users }) {
                     {/* {filteredUsers.length > 0 ? (
                     filteredUsers.map((user) => <UserCard key={user.id} user={user} />)
                 ) : (
-                    <div className="col-span-full text-center text-zinc-500 dark:text-zinc-400">No users found.</div>
+                    <div className="col-span-full text-center text-slate-500 dark:text-slate-400">No users found.</div>
                 )} */}
 
                     {users.map((user) => (

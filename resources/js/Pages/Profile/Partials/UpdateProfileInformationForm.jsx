@@ -22,9 +22,9 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
     return (
         <section className={className}>
             <header>
-                <h2 className="text-lg font-medium text-zinc-900">Profile Information</h2>
+                <h2 className="text-lg font-medium text-slate-900">Profile Information</h2>
 
-                <p className="mt-1 text-sm text-zinc-600">Update your account's profile username.</p>
+                <p className="mt-1 text-sm text-slate-600">Update your account's profile username.</p>
             </header>
 
             <form onSubmit={submit} className="mt-6 space-y-6">
@@ -57,13 +57,13 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
 
                 {/* {mustVerifyEmail && user.email_verified_at === null && (
                     <div>
-                        <p className="mt-2 text-sm text-zinc-800">
+                        <p className="mt-2 text-sm text-slate-800">
                             Your email address is unverified.
                             <Link
                                 href={route("verification.send")}
                                 method="post"
                                 as="button"
-                                className="rounded-md text-sm text-zinc-600 underline hover:text-zinc-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                className="rounded-md text-sm text-slate-600 underline hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                             >
                                 Click here to re-send the verification email.
                             </Link>
@@ -87,7 +87,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                         leave="transition ease-in-out"
                         leaveTo="opacity-0"
                     >
-                        <p className="text-sm text-zinc-600">Saved.</p>
+                        <p className="text-sm text-slate-600">Saved.</p>
                     </Transition>
                 </div>
             </form>

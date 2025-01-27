@@ -20,4 +20,9 @@ class Topic extends Model
     {
         return $this->belongsToMany(Project::class);
     }
+
+    public function courses()
+    {
+        return $this->belongsToMany(Course::class);
+    }
 }

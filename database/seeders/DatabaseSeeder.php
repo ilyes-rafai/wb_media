@@ -70,6 +70,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TopicSeeder::class);
         $this->call(ProjectSeeder::class);
         $this->call(InstructionSeeder::class);
+        $this->call(CourseSeeder::class);
         $this->call(PostSeeder::class);
     }
 }

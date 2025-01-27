@@ -24,7 +24,7 @@ class StoreTopicRequest extends FormRequest
         return [
             'name' => ['required', 'unique:topics,name'],
             'description' => ['required'],
-            'svg' => ['required']
+            'svg' => 'required|image|mimes:png,jpg,jpeg|max:10240',
         ];
     }
 }

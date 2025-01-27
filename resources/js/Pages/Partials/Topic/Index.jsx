@@ -3,11 +3,15 @@ import FloatInput from "@/Components/FloatInput";
 import InputError from "@/Components/InputError";
 import NavLink from "@/Components/NavLink";
 import Search from "@/Components/Search";
+import Table from "@/Components/Table";
+import TableBody from "@/Components/TableBody";
+import TableHead from "@/Components/TableHead";
 import TitleSection from "@/Components/TitleSection";
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import AuthenticatedLayout from "@/Layouts/Layout";
 import { Head, useForm } from "@inertiajs/react";
 import React, { useState } from "react";
 import TopicCard from "./TopicCard";
+import TopicData from "./TopicData";
 
 export default function Index({ topics }) {
     // Search State
@@ -28,7 +32,7 @@ export default function Index({ topics }) {
         <AuthenticatedLayout header="Topics">
             <Head title="Topics List" />
 
-            <div className="p-3 sm:p-6 lg:p-12 rounded-lg border border-zinc-200 dark:border-zinc-800">
+            <div className="p-3 sm:p-6 lg:p-12 rounded-lg border border-slate-200 dark:border-slate-800">
                 <header className="mb-3 sm:mb-6 lg:mb-12">
                     <div className="flex justify-between">
                         <div className="flex items-center gap-3">
@@ -56,17 +60,34 @@ export default function Index({ topics }) {
                 </header>
 
                 {/* Topics Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
-                    {/* {filteredTopics.length > 0 ? (
-                    filteredTopics.map((topic) => <TopicCard key={topic.id} topic={topic} />)
-                ) : (
-                    <div className="col-span-full text-center text-zinc-500 dark:text-zinc-400">No topics found.</div>
-                )} */}
-
+                {/* <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
                     {topics.map((topic) => (
-                        <TopicCard key={topic.id} topic={topic} />
+                        <TopicData key={topic.id} topic={topic} />
                     ))}
-                </div>
+                </div> */}
+
+                <Table>
+                    <TableHead
+                        headers={[
+                            "name",
+                            "svg",
+                            "Description",
+                            "projects count",
+                            "courses count",
+                            "Created by",
+                            " Created at",
+                            "Action",
+                        ]}
+                    />
+                    <TableBody
+                        data={topics}
+                        renderRow={(topic) => (
+                            <>
+                                <TopicData topic={topic} />
+                            </>
+                        )}
+                    />
+                </Table>
             </div>
 
             {/* Pagination */}

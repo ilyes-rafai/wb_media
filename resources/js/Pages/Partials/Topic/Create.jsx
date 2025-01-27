@@ -1,10 +1,11 @@
 import FloatInput from "@/Components/FloatInput";
 import InputError from "@/Components/InputError";
+import InputFile from "@/Components/InputFile";
 import InputLabel from "@/Components/InputLabel";
 import NavLink from "@/Components/NavLink";
 import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import AuthenticatedLayout from "@/Layouts/Layout";
 import { Head, useForm } from "@inertiajs/react";
 import React from "react";
 
@@ -25,13 +26,13 @@ function Create() {
         <AuthenticatedLayout header="Topics">
             <Head title="Create Topic" />
 
-            <div className="p-3 sm:p-6 lg:p-12 rounded-lg border border-zinc-200 dark:border-zinc-800">
+            <div className="p-3 sm:p-6 lg:p-12 rounded-lg border border-slate-200 dark:border-slate-800">
                 <header className="mb-3 sm:mb-6 lg:mb-12">
                     <NavLink href={route("topics.index")} active={route().current("topics.index")}>
                         <i className="fa-solid fa-arrow-left-long me-2 text-lg"></i>
                         Back to topics list
                     </NavLink>
-                    <h2 className="text-4xl font-bold leading-tight dark:text-zinc-400 text-zinc-600 mt-3">
+                    <h2 className="text-4xl font-bold leading-tight dark:text-slate-400 text-slate-600 mt-3">
                         Create new topic
                     </h2>
                 </header>
@@ -52,11 +53,9 @@ function Create() {
 
                             <div className="">
                                 <InputLabel value="svg" isRequired />
-                                <TextInput
-                                    placeholder="svg"
-                                    value={data.svg}
-                                    onError={errors.svg}
-                                    onChange={(e) => setData("svg", e.target.value)}
+                                <InputFile
+                                    accept=".jpg, .jpeg, .png"
+                                    onChange={(e) => setData("svg", e.target.files[0])} // Set the file object
                                 />
                                 {errors.svg && <InputError message={errors.svg} />}
                             </div>

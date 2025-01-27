@@ -63,7 +63,8 @@ class HandleInertiaRequests extends Middleware
             'is_subscriber' => Gate::forUser($user)->allows('is_subscriber'),
             'is_member_or_subscriber' => Gate::forUser($user)->allows('is_member_or_subscriber'),
             'is_mentor' => Gate::forUser($user)->allows('is_mentor'),
-            'is_mentor_or_admin' => Gate::forUser($user)->allows('is_mentor_or_admin'),
+            'is_admin_or_mentor' => Gate::forUser($user)->allows('is_admin_or_mentor'),
+            'is_admin_or_subscriber_or_mentor' => Gate::forUser($user)->allows('is_admin_or_subscriber_or_mentor'),
         ];
 
         return $abilities;
