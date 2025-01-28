@@ -12,13 +12,11 @@ export const ChapterCard = ({ chapter }) => {
     return (
         <>
             <Card>
-                <video
-                    className="w-full aspect-video mb-6 rounded-lg border border-slate-200 dark:border-slate-800"
-                    controls
-                    poster={`${import.meta.env.VITE_APP_URL}/${chapter.cover}`}
-                >
-                    <source src={`${import.meta.env.VITE_APP_URL}/${chapter.episode}`} />
-                </video>
+                <img
+                    className="mb-6 rounded-lg aspect-video"
+                    src={`${import.meta.env.VITE_APP_URL}/${chapter.cover}`}
+                    alt={chapter.title}
+                />
                 <h3 className="font-medium leading-tight dark:text-slate-200 text-slate-800 mb-3">{chapter.title}</h3>
 
                 {/* Description */}

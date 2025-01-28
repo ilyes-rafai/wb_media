@@ -14,7 +14,7 @@ export default function Dashboard({ posts, courses, projects }) {
         <Layout header="Home Page">
             <Head title="Dashboard" />
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 gap-6">
                 <Wrapper>
                     <header className="mb-3 sm:mb-6 lg:mb-12 flex flex-col md:flex-row justify-between md:items-center gap-6 md:gap-0">
                         <TitleSection title="Latest projects" />
@@ -25,7 +25,7 @@ export default function Dashboard({ posts, courses, projects }) {
                     </header>
 
                     <div className="">
-                        <div className="grid grid-cols-1 gap-3 sm:gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
                             {projects.map((project) => (
                                 <ProjectCard key={project.id} project={project} />
                             ))}
@@ -43,7 +43,7 @@ export default function Dashboard({ posts, courses, projects }) {
                     </header>
 
                     <div className="">
-                        <div className="grid grid-cols-1 gap-3 sm:gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
                             {posts.map((post) => (
                                 <PostCard key={post.id} post={post} />
                             ))}
@@ -61,7 +61,7 @@ export default function Dashboard({ posts, courses, projects }) {
                     </header>
 
                     <div className="">
-                        <div className="grid grid-cols-1 gap-3 sm:gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
                             {courses.map((course) => (
                                 <CourseCard key={course.id} course={course} />
                             ))}

@@ -46,7 +46,7 @@ export default function GuestLayout({ children }) {
                 </div>
             </div>
 
-            <div className="h-[88vh] max-h-[88vh] overflow-y-auto [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-white [&::-webkit-scrollbar-thumb]:bg-ilyes dark:[&::-webkit-scrollbar-track]:bg-slate-800 dark:[&::-webkit-scrollbar-thumb]:bg-ilyes">
+            <div className="">
                 <div className="w-full">
                     <Container>{children}</Container>
                     <footer className="flex justify-center gap-2 mb-4">

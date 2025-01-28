@@ -28,9 +28,6 @@ export const InstructionCard = ({ instruction }) => {
         <>
             <div className="pb-6 last:pb-0">
                 <div className="">
-                    <div className="mb-1 flex items-center justify-between gap-3 mt-3">
-                        <span>{instruction.premium == 1 ? <Premium /> : <Free />}</span>
-                    </div>
                     <h3 className="text-2xl font-normal leading-tight dark:text-slate-400 text-slate-600">
                         {instruction.title}
                     </h3>
@@ -50,9 +47,9 @@ export const InstructionCard = ({ instruction }) => {
                             abilities.is_admin_or_subscriber_or_mentor ? (
                                 <>
                                     <div className="flex justify-between items-center mb-6">
-                                        <span className="uppercase dark:text-slate-500 text-slate-500">
-                                            {instruction.language && instruction.language}
-                                        </span>
+                                        <div className="mb-1 flex items-center justify-between gap-3 mt-3">
+                                            <span>{instruction.premium == 1 ? <Premium /> : <Free />}</span>
+                                        </div>
                                         <div
                                             onClick={handleCopy}
                                             className="hover:text-slate-300 text-slate-500 flex items-baseline gap-2 cursor-pointer"
@@ -80,9 +77,9 @@ export const InstructionCard = ({ instruction }) => {
                         ) : (
                             <>
                                 <div className="flex justify-between items-center mb-6">
-                                    <span className="uppercase dark:text-slate-500 text-slate-500">
-                                        {instruction.language && instruction.language}
-                                    </span>
+                                    <div className="mb-1 flex items-center justify-between gap-3 mt-3">
+                                        <span>{instruction.premium == 1 ? <Premium /> : <Free />}</span>
+                                    </div>
                                     <div
                                         onClick={handleCopy}
                                         className="hover:text-slate-300 text-slate-500 flex items-baseline gap-2 cursor-pointer"

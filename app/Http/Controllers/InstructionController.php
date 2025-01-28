@@ -27,6 +27,30 @@ class InstructionController extends Controller
         //
     }
 
+    public function handleInstructionAvailability(Instruction $instruction)
+    {
+        if (Gate::denies('is_admin_or_mentor')) {
+            abort(404);
+        }
+        try {
+
+            $premium = $instruction->premium;
+
+            $instruction->update([
+                'premium' => !$premium,
+            ]);
+
+            return redirect()
+                ->back()
+                ->with('success', 'The instruction has been successfully updated.');
+        } catch (\Exception $e) {
+
+            return redirect()
+                ->back()
+                ->with($e->getMessage());
+        }
+    }
+
     /**
      * Store a newly created resource in storage.
      */

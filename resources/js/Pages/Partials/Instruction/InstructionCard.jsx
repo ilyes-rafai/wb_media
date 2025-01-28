@@ -1,4 +1,5 @@
 import ButtonCircle from "@/Components/ButtonCircle";
+import Checkbox from "@/Components/Checkbox";
 import Code from "@/Components/Code";
 import { Free } from "@/Components/Free";
 import Modal from "@/Components/Modal";
@@ -7,6 +8,7 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import SecondaryButton from "@/Components/SecondaryButton";
 import { useForm } from "@inertiajs/react";
 import React, { useState } from "react";
+import HandlePremium from "./HandlePremium";
 
 export const InstructionCard = ({ instruction }) => {
     const { delete: destroy, processing } = useForm();
@@ -24,12 +26,6 @@ export const InstructionCard = ({ instruction }) => {
     const closeModal = () => {
         setConfirmingInstructionDeletion(false);
     };
-
-    // show less/more logic
-    const [showFullCode, setShowFullCode] = useState(false);
-    const toggleCode = () => setShowFullCode((prev) => !prev);
-    const truncatedText = (text, length) => (text?.length > length ? text.slice(0, length) + "..." : text);
-    const code = instruction.code || ""; // Provide a default empty string
 
     const [isCopied, setIsCopied] = useState(false); // State to track if the text is copied
 
@@ -55,7 +51,10 @@ export const InstructionCard = ({ instruction }) => {
                     <h3 className="text-2xl font-normal leading-tight dark:text-slate-600 text-slate-400">
                         {instruction.title}
                     </h3>
-                    <span>{instruction.premium == 1 ? <Premium /> : <Free />}</span>
+                    <div className="flex items-center">
+                        <HandlePremium instruction={instruction} />
+                        {instruction.premium == 1 ? <Premium /> : <Free />}
+                    </div>
                 </div>
 
                 {/* Description */}

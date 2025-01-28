@@ -287,5 +287,19 @@ class TopicSeeder extends Seeder
             'description' => 'Design collaboration tool',
             'svg' => 'img/topics/figma.png',
         ]);
+
+        Topic::create([
+            'user_id' => 1,
+            'name' => 'XAMPP',
+            'description' => 'Local Development Environment',
+            'svg' => 'img/topics/xampp.png',
+        ]);
+
+        Topic::create([
+            'user_id' => 1,
+            'name' => 'Terminal',
+            'description' => 'CLI Tool Access',
+            'svg' => 'img/topics/terminal.png',
+        ]);
     }
 }

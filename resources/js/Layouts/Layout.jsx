@@ -5,9 +5,10 @@ import Blur from "@/Components/Blur";
 import Dropdown from "@/Components/Dropdown";
 import Mode from "@/Components/Mode";
 import NavLink from "@/Components/NavLink";
+import ScrollToTop from "@/Components/ScrollToTop";
 import Toast from "@/Components/Toast";
 import { Link, usePage } from "@inertiajs/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Layout({ header, children }) {
     const user = usePage().props.auth.user;
@@ -25,16 +26,8 @@ export default function Layout({ header, children }) {
 
     const { flash } = usePage().props;
 
-    // const location = useLocation();
-
     return (
-        <div className="min-h-screen max-h-screen bg-gradient-to-br from-white via-ilyes/5 to-white dark:from-slate-900 dark:via-black dark:to-slate-950">
-            {/* <div className="animate-bounce-slow w-20 aspect-square bg-ilyes dark:bg-ilyes/80 rounded-full fixed top-32 left-0 blur-3xl pointer-events-none"></div>
-
-            <div className="animate-bounce-slow w-20 aspect-square bg-ilyes dark:bg-ilyes/80 rounded-full fixed top-0 right-64 blur-3xl pointer-events-none"></div>
-
-            <div className="animate-bounce-slow w-64 aspect-square bg-ilyes dark:bg-ilyes/10 rounded-full fixed top-[30%] left-[50%] -translate-x-1/2 -translate-y-1/2 blur-3xl pointer-events-none"></div> */}
-
+        <div className="min-h-screen bg-gradient-to-br from-white via-ilyes/5 to-white dark:from-slate-950 dark:via-black dark:to-slate-950">
             <Blur top={32} left={0} />
             <Blur top={0} right={256} />
             <Blur
@@ -52,10 +45,10 @@ export default function Layout({ header, children }) {
             <div className="">
                 {/* content */}
                 <main className="">
-                    <div className="h-[10vh] border-b border-slate-200 dark:border-slate-800">
+                    <div className="border-b border-slate-200 dark:border-slate-800 py-3">
                         <div className="flex h-full justify-between items-center px-12">
                             <div
-                                className="overflow-x-auto overflow-y-hidden borders border-ilyess flex justify-center items-center gap-6
+                                className="overflow-x-auto overflow-y-hidden flex justify-center items-center gap-6
                                     [&::-webkit-scrollbar]:w-1
                                     [&::-webkit-scrollbar-track]:bg-white
                                     [&::-webkit-scrollbar-thumb]:bg-ilyes
@@ -79,7 +72,7 @@ export default function Layout({ header, children }) {
                                                     active={route().current("users.index")}
                                                 >
                                                     <i className="fa-solid fa-users me-2 text-lg"></i>
-                                                    Users Management
+                                                    Users !
                                                 </NavLink>
 
                                                 <NavLink
@@ -87,7 +80,7 @@ export default function Layout({ header, children }) {
                                                     active={route().current("topics.index")}
                                                 >
                                                     <i className="fa-solid fa-book me-2 text-lg"></i>
-                                                    Topics Management
+                                                    Topics !
                                                 </NavLink>
 
                                                 <NavLink
@@ -105,8 +98,8 @@ export default function Layout({ header, children }) {
                                                     href={route("projects.index")}
                                                     active={route().current("projects.index")}
                                                 >
-                                                    <i className="fa-solid fa-boxes-stacked me-2 text-lg"></i>
-                                                    Projects Management
+                                                    <i className="fa-solid fa-code me-2 text-lg"></i>
+                                                    Projects !
                                                 </NavLink>
 
                                                 <NavLink
@@ -114,10 +107,20 @@ export default function Layout({ header, children }) {
                                                     active={route().current("courses.index")}
                                                 >
                                                     <i className="fa-solid fa-video me-2 text-lg"></i>
-                                                    Courses Management
+                                                    Courses !
                                                 </NavLink>
                                             </>
                                         )}
+
+                                        <NavLink href={route("projectList")} active={route().current("projectList")}>
+                                            <i className="fa-solid fa-code me-2 text-lg"></i>
+                                            Projects
+                                        </NavLink>
+
+                                        <NavLink href={route("courseList")} active={route().current("courseList")}>
+                                            <i className="fa-solid fa-video me-2 text-lg"></i>
+                                            Courses
+                                        </NavLink>
                                     </>
                                 ) : (
                                     ""
@@ -196,19 +199,12 @@ export default function Layout({ header, children }) {
                         </div>
                     </div>
 
-                    <div
-                        className="h-[88vh] max-h-[88vh] overflow-y-auto 
-                                [&::-webkit-scrollbar]:w-1
-                                [&::-webkit-scrollbar-track]:bg-white
-                                [&::-webkit-scrollbar-thumb]:bg-ilyes
-                                dark:[&::-webkit-scrollbar-track]:bg-slate-800
-                                dark:[&::-webkit-scrollbar-thumb]:bg-ilyes"
-                    >
+                    <div className="">
                         {/* menu */}
 
                         <div className="w-full">
                             <div className="m-3 sm:m-6 lg:m-12">{children}</div>
-                            <footer className="flex justify-center gap-2 mb-4">
+                            <footer className="flex justify-center gap-2 pb-6">
                                 <ApplicationLogo className="w-8 fill-current text-ilyes" />
                                 <p className="text-slate-500 text-center">&copy; {new Date().getFullYear()}</p>
                             </footer>
@@ -216,6 +212,8 @@ export default function Layout({ header, children }) {
                     </div>
                 </main>
             </div>
+
+            <ScrollToTop />
         </div>
     );
 }

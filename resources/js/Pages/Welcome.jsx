@@ -11,17 +11,19 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
         <Layout>
             <Head title="Welcome" />
 
-            <Hero />
-            <Spacer />
+            <div className=" max-w-screen-xl mx-auto">
+                <Hero />
+                <Spacer />
 
-            <Topics />
-            <Spacer />
+                <Topics />
+                <Spacer />
 
-            <Pricing />
-            <Spacer />
+                <Pricing />
+                <Spacer />
 
-            <Word />
-            <Spacer />
+                <Word />
+                <Spacer />
+            </div>
         </Layout>
     );
 }

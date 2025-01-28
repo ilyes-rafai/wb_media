@@ -54,11 +54,7 @@ class InstructionSeeder extends Seeder
         Instruction::create([
             'title' => 'CSS styles',
             'language' => 'css',
-            'description' => '
-                - Uses Flexbox for layout.
-                - Hides the menu on mobile and shows it with .nav-active.
-                - Smooth transitions for a better user experience.
-                ',
+            'description' => "✓ Uses Flexbox for layout.\n✓ Hides the menu on mobile and shows it with .nav-active.\n✓ Smooth transitions for a better user experience.",
             'code' => '/* Reset */
 * {
     margin: 0;
@@ -164,12 +160,68 @@ class InstructionSeeder extends Seeder
 
         // project2
         Instruction::create([
+            'title' => 'Install Laravel 9',
+            'language' => 'bash',
+            'description' => 'Set up a new Laravel 9 project with Composer.',
+            'code' => 'composer create-project --prefer-dist laravel/laravel:^9.0 name',
+            'user_id' => 1,
+            'project_id' => 2,
+        ]);
+
+        Instruction::create([
+            'title' => 'Add Voyager Package',
+            'language' => 'bash',
+            'description' => 'Install Voyager package for admin panel functionality.',
+            'code' => 'composer require tcg/voyager -W',
+            'user_id' => 1,
+            'project_id' => 2,
+        ]);
+
+        Instruction::create([
+            'title' => 'Configure .env File',
+            'language' => 'javascript',
+            'description' => 'Set application URL and database connection parameters.',
+            'code' => "APP_URL=http://localhost:8000\nDB_HOST=127.0.0.1\nDB_PORT=3306\nDB_DATABASE=db_name\nDB_USERNAME=root\nDB_PASSWORD=",
+            'user_id' => 1,
+            'project_id' => 2,
+        ]);
+
+        Instruction::create([
+            'title' => 'Install Voyager with Dummy Data',
+            'language' => 'bash',
+            'description' => 'Set up Voyager with sample data for testing.',
+            'code' => 'php artisan voyager:install --with-dummy',
+            'user_id' => 1,
+            'project_id' => 2,
+        ]);
+
+        Instruction::create([
+            'title' => 'Start Backend Server',
+            'language' => 'javascript',
+            'description' => 'Run server and open admin panel in the browser.',
+            'code' => 'php artisan serve',
+            'user_id' => 1,
+            'project_id' => 2,
+        ]);
+
+        Instruction::create([
+            'title' => 'Admin Login Details',
+            'language' => 'javascript',
+            'description' => 'Default credentials for accessing the admin panel.',
+            'code' => "email: admin@admin.com\npassword: password",
+            'user_id' => 1,
+            'project_id' => 2,
+        ]);
+
+
+        // project3
+        Instruction::create([
             'title' => 'Setup and Migration',
             'language' => 'bash',
             'description' => 'Create a Post model and migration:',
             'code' => 'php artisan make:model Post -m',
             'user_id' => 1,
-            'project_id' => 2,
+            'project_id' => 3,
         ]);
 
         Instruction::create([
@@ -178,7 +230,7 @@ class InstructionSeeder extends Seeder
             'description' => '',
             'code' => "Schema::create('posts', function (Blueprint \$table) {\n\t\$table->id();\n\t\$table->string('title');\n\t\$table->text('content');\n\t\$table->timestamps();\n});",
             'user_id' => 1,
-            'project_id' => 2,
+            'project_id' => 3,
         ]);
 
         Instruction::create([
@@ -187,7 +239,7 @@ class InstructionSeeder extends Seeder
             'description' => '',
             'code' => "php artisan migrate",
             'user_id' => 1,
-            'project_id' => 2,
+            'project_id' => 3,
         ]);
 
         Instruction::create([
@@ -196,7 +248,7 @@ class InstructionSeeder extends Seeder
             'description' => 'Define resourceful routes in routes/web.php:',
             'code' => "use App\Http\Controllers\PostController;\nRoute::resource('posts', PostController::class);",
             'user_id' => 1,
-            'project_id' => 2,
+            'project_id' => 3,
         ]);
 
         Instruction::create([
@@ -205,7 +257,7 @@ class InstructionSeeder extends Seeder
             'description' => 'Generate a controller with resource methods:',
             'code' => "php artisan make:controller PostController --resource",
             'user_id' => 1,
-            'project_id' => 2,
+            'project_id' => 3,
         ]);
 
         Instruction::create([
@@ -276,7 +328,7 @@ class PostController extends Controller
     }
 }",
             'user_id' => 1,
-            'project_id' => 2,
+            'project_id' => 3,
         ]);
     }
 }

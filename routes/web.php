@@ -55,6 +55,7 @@ Route::middleware('auth')->group(function () {
 
     // instruction routes
     Route::resource('instructions', InstructionController::class)->except(['show']);
+    Route::put('edit-instruction-premium/{instruction}', [InstructionController::class, 'handleInstructionAvailability'])->name('handleInstructionAvailability');
 
 
     // course routes

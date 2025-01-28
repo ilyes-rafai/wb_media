@@ -13,22 +13,24 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
+        $perPage  = 6;
+
         $posts = Post::where('status', 1)
             ->orderBy('created_at', 'desc')
             ->with('user')
-            ->take(10)
+            ->take($perPage)
             ->get();
 
         $projects = Project::orderBy('created_at', 'desc')
             ->with('user')
             ->with('topics')
-            ->take(10)
+            ->take($perPage)
             ->get();
 
         $courses = Course::orderBy('created_at', 'desc')
             ->with('user')
             ->with('topics')
-            ->take(10)
+            ->take($perPage)
             ->get();
 
         return Inertia::render('Dashboard', [
