@@ -24,7 +24,7 @@ class TopicController extends Controller
 
         $topics  = Topic::orderby('created_at', 'DESC')
             ->with('user')
-            ->withCount('projects')
+            ->withCount('tricks')
             ->withCount('courses')
             ->get();
 
@@ -204,7 +204,7 @@ class TopicController extends Controller
         }
         try {
 
-            $topic->projects()->detach();
+            $topic->tricks()->detach();
 
             if ($topic->svg) {
                 File::delete($topic->svg); // Delete the file

@@ -20,6 +20,28 @@ class ChapterController extends Controller
         //
     }
 
+    public function handleChapterPremium(Chapter $chapter)
+    {
+        if (Gate::denies('is_admin_or_mentor')) {
+            abort(404);
+        }
+        try {
+
+            $premium = $chapter->premium;
+
+            $chapter->update([
+                'premium' => !$premium,
+            ]);
+
+            return back()
+                ->with('success', 'The chapter has been successfully updated.');
+        } catch (\Exception $e) {
+
+            return back()
+                ->with($e->getMessage());
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      */

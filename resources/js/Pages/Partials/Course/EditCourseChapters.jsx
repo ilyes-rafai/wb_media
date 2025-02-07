@@ -54,7 +54,7 @@ function EditCourseChapters({ course, createdBy }) {
         <AuthenticatedLayout header="Courses">
             <Head title="Edit Course" />
 
-            <div className="p-3 sm:p-6 lg:p-12 rounded-lg border border-slate-200 dark:border-slate-800">
+            <div className="p-3 sm:p-6 lg:p-12 rounded-lg _border">
                 <header className="mb-3 sm:mb-6 lg:mb-12">
                     <NavLink href={route("courses.index")} active={route().current("courses.index")}>
                         <i className="fa-solid fa-arrow-left-long me-2 text-lg"></i>
@@ -77,7 +77,7 @@ function EditCourseChapters({ course, createdBy }) {
                 </header>
 
                 {isFormAddChapterOpen && (
-                    <div className="p-3 sm:p-6 lg:p-12 rounded-lg border border-slate-200 dark:border-slate-800">
+                    <div className="p-3 sm:p-6 lg:p-12 rounded-lg _border">
                         <div className="flex justify-between items-center mb-6">
                             <h2 className="text-xl font-bold leading-tight dark:text-slate-400 text-slate-600">
                                 Add new <span className="dark:text-slate-200 text-slate-600">Chapter</span>

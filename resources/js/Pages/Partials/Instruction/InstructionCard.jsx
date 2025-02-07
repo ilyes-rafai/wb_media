@@ -2,13 +2,13 @@ import ButtonCircle from "@/Components/ButtonCircle";
 import Checkbox from "@/Components/Checkbox";
 import Code from "@/Components/Code";
 import { Free } from "@/Components/Free";
+import HandlePremium from "@/Components/HandlePremium";
 import Modal from "@/Components/Modal";
 import { Premium } from "@/Components/Premium";
 import PrimaryButton from "@/Components/PrimaryButton";
 import SecondaryButton from "@/Components/SecondaryButton";
 import { useForm } from "@inertiajs/react";
 import React, { useState } from "react";
-import HandlePremium from "./HandlePremium";
 
 export const InstructionCard = ({ instruction }) => {
     const { delete: destroy, processing } = useForm();
@@ -52,7 +52,7 @@ export const InstructionCard = ({ instruction }) => {
                         {instruction.title}
                     </h3>
                     <div className="flex items-center">
-                        <HandlePremium instruction={instruction} />
+                        <HandlePremium item={instruction} actionRoute="handleInstructionPremium" />
                         {instruction.premium == 1 ? <Premium /> : <Free />}
                     </div>
                 </div>
@@ -66,7 +66,7 @@ export const InstructionCard = ({ instruction }) => {
 
                 {/* Code */}
                 {instruction.code && (
-                    <p className="rounded-lg mt-6 p-6 border border-slate-200 dark:border-slate-800">
+                    <p className="rounded-lg mt-6 p-6 _border">
                         <div className="flex justify-between items-center mb-6">
                             <span className="uppercase dark:text-slate-500 text-slate-500">
                                 {instruction.language && instruction.language}

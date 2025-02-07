@@ -81,7 +81,7 @@ class CourseSeeder extends Seeder
                 'user_id' => rand(1, 4),
                 'title' => $course['title'],
                 'description' => $course['description'],
-                'premium' => rand(0, 1),
+                'premium' => 1,
             ]);
 
             $newCourse->topics()->attach($course['topics']);

@@ -82,6 +82,28 @@ class CourseController extends Controller
         }
     }
 
+    public function handleCoursePremium(Course $course)
+    {
+        if (Gate::denies('is_admin_or_mentor')) {
+            abort(404);
+        }
+        try {
+
+            $premium = $course->premium;
+
+            $course->update([
+                'premium' => !$premium,
+            ]);
+
+            return back()
+                ->with('success', 'The course has been successfully updated.');
+        } catch (\Exception $e) {
+
+            return back()
+                ->with($e->getMessage());
+        }
+    }
+
 
     /**
      * Display the specified resource.

@@ -22,14 +22,12 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
     return (
         <section className={className}>
             <header>
-                <h2 className="text-lg font-medium text-slate-900">Profile Information</h2>
-
-                <p className="mt-1 text-sm text-slate-600">Update your account's profile username.</p>
+                <h2 className="text-lg font-medium dark:text-slate-300">Update username</h2>
             </header>
 
             <form onSubmit={submit} className="mt-6 space-y-6">
                 <div>
-                    <InputLabel htmlFor="username" value="Username" />
+                    <InputLabel value="username" isRequired />
 
                     <TextInput
                         id="username"
@@ -78,7 +76,16 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                 )} */}
 
                 <div className="flex items-center gap-4">
-                    <PrimaryButton disabled={processing}>Save</PrimaryButton>
+                    <PrimaryButton>
+                        {processing ? (
+                            <>
+                                <i className="fa-solid fa-spinner animate-spin"></i>
+                                Processing...
+                            </>
+                        ) : (
+                            "Save changes"
+                        )}
+                    </PrimaryButton>
 
                     <Transition
                         show={recentlySuccessful}
@@ -87,7 +94,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                         leave="transition ease-in-out"
                         leaveTo="opacity-0"
                     >
-                        <p className="text-sm text-slate-600">Saved.</p>
+                        <p className="text-sm text-ilyes font-medium">Saved.</p>
                     </Transition>
                 </div>
             </form>

@@ -5,9 +5,9 @@ import { Head, usePage } from "@inertiajs/react";
 import Wrapper from "./Admin/Components/Wrapper";
 import CourseCard from "./Client/Course/CourseCard";
 import PostCard from "./Client/Post/PostCard";
-import ProjectCard from "./Client/Project/ProjectCard";
+import TrickCard from "./Client/Trick/TrickCard";
 
-export default function Dashboard({ posts, courses, projects }) {
+export default function Dashboard({ posts, courses, tricks }) {
     const abilities = usePage().props.auth.abilities;
 
     return (
@@ -16,9 +16,9 @@ export default function Dashboard({ posts, courses, projects }) {
 
             <div className="grid grid-cols-1 gap-6">
                 <Wrapper>
-                    <header className="mb-3 sm:mb-6 lg:mb-12 flex flex-col md:flex-row justify-between md:items-center gap-6 md:gap-0">
-                        <TitleSection title="Latest projects" />
-                        <NavLink href={route("projectList")}>
+                    <header className="mb-3 sm:mb-6 flex flex-col md:flex-row md:items-center gap-6">
+                        <TitleSection title="Latest tricks" />
+                        <NavLink href={route("trickList")}>
                             See all
                             <i className="fa-solid fa-arrow-right-long ms-2 text-sm"></i>
                         </NavLink>
@@ -26,15 +26,15 @@ export default function Dashboard({ posts, courses, projects }) {
 
                     <div className="">
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
-                            {projects.map((project) => (
-                                <ProjectCard key={project.id} project={project} />
+                            {tricks.map((trick) => (
+                                <TrickCard key={trick.id} trick={trick} />
                             ))}
                         </div>
                     </div>
                 </Wrapper>
 
-                <Wrapper>
-                    <header className="mb-3 sm:mb-6 lg:mb-12 flex flex-col md:flex-row justify-between md:items-center gap-6 md:gap-0">
+                {/* <Wrapper>
+                    <header className="mb-3 sm:mb-6 flex flex-col md:flex-row md:items-center gap-6">
                         <TitleSection title="Latest posts" />
                         <NavLink href={route("dashboard")}>
                             See all
@@ -49,10 +49,10 @@ export default function Dashboard({ posts, courses, projects }) {
                             ))}
                         </div>
                     </div>
-                </Wrapper>
+                </Wrapper> */}
 
                 <Wrapper>
-                    <header className="mb-3 sm:mb-6 lg:mb-12 flex flex-col md:flex-row justify-between md:items-center gap-6 md:gap-0">
+                    <header className="mb-3 sm:mb-6 flex flex-col md:flex-row md:items-center gap-6">
                         <TitleSection title="Latest courses" />
                         <NavLink href={route("courseList")}>
                             See all

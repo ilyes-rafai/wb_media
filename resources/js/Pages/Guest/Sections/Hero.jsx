@@ -1,122 +1,76 @@
-import React, { useEffect } from "react";
+import PrimaryButtonLink from "@/Components/PrimaryButtonLink";
+import { TranslationContext } from "@/contexts/TranslationProvider";
+import React, { useContext, useEffect } from "react";
 import TypeIt from "typeit";
+import CodeEditor from "../Components/CodeEditor";
 import SectionHeader from "../Components/SectionHeader";
 import SectionSubHeader from "../Components/SectionSubHeader";
 function Hero() {
+    const { translations } = useContext(TranslationContext);
+
     useEffect(() => {
         // TypeIt animations
         new TypeIt("#htmlCode", {
             strings: [
-                `<span class='text-ilyes'>&lt;h1&gt;</span>This is a title<span class='text-ilyes'>&lt;/h1&gt;</span>`,
-                `<span class='text-ilyes'>&lt;p&gt;</span>Hi, Webilymedia<span class='text-ilyes'>&lt;/p&gt;</span>`,
+                `<span class='text-ilyes'>&lt;h1&gt;</span>Hi, I'm Ilyes RAFAI<span class='text-ilyes'>&lt;/h1&gt;</span>`,
+                `<span class='text-ilyes'>&lt;p&gt;</span>Welcome to Webilymedia!<span class='text-ilyes'>&lt;/p&gt;</span>`,
             ],
-            speed: 100,
+            speed: 150,
             loop: true,
         }).go();
 
         new TypeIt("#scssCode", {
             strings: [
-                `$color: <span class='text-violet-500'>#00E472</span>;`,
+                `$color: <span class='text-ilyes'>#00E472</span>;`,
                 `<span class='text-ilyes'>.class {</span>`,
                 `&ensp;&ensp;color: $color;`,
-                `&ensp;&ensp;font-size: <span class='text-yellow-500'>1.2</span><span class='text-ilyes'>rem</span>;`,
-                `<span class='text-ilyes'>}</span>`,
+                `&ensp;<span class='text-ilyes'>}</span>`,
             ],
-            speed: 100,
+            speed: 150,
             loop: true,
         }).go();
 
         new TypeIt("#jsCode", {
             strings: [
-                `<span class='text-ilyes'>function</span> sayHello<span class='text-yellow-500'>(</span>name<span class='text-yellow-500'>)</span> {`,
-                `&ensp;&ensp;console.log<span class='text-yellow-500'>(</span>&ldquo;hello&ldquo;, name<span class='text-yellow-500'>)</span>;`,
+                `<span class='text-ilyes'>function</span> sayHello<span class='text-ilyes'>(</span>name<span class='text-ilyes'>)</span> {`,
+                `&ensp;&ensp;console.log<span class='text-ilyes'>(</span>&ldquo;hello&ldquo;, name<span class='text-ilyes'>)</span>;`,
                 `}`,
-                `sayHello<span class='text-yellow-500'>(</span>'Webilymedia'<span class='text-yellow-500'>)</span>;`,
+                `sayHello<span class='text-ilyes'>(</span>'Webilymedia'<span class='text-ilyes'>)</span>;`,
             ],
-            speed: 100,
+            speed: 150,
             loop: true,
         }).go();
     }, []);
 
     return (
-        <div className="min-h-[70vh] flex flex-col items-center justify-center gap-4">
+        <div className="min-h-[80vh] grid place-items-center">
             <div className="">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <SectionHeader title="Online mentoring &amp; collaboration" span="." />
+                    <div className="h-fit">
+                        <SectionHeader title={translations.hero_title} span="." className="text-center sm:text-left" />
 
-                        <SectionSubHeader>
-                            Learn at your own pace with high-quality tutorials, project source codes, and a passionate
-                            community, to build your skills effectively!
+                        <SectionSubHeader className="text-center sm:text-left">
+                            {translations.hero_sub}
                         </SectionSubHeader>
-                        <a
-                            href="#_"
-                            className="px-5 py-2.5 text-lg relative rounded group overflow-hidden font-medium bg-white dark:bg-slate-900 text-ilyes inline-block"
-                        >
-                            <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-300 ease-out transform translate-y-0 bg-ilyes group-hover:h-full opacity-90"></span>
-                            <span className="relative group-hover:text-slate-800">Button Text</span>
-                        </a>
+
+                        <PrimaryButtonLink href={route("login")}>Login now!</PrimaryButtonLink>
                     </div>
-                    <div className="relative space-y-8">
-                        <div className="dark:bg-slate-950 border bg-white p-4 w-64 h-40 rounded-lg border-slate-200 dark:border-slate-800">
-                            <div className="mb-4 flex justify-between items-center text-xs pb-4 border-b border-slate-950/10 dark:border-slate-50/[0.06]">
-                                <div className="">
-                                    <i className="fa-brands fa-html5 text-orange-500"></i>
-                                    <span className="ms-2 font-bold uppercase dark:text-slate-100 text-slate-800">
-                                        html
-                                    </span>
-                                </div>
-                                <div className="flex gap-1">
-                                    <div className="w-2 h-2 dark:bg-slate-700 bg-slate-300 rounded-full"></div>
-                                    <div className="w-2 h-2 dark:bg-slate-700 bg-slate-300 rounded-full"></div>
-                                    <div className="w-2 h-2 dark:bg-slate-700 bg-slate-300 rounded-full"></div>
-                                </div>
-                            </div>
-                            <div
-                                className="text-xs font-semibold __code dark:text-slate-100 text-slate-800"
-                                id="htmlCode"
-                            ></div>
-                        </div>
-
-                        <div className="ms-8 dark:bg-slate-950 border bg-white p-4 w-64 h-52 rounded-lg border-slate-200 dark:border-slate-800 rotate-6 -translate-y-14">
-                            <div className="mb-4 flex justify-between items-center text-xs pb-4 border-b border-slate-950/10 dark:border-slate-50/[0.06]">
-                                <div className="">
-                                    <i className="fa-brands fa-sass text-rose-500"></i>
-                                    <span className="ms-2 font-bold uppercase dark:text-slate-100 text-slate-800">
-                                        scss
-                                    </span>
-                                </div>
-                                <div className="flex gap-1">
-                                    <div className="w-2 h-2 dark:bg-slate-700 bg-slate-300 rounded-full"></div>
-                                    <div className="w-2 h-2 dark:bg-slate-700 bg-slate-300 rounded-full"></div>
-                                    <div className="w-2 h-2 dark:bg-slate-700 bg-slate-300 rounded-full"></div>
-                                </div>
-                            </div>
-                            <div
-                                className="text-xs font-semibold __code dark:text-slate-100 text-slate-800"
-                                id="scssCode"
-                            ></div>
-                        </div>
-
-                        <div className="ms-16 dark:bg-slate-950 border bg-white p-4 w-64 h-36 rounded-lg border-slate-200 dark:border-slate-800 -rotate-6 -translate-y-28">
-                            <div className="mb-4 flex justify-between items-center text-xs pb-4 border-b border-slate-950/10 dark:border-slate-50/[0.06]">
-                                <div className="">
-                                    <i className="fa-brands fa-js text-amber-500"></i>
-                                    <span className="ms-2 font-bold uppercase dark:text-slate-100 text-slate-800">
-                                        js
-                                    </span>
-                                </div>
-                                <div className="flex gap-1">
-                                    <div className="w-2 h-2 dark:bg-slate-700 bg-slate-300 rounded-full"></div>
-                                    <div className="w-2 h-2 dark:bg-slate-700 bg-slate-300 rounded-full"></div>
-                                    <div className="w-2 h-2 dark:bg-slate-700 bg-slate-300 rounded-full"></div>
-                                </div>
-                            </div>
-                            <div
-                                className="text-xs font-semibold __code dark:text-slate-100 text-slate-800"
-                                id="jsCode"
-                            ></div>
-                        </div>
+                    <div className="relative space-y-8 min-h-[450px]">
+                        <CodeEditor lang="html" icon="html5" color="text-orange-500" id="htmlCode" className="" />
+                        <CodeEditor
+                            lang="scss"
+                            icon="sass"
+                            color="text-pink-500"
+                            id="scssCode"
+                            className="left-1/2 top-1/2 -translate-x-1/2 -translate-y-28"
+                        />
+                        <CodeEditor
+                            lang="js"
+                            icon="js"
+                            color="text-yellow-500"
+                            id="jsCode"
+                            className="right-0 bottom-0"
+                        />
                     </div>
                 </div>
             </div>

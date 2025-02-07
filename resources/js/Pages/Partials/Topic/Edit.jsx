@@ -31,7 +31,7 @@ function Edit({ topic, createdBy }) {
         <AuthenticatedLayout header="Topics">
             <Head title="Edit Topic" />
 
-            <div className="p-3 sm:p-6 lg:p-12 rounded-lg border border-slate-200 dark:border-slate-800">
+            <div className="p-3 sm:p-6 lg:p-12 rounded-lg _border">
                 <header className="mb-3 sm:mb-6 lg:mb-12">
                     <NavLink href={route("topics.index")} active={route().current("topics.index")}>
                         <i className="fa-solid fa-arrow-left-long me-2 text-lg"></i>

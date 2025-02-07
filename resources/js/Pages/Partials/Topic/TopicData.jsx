@@ -41,7 +41,7 @@ function TopicData({ topic }) {
 
             <TableData>{topic.description}</TableData>
 
-            <TableData>{topic.projects_count > 0 ? topic.projects_count : "-"}</TableData>
+            <TableData>{topic.tricks_count > 0 ? topic.tricks_count : "-"}</TableData>
 
             <TableData>{topic.courses_count > 0 ? topic.courses_count : "-"}</TableData>
 

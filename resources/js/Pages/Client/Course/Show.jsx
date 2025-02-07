@@ -10,12 +10,12 @@ function Show({ course }) {
         <Layout header="Courses">
             <Head title={course.title} />
 
-            <div className="p-3 sm:p-6 lg:p-12 rounded-lg border border-slate-200 dark:border-slate-800">
-                <header className="mb-3 sm:mb-6 lg:mb-12">
+            <div className="p-3 sm:p-6 rounded-lg _border">
+                <header className="mb-3 sm:mb-6">
                     <Breadcrumb
                         routes={[
                             { href: route("dashboard"), label: "Dashboard" },
-                            { href: route("courseList"), label: "Courses List" },
+                            { href: route("courseList"), label: "List of courses" },
                             { label: course.title }, // No `href` for the last one
                         ]}
                     />

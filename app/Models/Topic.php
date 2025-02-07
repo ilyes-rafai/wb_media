@@ -16,9 +16,9 @@ class Topic extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function projects()
+    public function tricks()
     {
-        return $this->belongsToMany(Project::class);
+        return $this->belongsToMany(Trick::class);
     }
 
     public function courses()

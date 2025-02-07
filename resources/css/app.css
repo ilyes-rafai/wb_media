@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+._border {
+    @apply border border-ilyes/20 dark:border-ilyes/10;
+}
+
+._border_b {
+    @apply border-b border-ilyes/20 dark:border-ilyes/10;
+}

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('language')->nullable();
             $table->boolean('premium')->default(false);
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('project_id')->constrained();
+            $table->foreignId('trick_id')->constrained();
             $table->timestamps();
         });
     }

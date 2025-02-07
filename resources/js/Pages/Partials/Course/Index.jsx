@@ -17,7 +17,7 @@ export default function Index({ courses }) {
         <AuthenticatedLayout header="Courses">
             <Head title="Courses List" />
 
-            <div className="p-3 sm:p-6 lg:p-12 rounded-lg border border-slate-200 dark:border-slate-800">
+            <div className="p-3 sm:p-6 lg:p-12 rounded-lg _border">
                 <header className="mb-3 sm:mb-6 lg:mb-12">
                     <div className="flex justify-between">
                         <div className="flex items-center gap-3">

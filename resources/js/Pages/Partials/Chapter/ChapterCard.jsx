@@ -1,6 +1,7 @@
 import ButtonCircle from "@/Components/ButtonCircle";
 import { Card } from "@/Components/Card";
 import { Free } from "@/Components/Free";
+import HandlePremium from "@/Components/HandlePremium";
 import Modal from "@/Components/Modal";
 import { Premium } from "@/Components/Premium";
 import PrimaryButton from "@/Components/PrimaryButton";
@@ -35,7 +36,7 @@ export const ChapterCard = ({ chapter }) => {
         <>
             <Card>
                 <video
-                    className="w-full aspect-video mb-6 rounded-lg border border-slate-200 dark:border-slate-800"
+                    className="w-full aspect-video mb-6 rounded-lg _border"
                     controls
                     poster={`${import.meta.env.VITE_APP_URL}/${chapter.cover}`}
                 >
@@ -46,7 +47,10 @@ export const ChapterCard = ({ chapter }) => {
                 {/* Description */}
                 {chapter.description && <p className="text-slate-500">{chapter.description}</p>}
                 <div className="mb-1 flex items-center justify-between gap-3 mt-3">
-                    <span>{chapter.premium == 1 ? <Premium /> : <Free />}</span>
+                    <div className="flex">
+                        <HandlePremium item={chapter} actionRoute="handleChapterPremium" />
+                        <span>{chapter.premium == 1 ? <Premium /> : <Free />}</span>
+                    </div>
                     <ButtonCircle icon="trash" action={confirmChapterDeletion} />
                 </div>
             </Card>

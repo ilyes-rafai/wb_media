@@ -2,7 +2,7 @@ import React from "react";
 
 function TableHead({ headers }) {
     return (
-        <thead className="text-xs text-slate-700 uppercase dark:text-slate-400 border dark:border-slate-900">
+        <thead className="text-xs text-slate-700 uppercase dark:text-slate-400 _border">
             <tr>
                 {headers &&
                     headers.map((head, index) => (

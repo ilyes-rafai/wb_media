@@ -26,7 +26,7 @@ class StoreInstructionRequest extends FormRequest
             'description' => ['nullable', 'string'],      // Description is optional but must be a string
             'code' => ['nullable', 'string'],            // Code is optional but must be a string
             'premium' => ['boolean'],                    // Premium must be a boolean value (true/false)
-            'project_id' => ['required', 'exists:projects,id'], // Project ID is required and must exist in the projects table
+            'trick_id' => ['required', 'exists:tricks,id'], // Trick ID is required and must exist in the tricks table
         ];
     }
 }

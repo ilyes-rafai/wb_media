@@ -32,7 +32,7 @@ export default function Index({ topics }) {
         <AuthenticatedLayout header="Topics">
             <Head title="Topics List" />
 
-            <div className="p-3 sm:p-6 lg:p-12 rounded-lg border border-slate-200 dark:border-slate-800">
+            <div className="p-3 sm:p-6 lg:p-12 rounded-lg _border">
                 <header className="mb-3 sm:mb-6 lg:mb-12">
                     <div className="flex justify-between">
                         <div className="flex items-center gap-3">
@@ -72,7 +72,7 @@ export default function Index({ topics }) {
                             "name",
                             "svg",
                             "Description",
-                            "projects count",
+                            "tricks count",
                             "courses count",
                             "Created by",
                             " Created at",

@@ -8,15 +8,15 @@ import CourseCard from "./CourseCard";
 function List({ courses }) {
     return (
         <Layout>
-            <div className="p-3 sm:p-6 lg:p-12 rounded-lg border border-slate-200 dark:border-slate-800">
+            <div className="p-3 sm:p-6 rounded-lg _border">
                 <Breadcrumb
                     routes={[
                         { href: route("dashboard"), label: "Dashboard" },
-                        { label: "Courses list" }, // No `href` for the last one
+                        { label: "List of courses" }, // No `href` for the last one
                     ]}
                 />
-                <header className="mb-3 sm:mb-6 lg:mb-12 flex flex-col md:flex-row justify-between md:items-center gap-6 md:gap-0">
-                    <TitleSection title="Courses list" />
+                <header className="mb-3 sm:mb-6 flex flex-col md:flex-row justify-between md:items-center gap-6 md:gap-0">
+                    <TitleSection title="List of courses" />
                 </header>
 
                 <div className="">

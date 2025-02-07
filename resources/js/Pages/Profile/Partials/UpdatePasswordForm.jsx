@@ -39,9 +39,9 @@ export default function UpdatePasswordForm({ className = "" }) {
     return (
         <section className={className}>
             <header>
-                <h2 className="text-lg font-medium text-slate-900">Update Password</h2>
+                <h2 className="text-lg font-medium dark:text-slate-300">Update Password</h2>
 
-                <p className="mt-1 text-sm text-slate-600">
+                <p className="mt-1 text-sm text-ilyes font-semibold">
                     Ensure your account is using a long, random password to stay secure.
                 </p>
             </header>
@@ -58,6 +58,7 @@ export default function UpdatePasswordForm({ className = "" }) {
                         type="password"
                         className="mt-1 block w-full"
                         autoComplete="current-password"
+                        placeholder="current password"
                     />
 
                     <InputError message={errors.current_password} className="mt-2" />
@@ -74,6 +75,7 @@ export default function UpdatePasswordForm({ className = "" }) {
                         type="password"
                         className="mt-1 block w-full"
                         autoComplete="new-password"
+                        placeholder="new password"
                     />
 
                     <InputError message={errors.password} className="mt-2" />
@@ -89,14 +91,23 @@ export default function UpdatePasswordForm({ className = "" }) {
                         type="password"
                         className="mt-1 block w-full"
                         autoComplete="new-password"
+                        placeholder="new password"
                     />
 
                     <InputError message={errors.password_confirmation} className="mt-2" />
                 </div>
 
                 <div className="flex items-center gap-4">
-                    <PrimaryButton disabled={processing}>Save</PrimaryButton>
-
+                    <PrimaryButton>
+                        {processing ? (
+                            <>
+                                <i className="fa-solid fa-spinner animate-spin"></i>
+                                Processing...
+                            </>
+                        ) : (
+                            "Save changes"
+                        )}
+                    </PrimaryButton>
                     <Transition
                         show={recentlySuccessful}
                         enter="transition ease-in-out"
@@ -104,7 +115,7 @@ export default function UpdatePasswordForm({ className = "" }) {
                         leave="transition ease-in-out"
                         leaveTo="opacity-0"
                     >
-                        <p className="text-sm text-slate-600">Saved.</p>
+                        <p className="text-sm text-ilyes font-medium">Saved.</p>
                     </Transition>
                 </div>
             </form>

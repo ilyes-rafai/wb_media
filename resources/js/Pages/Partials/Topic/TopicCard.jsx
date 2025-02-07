@@ -45,7 +45,7 @@ function TopicCard({ topic }) {
                     <h4 className="dark:text-slate-300 text-slate-600 font-semibold text-lg">{topic.name}</h4>
                     <p className="dark:text-slate-500 text-slate-400">{topic.description}</p>
                     <p className="dark:text-slate-500 text-slate-400 text-xs font-semibold">
-                        Total projects {topic.projects_count}
+                        Total tricks {topic.tricks_count}
                     </p>
                 </div>
             </div>

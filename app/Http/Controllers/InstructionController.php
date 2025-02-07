@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Instruction;
 use App\Http\Requests\StoreInstructionRequest;
 use App\Http\Requests\UpdateInstructionRequest;
-use App\Models\Project;
+use App\Models\Trick;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
@@ -27,7 +27,7 @@ class InstructionController extends Controller
         //
     }
 
-    public function handleInstructionAvailability(Instruction $instruction)
+    public function handleInstructionPremium(Instruction $instruction)
     {
         if (Gate::denies('is_admin_or_mentor')) {
             abort(404);
@@ -40,13 +40,11 @@ class InstructionController extends Controller
                 'premium' => !$premium,
             ]);
 
-            return redirect()
-                ->back()
+            return back()
                 ->with('success', 'The instruction has been successfully updated.');
         } catch (\Exception $e) {
 
-            return redirect()
-                ->back()
+            return back()
                 ->with($e->getMessage());
         }
     }
@@ -69,19 +67,19 @@ class InstructionController extends Controller
                 'description' => $validatedData['description'],
                 'code' => $validatedData['code'],
                 'premium' => $validatedData['premium'],
-                'project_id' => $validatedData['project_id'],
+                'trick_id' => $validatedData['trick_id'],
                 'user_id' => Auth::id(), // Auth::id() is cleaner and more concise
             ]);
 
-            // Redirect to the projects edit with a success message
+            // Redirect to the tricks edit with a success message
             return redirect()
-                ->route('projects.edit_instructions_page', $validatedData['project_id'])
+                ->route('tricks.edit_instructions_page', $validatedData['trick_id'])
                 ->with('success', 'The instruction has been successfully created.');
         } catch (\Exception $e) {
 
             // Redirect back with an error message
             return redirect()
-                ->route('projects.edit_instructions_page', $request->project_id)
+                ->route('tricks.edit_instructions_page', $request->trick_id)
                 ->with($e->getMessage());
         }
     }

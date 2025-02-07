@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use App\Models\Post;
-use App\Models\Project;
+use App\Models\Trick;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Inertia\Inertia;
@@ -21,59 +21,112 @@ class DashboardController extends Controller
             ->take($perPage)
             ->get();
 
-        $projects = Project::orderBy('created_at', 'desc')
-            ->with('user')
-            ->with('topics')
+        $tricks = Trick::select('id', 'title', 'premium', 'user_id', 'created_at')
+            ->orderBy('created_at', 'desc')
+            ->with([
+                'user' => function ($query) {
+                    $query->select('id', 'fullname', 'avatar', 'verified');
+                },
+                'topics' => function ($query) {
+                    $query->select('topics.id', 'topics.name', 'topics.svg');
+                },
+            ])
             ->take($perPage)
             ->get();
 
-        $courses = Course::orderBy('created_at', 'desc')
-            ->with('user')
-            ->with('topics')
+        $courses = Course::select('id', 'title', 'premium', 'user_id', 'created_at')
+            ->orderBy('created_at', 'desc')
+            ->with([
+                'user' => function ($query) {
+                    $query->select('id', 'fullname', 'avatar', 'verified');
+                },
+                'topics' => function ($query) {
+                    $query->select('topics.id', 'topics.name', 'topics.svg');
+                },
+            ])
             ->take($perPage)
             ->get();
+
+
 
         return Inertia::render('Dashboard', [
             'posts' => $posts,
             'courses' => $courses,
-            'projects' => $projects,
+            'tricks' => $tricks,
         ]);
     }
 
-    public function projectList()
+    public function quizList()
     {
-        $projects = Project::orderBy('created_at', 'desc')
-            ->with('user')
-            ->with('topics')
+        return Inertia::render('Client/Quiz/List');
+    }
+
+    public function exerciceList()
+    {
+        return Inertia::render('Client/Exercice/List');
+    }
+
+    public function vocabularyList()
+    {
+        return Inertia::render('Client/Vocabulary/List');
+    }
+
+    public function trickList()
+    {
+        $tricks = Trick::select('id', 'title', 'premium', 'user_id', 'created_at')
+            ->orderBy('created_at', 'desc')
+            ->with([
+                'user' => function ($query) {
+                    $query->select('id', 'fullname', 'avatar', 'verified');
+                },
+                'topics' => function ($query) {
+                    $query->select('topics.id', 'topics.name', 'topics.svg');
+                },
+            ])
             ->get();
 
-        return Inertia::render('Client/Project/List', [
-            'projects' => $projects,
+        return Inertia::render('Client/Trick/List', [
+            'tricks' => $tricks,
         ]);
     }
 
-    public function projectShow(Project $project)
+    public function trickShow(Trick $trick)
     {
-        if ($project->premium) {
+        if ($trick->premium) {
             if (Gate::denies('is_admin_or_subscriber_or_mentor')) {
                 abort(404);
             }
-            $project->load('topics', 'user', 'instructions');
+            $trick->load([
+                'topics:id,name,svg',
+                'user:id,username',
+                'instructions'
+            ]);
         } else {
-            $project->load('topics', 'user', 'instructions');
+            $trick->load([
+                'topics:id,name,svg',
+                'user:id,username',
+                'instructions',
+            ]);
         }
 
-        // Render the Edit component with project and topics
-        return Inertia::render('Client/Project/Show', [
-            'project' => $project,
+        // Render the Edit component with trick and topics
+        return Inertia::render('Client/Trick/Show', [
+            'trick' => $trick,
         ]);
     }
 
     public function courseList()
     {
-        $courses = course::orderBy('created_at', 'desc')
-            ->with('user')
-            ->with('topics')
+        $courses = Course::select('id', 'title', 'premium', 'user_id', 'created_at')
+            ->orderBy('created_at', 'desc')
+            ->with([
+                'user' => function ($query) {
+                    $query->select('id', 'fullname', 'avatar', 'verified');
+                },
+                'topics' => function ($query) {
+                    $query->select('topics.id', 'topics.name', 'topics.svg');
+                },
+            ])
             ->get();
 
         return Inertia::render('Client/Course/List', [

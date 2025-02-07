@@ -28,7 +28,7 @@ class UserController extends Controller
 
         $users  = User::orderby('created_at', 'DESC')
             ->withCount('topics')
-            ->withCount('projects')
+            ->withCount('tricks')
             ->withCount('courses')
             ->with('roles')
             ->get();

@@ -1,5 +1,7 @@
-import React from "react";
+import { TranslationContext } from "@/contexts/TranslationProvider";
+import React, { useContext } from "react";
 import SectionHeader from "../Components/SectionHeader";
+import SectionHeaderTwo from "../Components/SectionHeaderTwo";
 import SectionSubHeader from "../Components/SectionSubHeader";
 
 function Topics() {
@@ -21,14 +23,12 @@ function Topics() {
         { icon: "git" },
     ];
 
+    const { translations } = useContext(TranslationContext);
+
     return (
         <div>
-            <SectionHeader title="What we will help you in" className="text-center" />
-            <SectionSubHeader className="text-center">
-                Explore a wide range of topics designed to build your expertise in web development, from
-                beginner-friendly tutorials to advanced techniques. Dive into modern technologies and frameworks that
-                will set you apart in the industry.
-            </SectionSubHeader>
+            <SectionHeaderTwo title={translations.services_title} className="text-center" />
+            <SectionSubHeader className="text-center">{translations.services_sub}</SectionSubHeader>
 
             {/* <div className="_ticker_container">
                 <div className="_ticker_wrapper">

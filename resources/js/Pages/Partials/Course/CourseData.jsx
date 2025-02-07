@@ -1,6 +1,7 @@
 import ButtonCircle from "@/Components/ButtonCircle";
 import DangerButton from "@/Components/DangerButton";
 import { Free } from "@/Components/Free";
+import HandlePremium from "@/Components/HandlePremium";
 import Modal from "@/Components/Modal";
 import { Premium } from "@/Components/Premium";
 import PrimaryButton from "@/Components/PrimaryButton";
@@ -39,7 +40,12 @@ function CourseData({ course }) {
                     ))}
                 </div>
             </TableData>
-            <TableData>{course.premium ? <Premium /> : <Free />}</TableData>
+            <TableData>
+                <div className="flex items-center">
+                    <HandlePremium item={course} actionRoute="handleCoursePremium" />
+                    {course.premium ? <Premium /> : <Free />}
+                </div>
+            </TableData>
             <TableData>@{course.user.username}</TableData>
             <TableData>
                 <span className="whitespace-nowrap">

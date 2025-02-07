@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\CourseController;
-use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TrickController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InstructionController;
 use App\Http\Controllers\PostController;
@@ -46,27 +46,42 @@ Route::middleware('auth')->group(function () {
     Route::put('topics-update-svg/{topic}', [TopicController::class, 'update_svg'])->name("topics.update_svg");
 
 
-    // project routes
-    Route::resource('projects', ProjectController::class)->except(['show']);
-    Route::get('projects-edit-instructions-page/{project}', [ProjectController::class, 'edit_instructions_page'])->name("projects.edit_instructions_page");
-    Route::get('projects-list', [DashboardController::class, 'projectList'])->name("projectList");
-    Route::get('project-show/{project}', [DashboardController::class, 'projectShow'])->name("projectShow");
+    // trick routes
+    Route::resource('tricks', TrickController::class)->except(['show']);
+    Route::get('tricks-edit-instructions-page/{trick}', [TrickController::class, 'edit_instructions_page'])->name("tricks.edit_instructions_page");
+    Route::put('edit-trick-premium/{trick}', [TrickController::class, 'handleTrickPremium'])->name('handleTrickPremium');
+    Route::get('tricks-list', [DashboardController::class, 'trickList'])->name("trickList");
+    Route::get('trick-show/{trick}', [DashboardController::class, 'trickShow'])->name("trickShow");
+
+
+    // exercice routes
+    Route::get('exercices-list', [DashboardController::class, 'exerciceList'])->name("exerciceList");
+
+
+    // vocabulary routes
+    Route::get('vocabularys-list', [DashboardController::class, 'vocabularyList'])->name("vocabularyList");
+
+
+    // quiz routes
+    Route::get('quizs-list', [DashboardController::class, 'quizList'])->name("quizList");
 
 
     // instruction routes
     Route::resource('instructions', InstructionController::class)->except(['show']);
-    Route::put('edit-instruction-premium/{instruction}', [InstructionController::class, 'handleInstructionAvailability'])->name('handleInstructionAvailability');
+    Route::put('edit-instruction-premium/{instruction}', [InstructionController::class, 'handleInstructionPremium'])->name('handleInstructionPremium');
 
 
     // course routes
     Route::resource('courses', CourseController::class)->except(['show']);
     Route::get('courses-edit-chapters-page/{course}', [CourseController::class, 'edit_chapters_page'])->name("courses.edit_chapters_page");
+    Route::put('edit-course-premium/{course}', [CourseController::class, 'handleCoursePremium'])->name('handleCoursePremium');
     Route::get('courses-list', [DashboardController::class, 'courseList'])->name("courseList");
     Route::get('course-show/{course}', [DashboardController::class, 'courseShow'])->name("courseShow");
 
 
     // chapter routes
     Route::resource('chapters', ChapterController::class)->except(['show']);
+    Route::put('edit-chapter-premium/{chapter}', [ChapterController::class, 'handleChapterPremium'])->name('handleChapterPremium');
 
 
     // post routes

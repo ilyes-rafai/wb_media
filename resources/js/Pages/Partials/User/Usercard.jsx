@@ -95,8 +95,8 @@ function Usercard({ user }) {
                 <p className="dark:text-slate-500 text-slate-400 text-xs font-semibold" title="Total topics">
                     <i className="fa-solid fa-book"></i> ({user.topics_count})
                 </p>
-                <p className="dark:text-slate-500 text-slate-400 text-xs font-semibold" title="Total projects">
-                    <i className="fa-solid fa-code"></i> ({user.projects_count})
+                <p className="dark:text-slate-500 text-slate-400 text-xs font-semibold" title="Total tricks">
+                    <i className="fa-solid fa-code"></i> ({user.tricks_count})
                 </p>
                 <p className="dark:text-slate-500 text-slate-400 text-xs font-semibold" title="Total courses">
                     <i className="fa-solid fa-video"></i> ({user.courses_count})

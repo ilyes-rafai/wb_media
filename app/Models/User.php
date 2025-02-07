@@ -61,9 +61,9 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
-    public function projects()
+    public function tricks()
     {
-        return $this->hasMany(Project::class);
+        return $this->hasMany(Trick::class);
     }
 
     public function instructions()

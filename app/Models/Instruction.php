@@ -17,8 +17,8 @@ class Instruction extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function project()
+    public function trick()
     {
-        return $this->belongsTo(Project::class);
+        return $this->belongsTo(Trick::class);
     }
 }

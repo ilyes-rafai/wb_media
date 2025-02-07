@@ -16,7 +16,7 @@ function TableBody({ data, renderRow }) {
     return (
         <tbody>
             {data.map((element, index) => (
-                <tr key={index} className="border dark:border-slate-900 dark:even:bg-slate-950 even:bg-ilyes/5">
+                <tr key={index} className="_border dark:even:bg-slate-950 even:bg-ilyes/5">
                     {renderRow(element)}
                 </tr>
             ))}

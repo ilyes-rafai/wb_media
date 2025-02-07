@@ -1,9 +1,10 @@
+import ApplicationLogo from "@/Components/ApplicationLogo";
 import Checkbox from "@/Components/Checkbox";
 import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
 import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
-import GuestLayout from "@/Layouts/GuestLayout";
+import Layout from "@/Layouts/Layout";
 import { Head, Link, useForm } from "@inertiajs/react";
 
 export default function Login({ status, canResetPassword }) {
@@ -22,12 +23,17 @@ export default function Login({ status, canResetPassword }) {
     };
 
     return (
-        <GuestLayout>
+        <Layout>
             <Head title="Log in" />
 
             {status && <div className="mb-4 text-sm font-medium text-green-600">{status}</div>}
 
-            <div className="my-24 max-w-screen-md mx-auto">
+            <div className="my-20 max-w-screen-md mx-auto">
+                <div className="flex items-center justify-center flex-wrap gap-3 md:gap-6 mb-12">
+                    <ApplicationLogo className="w-16 md:w-32 fill-current text-ilyes" />
+                    <span className="dark:text-white text-3xl md:text-7xl font-semibold">Webilymedia</span>
+                </div>
+
                 <form onSubmit={submit}>
                     <div>
                         <InputLabel htmlFor="email" value="Email" />
@@ -62,33 +68,38 @@ export default function Login({ status, canResetPassword }) {
                         <InputError message={errors.password} className="mt-2" />
                     </div>
 
-                    <div className="mt-4 block">
-                        <label className="flex items-center">
-                            <Checkbox
-                                name="remember"
-                                checked={data.remember}
-                                onChange={(e) => setData("remember", e.target.checked)}
-                            />
-                            <span className="ms-2 text-sm text-slate-600">Remember me</span>
-                        </label>
+                    <div className="mt-6 block">
+                        <Checkbox
+                            label="Remember me"
+                            name="remember"
+                            checked={data.remember}
+                            onChange={(e) => setData("remember", e.target.checked)}
+                        />
                     </div>
 
-                    <div className="mt-4 flex items-center justify-end">
-                        {canResetPassword && (
+                    <div className="mt-6 flex items-center justify-end">
+                        {/* {canResetPassword && (
                             <Link
                                 href={route("password.request")}
                                 className="rounded-md text-sm text-slate-600 underline hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                             >
                                 Forgot your password?
                             </Link>
-                        )}
+                        )} */}
 
-                        <PrimaryButton className="ms-4" disabled={processing}>
-                            Log in
+                        <PrimaryButton>
+                            {processing ? (
+                                <>
+                                    <i className="fa-solid fa-spinner animate-spin"></i>
+                                    Processing...
+                                </>
+                            ) : (
+                                "Log In"
+                            )}
                         </PrimaryButton>
                     </div>
                 </form>
             </div>
-        </GuestLayout>
+        </Layout>
     );
 }

@@ -25,8 +25,8 @@ function CourseCard({ course }) {
             {/* topics */}
             <div className="mb-6 mt-3 flex flex-wrap gap-3">
                 {course.topics &&
-                    course.topics.map((topic) => (
-                        <div title={topic.name}>
+                    course.topics.map((topic, index) => (
+                        <div title={topic.name} key={index}>
                             <div className="w-6 aspect-square rounded-full">
                                 <img
                                     className="w-full aspect-square object-contain"
@@ -42,7 +42,7 @@ function CourseCard({ course }) {
                 {course.premium ? (
                     abilities.is_admin_or_subscriber_or_mentor ? (
                         <NavLink href={route("courseShow", course)}>
-                            See The course
+                            See this course
                             <i className="fa-solid fa-arrow-right-long ms-2 text-sm"></i>
                         </NavLink>
                     ) : (
@@ -50,7 +50,7 @@ function CourseCard({ course }) {
                     )
                 ) : (
                     <NavLink href={route("courseShow", course)}>
-                        See The course
+                        See this course
                         <i className="fa-solid fa-arrow-right-long ms-2 text-sm"></i>
                     </NavLink>
                 )}
