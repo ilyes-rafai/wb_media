@@ -1,6 +1,9 @@
-import React from "react";
+import { TranslationContext } from "@/contexts/TranslationProvider";
+import React, { useContext } from "react";
 
 function UnderDev() {
+    const { translations } = useContext(TranslationContext);
+
     return (
         <div className="max-w-screen-sm mx-auto animate-pulse">
             <svg
@@ -88,7 +91,7 @@ function UnderDev() {
                 <rect x="85.648" y="363.232" width="121.808" className="fill-ilyes" height="15.648" />
             </svg>
             <div className="text-center bg-gradient-to-r from-ilyes to-slate-200 dark:to-slate-800 bg-clip-text text-3xl text-balance font-extrabold text-transparent">
-                Under development. <br /> Coming soon.
+                {translations.under_development}. <br /> {translations.coming_soon}.
             </div>
         </div>
     );

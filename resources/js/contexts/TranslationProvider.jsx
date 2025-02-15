@@ -1,7 +1,8 @@
 import { createContext, useEffect, useState } from "react";
+import ar from "../lang/ar.json"; // Import Arabic translations
 import en from "../lang/en.json"; // Import English translations
 import fr from "../lang/fr.json"; // Import French translations
-import mar from "../lang/mar.json"; // Import Spanish translations
+import mar from "../lang/mar.json"; // Import Darija translations
 
 // Create Translation Context
 export const TranslationContext = createContext();
@@ -13,6 +14,8 @@ export default function TranslationProvider({ children }) {
     // Function to get correct translation file
     const getTranslations = (lang) => {
         switch (lang) {
+            case "ar":
+                return ar;
             case "fr":
                 return fr;
             case "mar":
@@ -26,7 +29,7 @@ export default function TranslationProvider({ children }) {
 
     // Function to switch language
     const switchLanguage = (lang) => {
-        if (!["en", "fr", "mar"].includes(lang)) return; // Prevent invalid languages
+        if (!["en", "fr", "ar"].includes(lang)) return; // Prevent invalid languages
         setLanguage(lang);
         setTranslations(getTranslations(lang));
         localStorage.setItem("lang", lang);

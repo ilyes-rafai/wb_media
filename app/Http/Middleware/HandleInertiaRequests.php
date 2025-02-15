@@ -45,7 +45,7 @@ class HandleInertiaRequests extends Middleware
         return [
             ...parent::share($request),
             'auth' => [
-                'user' => $request->user() ? $request->user()->load('roles') : null,
+                'user' => $request->user() ? $request->user()->load('roles')->load('quizzes') : null,
                 'abilities' => $request->user() ? $this->getGateAbilities($request->user()) : [],
             ],
             'flash' => [

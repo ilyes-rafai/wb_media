@@ -28,6 +28,7 @@ export default {
             },
             fontFamily: {
                 sans: ["Poppins", ...defaultTheme.fontFamily.sans],
+                arabic: ["Alexandria", "sans-serif"],
             },
         },
     },

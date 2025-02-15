@@ -1,11 +1,14 @@
 import Breadcrumb from "@/Components/Breadcrumb";
 import TitleSection from "@/Components/TitleSection";
+import { TranslationContext } from "@/contexts/TranslationProvider";
 import Layout from "@/Layouts/Layout";
 import { Head } from "@inertiajs/react";
-import React from "react";
+import React, { useContext } from "react";
 import { InstructionCard } from "./InstructionCard";
 
 function Show({ trick }) {
+    const { translations } = useContext(TranslationContext);
+
     return (
         <Layout header="Tricks">
             <Head title={trick.title} />
@@ -14,15 +17,15 @@ function Show({ trick }) {
                 <header className="mb-3 sm:mb-6">
                     <Breadcrumb
                         routes={[
-                            { href: route("dashboard"), label: "Dashboard" },
-                            { href: route("trickList"), label: "List of tricks" },
+                            { href: route("dashboard"), label: translations.home },
+                            { href: route("trickList"), label: translations.list_of_tricks },
                             { label: trick.title }, // No `href` for the last one
                         ]}
                     />
                     <TitleSection title={trick.title} />
                     {trick.user && (
                         <h2 className="text-xl mt-3 font-bold leading-tight dark:text-slate-400 text-slate-600">
-                            Created by{" "}
+                            {translations.created_by + " "}
                             <span className="dark:text-slate-200 text-slate-600">@{trick.user.username}</span>
                         </h2>
                     )}

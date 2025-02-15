@@ -4,14 +4,16 @@ import Table from "@/Components/Table";
 import TableBody from "@/Components/TableBody";
 import TableHead from "@/Components/TableHead";
 import TitleSection from "@/Components/TitleSection";
+import { TranslationContext } from "@/contexts/TranslationProvider";
 import AuthenticatedLayout from "@/Layouts/Layout";
 import { Head } from "@inertiajs/react";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import TrickData from "./TrickData";
 
 export default function Index({ tricks }) {
     // Search State
     const [filteredTricks, setFilteredTricks] = useState(tricks);
+    const { translations } = useContext(TranslationContext);
 
     return (
         <AuthenticatedLayout header="Tricks">

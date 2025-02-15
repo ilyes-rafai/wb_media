@@ -18,7 +18,7 @@ function Word() {
                         <span className="dark:text-slate-200 text-slate-800">{translations.word_inside}</span>
                     </SectionSubHeader>
 
-                    <figcaption className="mt-6 flex items-center justify-center space-x-6 text-left">
+                    <figcaption className="mt-6 flex items-center justify-center text-left rtl:text-right">
                         <img
                             src={`${import.meta.env.VITE_APP_URL}/img/brand/ilyes_rafai.jpg`}
                             alt="Ilyes Rafai"
@@ -26,6 +26,7 @@ function Word() {
                             loading="lazy"
                             decoding="async"
                         />
+                        <div className="mx-2"></div>
                         <div>
                             <cite className="text-slate-900 font-semibold not-italic dark:text-white text-lg">
                                 Ilyes Rafai

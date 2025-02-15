@@ -1,6 +1,7 @@
 import ButtonCircle from "@/Components/ButtonCircle";
 import { Card } from "@/Components/Card";
 import DangerButton from "@/Components/DangerButton";
+import FormatDate from "@/Components/FormatDate";
 import Modal from "@/Components/Modal";
 import PrimaryButton from "@/Components/PrimaryButton";
 import SecondaryButton from "@/Components/SecondaryButton";
@@ -48,13 +49,7 @@ function TopicData({ topic }) {
             <TableData>@{topic.user.username}</TableData>
 
             <TableData>
-                {new Date(topic.created_at)
-                    .toLocaleDateString("en-GB", {
-                        day: "2-digit",
-                        month: "short",
-                        year: "2-digit",
-                    })
-                    .toUpperCase()}
+                <FormatDate wantedDate={topic.created_at} />
             </TableData>
             <TableData>
                 <div className="flex gap-3">

@@ -1,6 +1,7 @@
 import Avatar from "@/Components/Avatar";
 import AvatarInconu from "@/Components/AvatarInconu";
 import { Card } from "@/Components/Card";
+import FormatDate from "@/Components/FormatDate";
 import { Free } from "@/Components/Free";
 import Locked from "@/Components/Locked";
 import NavLink from "@/Components/NavLink";
@@ -43,7 +44,12 @@ function CourseCard({ course }) {
                     abilities.is_admin_or_subscriber_or_mentor ? (
                         <NavLink href={route("courseShow", course)}>
                             See this course
-                            <i className="fa-solid fa-arrow-right-long ms-2 text-sm"></i>
+                            <span className="rtl:hidden">
+                                <i className="fa-solid fa-arrow-right-long ms-2 text-sm"></i>
+                            </span>
+                            <span className="ltr:hidden">
+                                <i className="fa-solid fa-arrow-left-long ms-2 text-sm"></i>
+                            </span>
                         </NavLink>
                     ) : (
                         <Locked />
@@ -51,7 +57,12 @@ function CourseCard({ course }) {
                 ) : (
                     <NavLink href={route("courseShow", course)}>
                         See this course
-                        <i className="fa-solid fa-arrow-right-long ms-2 text-sm"></i>
+                        <span className="rtl:hidden">
+                            <i className="fa-solid fa-arrow-right-long ms-2 text-sm"></i>
+                        </span>
+                        <span className="ltr:hidden">
+                            <i className="fa-solid fa-arrow-left-long ms-2 text-sm"></i>
+                        </span>
                     </NavLink>
                 )}
             </div>
@@ -94,21 +105,7 @@ function CourseCard({ course }) {
                     </h4>
 
                     <div className="flex gap-2">
-                        <span className="text-xs font-semibold text-slate-500 text-slate-40">
-                            {new Date(course.created_at)
-                                .toLocaleDateString("en-GB", {
-                                    day: "2-digit",
-                                    month: "short",
-                                    year: "2-digit",
-                                })
-                                .toUpperCase()}
-                        </span>
-                        <span className="text-xs font-semibold text-slate-500 text-slate-40">
-                            {new Date(course.created_at).toLocaleTimeString("en-GB", {
-                                hour: "2-digit",
-                                minute: "2-digit",
-                            })}
-                        </span>
+                        <FormatDate wantedDate={course.created_at} />
                     </div>
                 </div>
             </div>

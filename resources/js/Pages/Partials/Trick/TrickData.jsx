@@ -1,5 +1,6 @@
 import ButtonCircle from "@/Components/ButtonCircle";
 import DangerButton from "@/Components/DangerButton";
+import FormatDate from "@/Components/FormatDate";
 import { Free } from "@/Components/Free";
 import HandlePremium from "@/Components/HandlePremium";
 import Modal from "@/Components/Modal";
@@ -48,15 +49,7 @@ function TrickData({ trick }) {
             </TableData>
             <TableData>@{trick.user.username}</TableData>
             <TableData>
-                <span className="whitespace-nowrap">
-                    {new Date(trick.created_at)
-                        .toLocaleDateString("en-GB", {
-                            day: "2-digit",
-                            month: "short",
-                            year: "2-digit",
-                        })
-                        .toUpperCase()}
-                </span>
+                <FormatDate wantedDate={trick.created_at} />
             </TableData>
             <TableData>
                 <div className="flex gap-3">

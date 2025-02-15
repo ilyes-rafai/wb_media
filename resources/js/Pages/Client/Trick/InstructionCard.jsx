@@ -2,8 +2,9 @@ import Code from "@/Components/Code";
 import { Free } from "@/Components/Free";
 import Locked from "@/Components/Locked";
 import { Premium } from "@/Components/Premium";
+import { TranslationContext } from "@/contexts/TranslationProvider";
 import { usePage } from "@inertiajs/react";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 export const InstructionCard = ({ instruction }) => {
     const abilities = usePage().props.auth.abilities;
@@ -23,6 +24,8 @@ export const InstructionCard = ({ instruction }) => {
                 });
         }
     };
+
+    const { translations } = useContext(TranslationContext);
 
     return (
         <>
@@ -57,12 +60,12 @@ export const InstructionCard = ({ instruction }) => {
                                             {isCopied ? (
                                                 <>
                                                     <i className="fa-solid fa-check"></i>
-                                                    <span>Copied!</span>
+                                                    <span>{translations.Copied}!</span>
                                                 </>
                                             ) : (
                                                 <>
                                                     <i className="fa-solid fa-copy"></i>
-                                                    <span>Copy</span>
+                                                    <span>{translations.Copy}</span>
                                                 </>
                                             )}
                                         </div>
@@ -87,12 +90,12 @@ export const InstructionCard = ({ instruction }) => {
                                         {isCopied ? (
                                             <>
                                                 <i className="fa-solid fa-check"></i>
-                                                <span>Copied!</span>
+                                                <span>{translations.Copied}!</span>
                                             </>
                                         ) : (
                                             <>
                                                 <i className="fa-solid fa-copy"></i>
-                                                <span>Copy</span>
+                                                <span>{translations.Copy}</span>
                                             </>
                                         )}
                                     </div>

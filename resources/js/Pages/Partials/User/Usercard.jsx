@@ -3,6 +3,7 @@ import AvatarInconu from "@/Components/AvatarInconu";
 import ButtonCircle from "@/Components/ButtonCircle";
 import { Card } from "@/Components/Card";
 import DangerButton from "@/Components/DangerButton";
+import FormatDate from "@/Components/FormatDate";
 import Modal from "@/Components/Modal";
 import PrimaryButton from "@/Components/PrimaryButton";
 import SecondaryButton from "@/Components/SecondaryButton";
@@ -107,15 +108,7 @@ function Usercard({ user }) {
             <div className="mt-6 flex justify-between items-center">
                 {/* timestamp */}
                 <div className="flex flex-col gap-1">
-                    <span className="text-xs font-semibold text-slate-500 text-slate-40" title="Created at">
-                        {new Date(user.created_at)
-                            .toLocaleDateString("en-GB", {
-                                day: "2-digit",
-                                month: "short",
-                                year: "2-digit",
-                            })
-                            .toUpperCase()}
-                    </span>
+                    <FormatDate wantedDate={user.created_at} />
                 </div>
 
                 {/* actions */}

@@ -1,15 +1,19 @@
 import Avatar from "@/Components/Avatar";
 import AvatarInconu from "@/Components/AvatarInconu";
 import { Card } from "@/Components/Card";
+import FormatDate from "@/Components/FormatDate";
 import { Free } from "@/Components/Free";
 import Locked from "@/Components/Locked";
 import NavLink from "@/Components/NavLink";
 import { Premium } from "@/Components/Premium";
+import { TranslationContext } from "@/contexts/TranslationProvider";
 import { usePage } from "@inertiajs/react";
-import React from "react";
+import React, { useContext } from "react";
 
 function TrickCard({ trick }) {
     const abilities = usePage().props.auth.abilities;
+
+    const { translations } = useContext(TranslationContext);
 
     return (
         <Card key={trick.id}>
@@ -42,16 +46,26 @@ function TrickCard({ trick }) {
                 {trick.premium ? (
                     abilities.is_admin_or_subscriber_or_mentor ? (
                         <NavLink href={route("trickShow", trick)}>
-                            See this trick
-                            <i className="fa-solid fa-arrow-right-long ms-2 text-sm"></i>
+                            {translations.see_this_trick}
+                            <span className="rtl:hidden">
+                                <i className="fa-solid fa-arrow-right-long ms-2 text-sm"></i>
+                            </span>
+                            <span className="ltr:hidden">
+                                <i className="fa-solid fa-arrow-left-long ms-2 text-sm"></i>
+                            </span>
                         </NavLink>
                     ) : (
                         <Locked />
                     )
                 ) : (
                     <NavLink href={route("trickShow", trick)}>
-                        See this trick
-                        <i className="fa-solid fa-arrow-right-long ms-2 text-sm"></i>
+                        {translations.see_this_trick}
+                        <span className="rtl:hidden">
+                            <i className="fa-solid fa-arrow-right-long ms-2 text-sm"></i>
+                        </span>
+                        <span className="ltr:hidden">
+                            <i className="fa-solid fa-arrow-left-long ms-2 text-sm"></i>
+                        </span>
                     </NavLink>
                 )}
             </div>
@@ -94,21 +108,7 @@ function TrickCard({ trick }) {
                     </h4>
 
                     <div className="flex gap-2">
-                        <span className="text-xs font-semibold text-slate-500 text-slate-40">
-                            {new Date(trick.created_at)
-                                .toLocaleDateString("en-GB", {
-                                    day: "2-digit",
-                                    month: "short",
-                                    year: "2-digit",
-                                })
-                                .toUpperCase()}
-                        </span>
-                        <span className="text-xs font-semibold text-slate-500 text-slate-40">
-                            {new Date(trick.created_at).toLocaleTimeString("en-GB", {
-                                hour: "2-digit",
-                                minute: "2-digit",
-                            })}
-                        </span>
+                        <FormatDate wantedDate={trick.created_at} />
                     </div>
                 </div>
             </div>

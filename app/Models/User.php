@@ -56,6 +56,13 @@ class User extends Authenticatable
         return $this->hasMany(Topic::class);
     }
 
+    public function quizzes()
+    {
+        return $this->belongsToMany(Quiz::class, 'quiz_user')
+            ->withPivot('correctCount', 'totalCount', 'answers') // Include additional pivot fields
+            ->withTimestamps(); // Automatically manage timestamps on the pivot table
+    }
+
     public function posts()
     {
         return $this->hasMany(Post::class);

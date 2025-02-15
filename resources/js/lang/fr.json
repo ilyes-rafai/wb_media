@@ -18,5 +18,51 @@
     "word_inside": "À bientôt 💚",
     "word_creator": "Créateur de Webilymedia",
 
-    "faq": "Questions Fréquemment Posées"
+    "faq": "Questions Fréquemment Posées",
+
+    "home": "Accueil",
+    "Tricks": "Astuces",
+    "Courses": "Cours",
+    "Quizzes": "Quiz",
+    "Exercices": "Exercices",
+    "Vocabulary": "Vocabulaire",
+
+    "see_all": "Voir tout",
+    "latest_tricks": "Dernières astuces",
+    "latest_posts": "Derniers articles",
+    "latest_courses": "Derniers cours",
+
+    "see_this_trick": "Voir cette astuce",
+    "Easy": "Facile",
+    "Medium": "Moyen",
+    "Hard": "Difficile",
+    "see_your_answers": "Voir vos réponses",
+    "play_this_quiz": "Jouer à ce quiz",
+    "your_score": "Votre score",
+
+    "locked_content": "Contenu verrouillé",
+    "under_development": "En cours de développement",
+    "coming_soon": "Bientôt disponible",
+
+    "your_answers": "Vos réponses",
+    "Wrong_answer_the_correct_answer_is": "Mauvaise réponse, la bonne réponse est",
+    "correcte": "Correct",
+
+    "created_by": "Créé par",
+
+    "login_now": "Connectez-vous maintenant",
+
+    "Copied": "Copié",
+    "Copy": "Copier",
+
+    "we_are_in_beta": "Nous sommes en version Beta !",
+    "share_your_thoughts": "Partagez vos pensées",
+    "give_feedback": "Donnez votre avis",
+    "test_our_platform": "Testez notre plateforme et aidez-nous à l'améliorer",
+
+    "list_of_tricks": "Liste des astuces",
+    "list_of_courses": "Liste des cours",
+    "list_of_quizzes": "Liste des quiz",
+    "list_of_vocabulary": "Liste du vocabulaire",
+    "list_of_exercices": "Liste des exercices"
 }

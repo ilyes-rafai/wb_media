@@ -4,9 +4,10 @@ import AvatarInconu from "@/Components/AvatarInconu";
 import Dropdown from "@/Components/Dropdown";
 import Mode from "@/Components/Mode";
 import NavLink from "@/Components/NavLink";
+import { TranslationContext } from "@/contexts/TranslationProvider";
 import Container from "@/Pages/Guest/Components/Container";
 import { Link, usePage } from "@inertiajs/react";
-import React from "react";
+import React, { useContext } from "react";
 import Burger from "./Burger";
 import NavbarLinks from "./NavbarLinks";
 
@@ -14,21 +15,28 @@ function Navbar({ switchLanguage }) {
     const user = usePage().props.auth.user;
     const lang = localStorage.getItem("lang") || "en";
 
+    const { translations } = useContext(TranslationContext);
+
     const locals = [
         {
             locale: "en",
-            flag: "uk.jpg",
+            flag: "united-kingdom.png",
             label: "English",
         },
         {
             locale: "fr",
-            flag: "frensh.jpg",
+            flag: "france.png",
             label: "Français",
         },
         {
+            locale: "ar",
+            flag: "saudi-arabia.png",
+            label: "العربية",
+        },
+        {
             locale: "mar",
-            flag: "morocco.jpg",
-            label: "Marocaine",
+            flag: "morocco.png",
+            label: "Darija",
         },
     ];
 
@@ -154,14 +162,24 @@ function Navbar({ switchLanguage }) {
                                             locals.map((pay, index) => (
                                                 <Dropdown.Button
                                                     key={index}
-                                                    className="flex gap-2 items-center"
+                                                    className={`flex gap-2 items-center ${
+                                                        pay.locale == "ar" ? "font-arabic" : ""
+                                                    }`}
                                                     onClick={() => switchLanguage(pay.locale)}
                                                 >
                                                     <img
                                                         src={`${import.meta.env.VITE_APP_URL}/img/flags/${pay.flag}`}
                                                         className="w-6 h-6 aspect-square rounded-full object-cover"
                                                     />
-                                                    {pay.label}
+                                                    <div className="">
+                                                        {pay.label}
+
+                                                        {pay.locale == "mar" && (
+                                                            <span className="text-xs block font-semibold text-ilyes">
+                                                                {translations.coming_soon}
+                                                            </span>
+                                                        )}
+                                                    </div>
 
                                                     {pay.locale == lang && (
                                                         <span className="text-ilyes">

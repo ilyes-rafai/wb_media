@@ -40,6 +40,17 @@ function Hero() {
             speed: 150,
             loop: true,
         }).go();
+
+        new TypeIt("#jsCode2", {
+            strings: [
+                `<span class='text-ilyes'>function</span> sayHello<span class='text-ilyes'>(</span>name<span class='text-ilyes'>)</span> {`,
+                `&ensp;&ensp;console.log<span class='text-ilyes'>(</span>&ldquo;hello&ldquo;, name<span class='text-ilyes'>)</span>;`,
+                `}`,
+                `sayHello<span class='text-ilyes'>(</span>'Webilymedia'<span class='text-ilyes'>)</span>;`,
+            ],
+            speed: 150,
+            loop: true,
+        }).go();
     }, []);
 
     return (
@@ -47,16 +58,20 @@ function Hero() {
             <div className="">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                     <div className="h-fit">
-                        <SectionHeader title={translations.hero_title} span="." className="text-center sm:text-left" />
+                        <SectionHeader
+                            title={translations.hero_title}
+                            span="."
+                            className="text-center sm:ltr:text-left sm:rtl:text-right"
+                        />
 
-                        <SectionSubHeader className="text-center sm:text-left">
+                        <SectionSubHeader className="text-center sm:ltr:text-left sm:rtl:text-right">
                             {translations.hero_sub}
                         </SectionSubHeader>
 
-                        <PrimaryButtonLink href={route("login")}>Login now!</PrimaryButtonLink>
+                        <PrimaryButtonLink href={route("login")}>{translations.login_now}</PrimaryButtonLink>
                     </div>
                     <div className="relative space-y-8 min-h-[450px]">
-                        <CodeEditor lang="html" icon="html5" color="text-orange-500" id="htmlCode" className="" />
+                        <CodeEditor lang="html" icon="html5" color="text-orange-500" id="htmlCode" />
                         <CodeEditor
                             lang="scss"
                             icon="sass"
@@ -64,13 +79,24 @@ function Hero() {
                             id="scssCode"
                             className="left-1/2 top-1/2 -translate-x-1/2 -translate-y-28"
                         />
-                        <CodeEditor
-                            lang="js"
-                            icon="js"
-                            color="text-yellow-500"
-                            id="jsCode"
-                            className="right-0 bottom-0"
-                        />
+                        <div className="rtl:hidden">
+                            <CodeEditor
+                                lang="js"
+                                icon="js"
+                                color="text-yellow-500"
+                                id="jsCode"
+                                className="right-0 bottom-0"
+                            />
+                        </div>
+                        <div className="ltr:hidden">
+                            <CodeEditor
+                                lang="js"
+                                icon="js"
+                                color="text-yellow-500"
+                                id="jsCode2"
+                                className="bottom-0 left-0"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

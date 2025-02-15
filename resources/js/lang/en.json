@@ -18,5 +18,51 @@
     "word_inside": "See you inside 💚",
     "word_creator": "Creator of Webilymedia",
 
-    "faq": "Frequently Asked Questions"
+    "faq": "Frequently Asked Questions",
+
+    "home": "Home",
+    "Tricks": "Tricks",
+    "Courses": "Courses",
+    "Quizzes": "Quizzes",
+    "Exercices": "Exercices",
+    "Vocabulary": "Vocabulary",
+
+    "see_all": "See all",
+    "latest_tricks": "Latest tricks",
+    "latest_posts": "Latest posts",
+    "latest_courses": "Latest courses",
+
+    "see_this_trick": "See this trick",
+    "Easy": "Easy",
+    "Medium": "Medium",
+    "Hard": "Hard",
+    "see_your_answers": "See your answers",
+    "play_this_quiz": "Play this quiz",
+    "your_score": "Your score",
+
+    "locked_content": "Locked content",
+    "under_development": "Under development",
+    "coming_soon": "Coming soon",
+
+    "your_answers": "Coming soon",
+    "Wrong_answer_the_correct_answer_is": "Coming soon",
+    "correcte": "Coming soon",
+
+    "created_by": "Created by",
+
+    "login_now": "Login now",
+
+    "Copied": "Copied",
+    "Copy": "Copy",
+
+    "we_are_in_beta": "We're in Beta!",
+    "share_your_thoughts": "Share your thoughts",
+    "give_feedback": "Give Feedback",
+    "test_our_platform": "Test our platform & help us refine it",
+
+    "list_of_tricks": "List of tricks",
+    "list_of_courses": "List of courses",
+    "list_of_quizzes": "List of quizzes",
+    "list_of_vocabulary": "List of vocabulary",
+    "list_of_exercices": "List of exercices"
 }

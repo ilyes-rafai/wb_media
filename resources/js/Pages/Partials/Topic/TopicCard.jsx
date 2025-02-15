@@ -1,6 +1,7 @@
 import ButtonCircle from "@/Components/ButtonCircle";
 import { Card } from "@/Components/Card";
 import DangerButton from "@/Components/DangerButton";
+import FormatDate from "@/Components/FormatDate";
 import Modal from "@/Components/Modal";
 import PrimaryButton from "@/Components/PrimaryButton";
 import SecondaryButton from "@/Components/SecondaryButton";
@@ -54,15 +55,7 @@ function TopicCard({ topic }) {
                     <span className="text-xs font-bold dark:text-slate-400 text-slate-700 text-slate-40">
                         @{topic.user.username}
                     </span>
-                    <span className="text-xs font-semibold text-slate-500 text-slate-40">
-                        {new Date(topic.created_at)
-                            .toLocaleDateString("en-GB", {
-                                day: "2-digit",
-                                month: "short",
-                                year: "2-digit",
-                            })
-                            .toUpperCase()}
-                    </span>
+                    <FormatDate wantedDate={topic.created_at} />
                 </div>
                 <div className="flex justify-end gap-3">
                     <Link

@@ -3,6 +3,7 @@ import AvatarInconu from "@/Components/AvatarInconu";
 import ButtonCircle from "@/Components/ButtonCircle";
 import { Card } from "@/Components/Card";
 import DangerButton from "@/Components/DangerButton";
+import FormatDate from "@/Components/FormatDate";
 import Modal from "@/Components/Modal";
 import PrimaryButton from "@/Components/PrimaryButton";
 import SecondaryButton from "@/Components/SecondaryButton";
@@ -66,21 +67,7 @@ function PostCard({ post }) {
                         </h4>
 
                         <div className="flex gap-2">
-                            <span className="text-xs font-semibold text-slate-500 text-slate-40">
-                                {new Date(post.created_at)
-                                    .toLocaleDateString("en-GB", {
-                                        day: "2-digit",
-                                        month: "short",
-                                        year: "2-digit",
-                                    })
-                                    .toUpperCase()}
-                            </span>
-                            <span className="text-xs font-semibold text-slate-500 text-slate-40">
-                                {new Date(post.created_at).toLocaleTimeString("en-GB", {
-                                    hour: "2-digit",
-                                    minute: "2-digit",
-                                })}
-                            </span>
+                            <FormatDate wantedDate={post.created_at} />
                         </div>
                     </div>
                 </div>

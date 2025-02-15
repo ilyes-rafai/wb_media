@@ -1,11 +1,14 @@
 import NavLink from "@/Components/NavLink";
+import { TranslationContext } from "@/contexts/TranslationProvider";
 import { usePage } from "@inertiajs/react";
-import React from "react";
+import React, { useContext } from "react";
 
 function NavbarLinks() {
     const user = usePage().props.auth.user;
 
     const abilities = usePage().props.auth.abilities;
+
+    const { translations } = useContext(TranslationContext);
 
     return (
         <>
@@ -13,7 +16,7 @@ function NavbarLinks() {
                 <>
                     <NavLink href={route("dashboard")} active={route().current("dashboard")}>
                         <i className="fa-solid fa-home me-2 text-lg"></i>
-                        Dashboard
+                        {translations.home}
                     </NavLink>
 
                     {abilities.is_admin && (
@@ -31,6 +34,11 @@ function NavbarLinks() {
                             <NavLink href={route("posts.index")} active={route().current("posts.index")}>
                                 <i className="fa-brands fa-leanpub me-2 text-lg"></i>
                                 {/* All posts */}
+                            </NavLink>
+
+                            <NavLink href={route("quizzes.index")} active={route().current("quizzes.index")}>
+                                <i className="fa-solid fa-puzzle-piece me-2 text-lg"></i>
+                                {/* All quizzes */}
                             </NavLink>
                         </>
                     )}
@@ -51,27 +59,27 @@ function NavbarLinks() {
 
                     <NavLink href={route("trickList")} active={route().current("trickList")}>
                         <i className="fa-solid fa-code me-2 text-lg"></i>
-                        Tricks
+                        {translations.Tricks}
                     </NavLink>
 
                     <NavLink href={route("courseList")} active={route().current("courseList")}>
                         <i className="fa-solid fa-video me-2 text-lg"></i>
-                        Courses
+                        {translations.Courses}
                     </NavLink>
 
                     <NavLink href={route("quizList")} active={route().current("quizList")}>
                         <i className="fa-solid fa-puzzle-piece me-2 text-lg"></i>
-                        Quizzes
+                        {translations.Quizzes}
                     </NavLink>
 
                     <NavLink href={route("exerciceList")} active={route().current("exerciceList")}>
                         <i className="fa-solid fa-square-root-variable me-2 text-lg"></i>
-                        Exercices
+                        {translations.Exercices}
                     </NavLink>
 
                     <NavLink href={route("vocabularyList")} active={route().current("vocabularyList")}>
                         <i className="fa-solid fa-spell-check me-2 text-lg"></i>
-                        Vocabulary
+                        {translations.Vocabulary}
                     </NavLink>
                 </>
             ) : (

@@ -1,4 +1,4 @@
-export default function Radio({ className = "", id, name, label, ...props }) {
+export default function Radio({ className = "", labelClassName, id, name, label, ...props }) {
     return (
         <>
             <input
@@ -7,14 +7,18 @@ export default function Radio({ className = "", id, name, label, ...props }) {
                 type="radio"
                 id={id}
                 className={
-                    "rounded border-ilyes bg-white dark:bg-slate-900 text-ilyes shadow-sm focus:ring-ilyes " + className
+                    "rounded-full border-2 border-ilyes bg-white dark:bg-slate-900 accent-green-700 text-ilyes checked:bg-ilyes dark:checked:bg-ilyes " +
+                    className
                 }
             />
 
             <label
                 htmlFor={id}
                 label={label}
-                className="text-sm font-medium dark:text-slate-300 text-slate-800 uppercase whitespace-nowrap"
+                className={
+                    "text-sm font-medium dark:text-slate-300 text-slate-800 uppercase whitespace-nowrap " +
+                    labelClassName
+                }
             >
                 {label}
             </label>

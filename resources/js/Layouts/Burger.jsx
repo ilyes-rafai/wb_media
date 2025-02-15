@@ -22,7 +22,7 @@ function Burger() {
             </span>
 
             <div
-                className={`fixed dark:bg-ilyes/5 bg-ilyes/5 backdrop-blur top-0 left-0 w-screen h-full z-50 transition-all duration-500 ${
+                className={`absolute dark:bg-black/90 bg-white/80 backdrop-blur top-0 left-0 w-screen h-screen z-50 transition-all duration-500 ${
                     menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
                 } `}
             >

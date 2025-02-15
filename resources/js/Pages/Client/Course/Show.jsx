@@ -2,10 +2,12 @@ import Breadcrumb from "@/Components/Breadcrumb";
 import TitleSection from "@/Components/TitleSection";
 import Layout from "@/Layouts/Layout";
 import { Head } from "@inertiajs/react";
-import React from "react";
+import React, { useContext } from "react";
 import { ChapterCard } from "./ChapterCard";
 
 function Show({ course }) {
+    const { translations } = useContext(TranslationContext);
+
     return (
         <Layout header="Courses">
             <Head title={course.title} />
@@ -14,8 +16,8 @@ function Show({ course }) {
                 <header className="mb-3 sm:mb-6">
                     <Breadcrumb
                         routes={[
-                            { href: route("dashboard"), label: "Dashboard" },
-                            { href: route("courseList"), label: "List of courses" },
+                            { href: route("dashboard"), label: translations.home },
+                            { href: route("courseList"), label: translations.list_of_courses },
                             { label: course.title }, // No `href` for the last one
                         ]}
                     />

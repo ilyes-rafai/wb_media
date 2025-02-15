@@ -1,22 +1,27 @@
 import Breadcrumb from "@/Components/Breadcrumb";
 import NavLink from "@/Components/NavLink";
 import TitleSection from "@/Components/TitleSection";
+import { TranslationContext } from "@/contexts/TranslationProvider";
 import Layout from "@/Layouts/Layout";
-import React from "react";
+import { Head } from "@inertiajs/react";
+import React, { useContext } from "react";
 import CourseCard from "./CourseCard";
 
 function List({ courses }) {
+    const { translations } = useContext(TranslationContext);
     return (
         <Layout>
+            <Head title={translations.list_of_courses} />
+
             <div className="p-3 sm:p-6 rounded-lg _border">
                 <Breadcrumb
                     routes={[
-                        { href: route("dashboard"), label: "Dashboard" },
-                        { label: "List of courses" }, // No `href` for the last one
+                        { href: route("dashboard"), label: translations.home },
+                        { label: translations.list_of_courses }, // No `href` for the last one
                     ]}
                 />
                 <header className="mb-3 sm:mb-6 flex flex-col md:flex-row justify-between md:items-center gap-6 md:gap-0">
-                    <TitleSection title="List of courses" />
+                    <TitleSection title={translations.list_of_courses} />
                 </header>
 
                 <div className="">

@@ -2,7 +2,7 @@ import React from "react";
 
 function CodeEditor({ lang, icon, color, id, className }) {
     return (
-        <div className={`w-72 aspect-video rounded-lg _border backdrop-blur-lg absolute ` + className}>
+        <div dir="ltr" className={`w-72 aspect-video rounded-lg _border backdrop-blur-lg absolute ` + className}>
             <div className="p-3 mb-3 flex justify-between items-center text-xs _border_b">
                 <div className="flex items-center">
                     <i className={`text-xl fa-brands fa-${icon} ${color}`}></i>

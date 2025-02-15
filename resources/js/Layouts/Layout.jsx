@@ -19,6 +19,14 @@ export default function Layout({ header, children }) {
 
     const { flash } = usePage().props;
 
+    const lang = localStorage.getItem("lang");
+
+    useEffect(() => {
+        document.documentElement.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
+        document.documentElement.classList.remove("font-sans", "font-arabic");
+        document.documentElement.classList.add(lang === "ar" ? "font-arabic" : "font-sans");
+    }, [lang]);
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-white via-ilyes/5 to-white dark:from-slate-950 dark:via-black dark:to-slate-950">
             <Blur top={32} left={0} />
@@ -37,9 +45,12 @@ export default function Layout({ header, children }) {
 
             <div className="sticky top-0 z-50 dark:bg-ilyes/5 bg-white/50 backdrop-blur">
                 <header className="_border_b bg-gradient-to-r from-ilyes/5 dark:via-black/50 via-white to-ilyes/5 dark:text-white text-xs font-semibold text-center py-2">
-                    We're in Beta! 🎉 Test our platform & help us refine it. Share your thoughts 👉
+                    {translations.we_are_in_beta} 🎉 {translations.test_our_platform}.{" "}
+                    {translations.share_your_thoughts + " "}
+                    <span className="rtl:hidden">👉</span>
+                    <span className="ltr:hidden">👈</span>
                     <a href="https://forms.gle/rJS28arQCRFRzRHX6" target="_blank" className="text-ilyes underline">
-                        Give Feedback
+                        {translations.give_feedback}
                     </a>
                 </header>
 

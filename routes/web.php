@@ -5,8 +5,11 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\TrickController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InstructionController;
+use App\Http\Controllers\OptionController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\QuizController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
@@ -24,7 +27,7 @@ Route::get('/', function () {
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+    Route::get('/webilymedia', [DashboardController::class, 'dashboard'])->name('dashboard');
 
     // profile routes
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -46,6 +49,24 @@ Route::middleware('auth')->group(function () {
     Route::put('topics-update-svg/{topic}', [TopicController::class, 'update_svg'])->name("topics.update_svg");
 
 
+
+    // option routes
+    Route::resource('options', OptionController::class)->except(['show']);
+    Route::put('handle-correct-option/{option}', [OptionController::class, 'HandleCorrectOption'])->name("options.handle_correct_option");
+
+
+
+    // quizze routes
+    Route::resource('quizzes', QuizController::class)->except(['show']);
+    Route::put('edit-quiz-published/{quiz}', [QuizController::class, 'handleQuizPublished'])->name('handleQuizPublished');
+    Route::get('quizzes-edit-questions-page/{quiz}', [QuizController::class, 'edit_questions_page'])->name("quizzes.edit_questions_page");
+
+    Route::get('quizzes-list', [DashboardController::class, 'quizList'])->name("quizList");
+    Route::get('quiz-show/{quiz}', [DashboardController::class, 'quizShow'])->name("quizShow");
+
+    Route::post('attach-quiz-to-user', [DashboardController::class, 'attachUserQuiz'])->name("attachUserQuiz");
+
+
     // trick routes
     Route::resource('tricks', TrickController::class)->except(['show']);
     Route::get('tricks-edit-instructions-page/{trick}', [TrickController::class, 'edit_instructions_page'])->name("tricks.edit_instructions_page");
@@ -62,8 +83,10 @@ Route::middleware('auth')->group(function () {
     Route::get('vocabularys-list', [DashboardController::class, 'vocabularyList'])->name("vocabularyList");
 
 
-    // quiz routes
-    Route::get('quizs-list', [DashboardController::class, 'quizList'])->name("quizList");
+
+
+    // instruction routes
+    Route::resource('questions', QuestionController::class)->except(['show']);
 
 
     // instruction routes
