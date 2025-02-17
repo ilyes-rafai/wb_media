@@ -4,8 +4,10 @@ import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
 import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
+import { TranslationContext } from "@/contexts/TranslationProvider";
 import Layout from "@/Layouts/Layout";
 import { Head, Link, useForm } from "@inertiajs/react";
+import { useContext } from "react";
 
 export default function Login({ status, canResetPassword }) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -22,6 +24,8 @@ export default function Login({ status, canResetPassword }) {
         });
     };
 
+    const { translations } = useContext(TranslationContext);
+
     return (
         <Layout>
             <Head title="Log in" />
@@ -36,7 +40,7 @@ export default function Login({ status, canResetPassword }) {
 
                 <form onSubmit={submit}>
                     <div>
-                        <InputLabel htmlFor="email" value="Email" />
+                        <InputLabel htmlFor="email" value={translations.email} />
 
                         <TextInput
                             id="email"
@@ -53,7 +57,7 @@ export default function Login({ status, canResetPassword }) {
                     </div>
 
                     <div className="mt-4">
-                        <InputLabel htmlFor="password" value="Password" />
+                        <InputLabel htmlFor="password" value={translations.password} />
 
                         <TextInput
                             id="password"
@@ -70,7 +74,7 @@ export default function Login({ status, canResetPassword }) {
 
                     <div className="mt-6 block">
                         <Checkbox
-                            label="Remember me"
+                            label={translations.remember_me}
                             name="remember"
                             checked={data.remember}
                             onChange={(e) => setData("remember", e.target.checked)}
@@ -90,11 +94,11 @@ export default function Login({ status, canResetPassword }) {
                         <PrimaryButton>
                             {processing ? (
                                 <>
-                                    <i className="fa-solid fa-spinner animate-spin"></i>
-                                    Processing...
+                                    <i className="fa-solid fa-spinner animate-spin me-2"></i>
+                                    {translations.processing}...
                                 </>
                             ) : (
-                                "Log In"
+                                translations.login
                             )}
                         </PrimaryButton>
                     </div>

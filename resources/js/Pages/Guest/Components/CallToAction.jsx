@@ -30,7 +30,7 @@ function CallToAction() {
             <SectionHeaderTwo title={translations.cta_title} />
 
             <div className="flex items-center justify-between gap-3 flex-wrap mx-auto">
-                <div className="flex flex-col text-left">
+                <div className="flex flex-col text-left rtl:text-right">
                     <h2 className="dark:text-slate-200 text-slate-800 font-bold text-balance text-2xl mb-1">
                         {translations.cta_join}
                     </h2>
@@ -45,7 +45,7 @@ function CallToAction() {
                                     />
                                 ))}
                         </div>
-                        <SectionSubHeader className="!mb-0">{translations.cta_members}</SectionSubHeader>
+                        <SectionSubHeader className="!mb-0 rtl:ms-4">{translations.cta_members}</SectionSubHeader>
                     </div>
                 </div>
 

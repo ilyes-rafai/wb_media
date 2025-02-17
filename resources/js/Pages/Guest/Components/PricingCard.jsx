@@ -2,18 +2,21 @@ import NavLink from "@/Components/NavLink";
 import PrimaryButton from "@/Components/PrimaryButton";
 import React from "react";
 
-function PricingCard({ title, description, price, kind, features, isPopular }) {
+function PricingCard({ title, description, price, oldPrice, kind, features, isPopular }) {
     return (
-        <div className="relative flex flex-col p-6 text-center text-slate-600 dark:text-slate-600 rounded-lg _border h-fit overflow-hidden dark:bg-black/5 bg-ilyes/5 backdrop-blur">
-            <h3 className="mb-4 text-2xl font-semibold text-ilyes">{title}</h3>
-            <p className="font-medium sm:text-lg text-slate-600 dark:text-slate-400">{description}</p>
-            <div className="flex justify-center items-baseline my-8">
-                <div className="mr-2 text-5xl font-extrabold">
-                    <span className="mr-1 text-ilyes">{price} DH</span>
+        <div className="relative flex flex-col p-6 text-center text-slate-600 dark:text-slate-600 rounded-lg _border h-fit overflow-hidden dark:bg-black/5 bg-white/5 backdrop-blur">
+            <h3 className="mb-4 text-2xl font-semibold text-ilyes uppercase">{title}</h3>
+            <p className="font-medium text-slate-900 dark:text-slate-400">{description}</p>
+            <p className="mr-1 text-5xl text-slate-400 dark:text-slate-600 font-extrabold line-through decoration-ilyes mt-8 mb-3">
+                {oldPrice}
+            </p>
+            <div className="flex justify-center items-center mb-8">
+                <div className="mr-2 font-extrabold">
+                    <p className="mr-1 text-2xl text-ilyes">{price}</p>
                 </div>
                 <div className="font-medium">/{kind}</div>
             </div>
-            <ul role="list" className="mb-8 space-y-4 text-left">
+            <ul role="list" className="mb-8 space-y-4 text-left rtl:text-right">
                 {features &&
                     features.map((feature, index) => (
                         <li key={index} className="flex items-baseline space-x-3 text-slate-800 dark:text-slate-200">

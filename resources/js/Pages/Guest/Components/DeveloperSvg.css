@@ -1,0 +1,55 @@
+.developer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.developer-svg {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Head movement */
+.head {
+    animation: nod-head 2.5s infinite alternate ease-in-out;
+    transform-origin: center center;
+}
+
+@keyframes nod-head {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-5deg);
+    }
+}
+
+/* Left Hand Animation */
+.left-hand {
+    animation: type-left 0.4s infinite alternate ease-in-out;
+    transform-origin: center;
+}
+
+@keyframes type-left {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Right Hand Animation */
+.right-hand {
+    animation: type-right 0.4s infinite alternate ease-in-out;
+    transform-origin: center;
+}
+
+@keyframes type-right {
+    0% {
+        transform: translateY(-3px);
+    }
+    100% {
+        transform: translateY(3px);
+    }
+}

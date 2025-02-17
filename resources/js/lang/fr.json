@@ -1,4 +1,21 @@
 {
+    "email": "e-mail",
+    "login": "connexion",
+    "password": "mot de passe",
+    "remember_me": "se souvenir de moi",
+    "processing": "traitement en cours",
+
+    "mentoring_title": "Mentorat Individuel",
+    "mentoring_subtitle": "Coaching personnalisé pour accélérer vos compétences en codage et votre carrière 🚀",
+    "mentoring_features": [
+        "Parcours d'apprentissage personnalisé – Obtenez un plan d'étude adapté à vos objectifs.",
+        "Sessions de questions-réponses en direct – Posez vos questions et obtenez des réponses d'experts.",
+        "Revue de code et feedback – Améliorez vos compétences en codage avec un retour direct.",
+        "Conseils de carrière et portfolio – Recevez des recommandations pour bâtir un profil de développeur solide.",
+        "Planning flexible – Réservez des sessions selon votre disponibilité."
+    ],
+    "mentoring_cta": "Réservez votre première session",
+
     "hero_title": "Maîtrisez le codage sans effort",
     "hero_sub": "Débloquez un monde d'astuces de codage, de quiz interactifs, d'exercices pratiques et de cours vidéo pour affiner vos compétences.",
 

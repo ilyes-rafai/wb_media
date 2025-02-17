@@ -9,48 +9,55 @@ function Hero() {
     const { translations } = useContext(TranslationContext);
 
     useEffect(() => {
-        // TypeIt animations
-        new TypeIt("#htmlCode", {
-            strings: [
-                `<span class='text-ilyes'>&lt;h1&gt;</span>Hi, I'm Ilyes RAFAI<span class='text-ilyes'>&lt;/h1&gt;</span>`,
-                `<span class='text-ilyes'>&lt;p&gt;</span>Welcome to Webilymedia!<span class='text-ilyes'>&lt;/p&gt;</span>`,
-            ],
-            speed: 150,
-            loop: true,
-        }).go();
+        const animations = [
+            {
+                selector: "#htmlCode",
+                strings: [
+                    `<span class='text-ilyes'>&lt;h1&gt;</span>Hi, I'm Ilyes RAFAI<span class='text-ilyes'>&lt;/h1&gt;</span>`,
+                    `<span class='text-ilyes'>&lt;p&gt;</span>Welcome to Webilymedia!<span class='text-ilyes'>&lt;/p&gt;</span>`,
+                ],
+            },
+            {
+                selector: "#scssCode",
+                strings: [
+                    `$color: <span class='text-ilyes'>#00E472</span>;`,
+                    `<span class='text-ilyes'>.class {</span>`,
+                    `&ensp;&ensp;color: $color;`,
+                    `&ensp;<span class='text-ilyes'>}</span>`,
+                ],
+            },
+            {
+                selector: "#jsCode",
+                strings: [
+                    `<span class='text-ilyes'>function</span> greet<span class='text-ilyes'>(</span>name<span class='text-ilyes'>)</span> {`,
+                    `&ensp;&ensp;console.log<span class='text-ilyes'>(</span>&ldquo;hello&ldquo;, name<span class='text-ilyes'>)</span>;`,
+                    `}`,
+                    `greet<span class='text-ilyes'>(</span>'Webilymedia'<span class='text-ilyes'>)</span>;`,
+                ],
+            },
+            {
+                selector: "#jsCode2",
+                strings: [
+                    `<span class='text-ilyes'>function</span> greet<span class='text-ilyes'>(</span>name<span class='text-ilyes'>)</span> {`,
+                    `&ensp;&ensp;console.log<span class='text-ilyes'>(</span>&ldquo;hello&ldquo;, name<span class='text-ilyes'>)</span>;`,
+                    `}`,
+                    `greet<span class='text-ilyes'>(</span>'Webilymedia'<span class='text-ilyes'>)</span>;`,
+                ],
+            },
+        ];
 
-        new TypeIt("#scssCode", {
-            strings: [
-                `$color: <span class='text-ilyes'>#00E472</span>;`,
-                `<span class='text-ilyes'>.class {</span>`,
-                `&ensp;&ensp;color: $color;`,
-                `&ensp;<span class='text-ilyes'>}</span>`,
-            ],
-            speed: 150,
-            loop: true,
-        }).go();
+        // Function to initialize TypeIt for each block
+        const instances = animations.map(({ selector, strings }) => {
+            return new TypeIt(selector, {
+                strings,
+                speed: 200,
+                loop: true,
+                waitUntilVisible: true,
+            }).go();
+        });
 
-        new TypeIt("#jsCode", {
-            strings: [
-                `<span class='text-ilyes'>function</span> sayHello<span class='text-ilyes'>(</span>name<span class='text-ilyes'>)</span> {`,
-                `&ensp;&ensp;console.log<span class='text-ilyes'>(</span>&ldquo;hello&ldquo;, name<span class='text-ilyes'>)</span>;`,
-                `}`,
-                `sayHello<span class='text-ilyes'>(</span>'Webilymedia'<span class='text-ilyes'>)</span>;`,
-            ],
-            speed: 150,
-            loop: true,
-        }).go();
-
-        new TypeIt("#jsCode2", {
-            strings: [
-                `<span class='text-ilyes'>function</span> sayHello<span class='text-ilyes'>(</span>name<span class='text-ilyes'>)</span> {`,
-                `&ensp;&ensp;console.log<span class='text-ilyes'>(</span>&ldquo;hello&ldquo;, name<span class='text-ilyes'>)</span>;`,
-                `}`,
-                `sayHello<span class='text-ilyes'>(</span>'Webilymedia'<span class='text-ilyes'>)</span>;`,
-            ],
-            speed: 150,
-            loop: true,
-        }).go();
+        // Cleanup function to destroy animations on unmount
+        return () => instances.forEach((instance) => instance.destroy());
     }, []);
 
     return (

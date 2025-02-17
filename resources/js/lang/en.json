@@ -1,4 +1,21 @@
 {
+    "email": "email",
+    "login": "login",
+    "password": "password",
+    "remember_me": "remember me",
+    "processing": "processing",
+
+    "mentoring_title": "One-to-One Mentoring",
+    "mentoring_subtitle": "Personalized coaching to accelerate your coding skills and career 🚀",
+    "mentoring_features": [
+        "Customized Learning Paths – Get a study plan tailored to your goals.",
+        "Live Q&A Sessions – Ask real-time questions and get expert answers.",
+        "Code Reviews & Feedback – Improve your coding skills with direct feedback.",
+        "Career & Portfolio Advice – Get guidance on building a strong developer profile.",
+        "Flexible Scheduling – Book sessions at your convenience."
+    ],
+    "mentoring_cta": "Book Your First Session",
+
     "hero_title": "Master Coding Effortlessly",
     "hero_sub": "Unlock a world of coding tricks, interactive quizzes, hands-on exercises, and video courses to sharpen your skills.",
 

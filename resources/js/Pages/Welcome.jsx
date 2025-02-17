@@ -4,6 +4,7 @@ import CallToAction from "./Guest/Components/CallToAction";
 import Spacer from "./Guest/Components/Spacer";
 import FAQ from "./Guest/Sections/FAQ";
 import Hero from "./Guest/Sections/Hero";
+import Mentor from "./Guest/Sections/Mentor";
 import Pricing from "./Guest/Sections/Pricing";
 import Topics from "./Guest/Sections/Topics";
 import Word from "./Guest/Sections/Word";
@@ -14,6 +15,9 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
             <Head title="Welcome" />
 
             <Hero />
+            <Spacer />
+
+            <Mentor />
             <Spacer />
 
             <Topics />
