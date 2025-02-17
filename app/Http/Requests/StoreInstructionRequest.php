@@ -22,8 +22,12 @@ class StoreInstructionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'string', 'max:255'], // Title is required and must not exceed 255 characters
-            'description' => ['nullable', 'string'],      // Description is optional but must be a string
+            'title_en' => ['required', 'string', 'max:255'], // Title is required and must not exceed 255 characters
+            'title_ar' => ['required', 'string', 'max:255'],
+            'title_fr' => ['required', 'string', 'max:255'],
+            'description_en' => ['nullable', 'string'],      // Description is optional but must be a string
+            'description_ar' => ['nullable', 'string'],      
+            'description_fr' => ['nullable', 'string'],      
             'code' => ['nullable', 'string'],            // Code is optional but must be a string
             'premium' => ['boolean'],                    // Premium must be a boolean value (true/false)
             'trick_id' => ['required', 'exists:tricks,id'], // Trick ID is required and must exist in the tricks table

@@ -32,16 +32,18 @@ export const InstructionCard = ({ instruction }) => {
             <div className="pb-6 last:pb-0">
                 <div className="">
                     <h3 className="text-2xl font-normal leading-tight dark:text-slate-400 text-slate-600">
-                        {instruction.title}
+                        {instruction.title_en}
                     </h3>
                 </div>
 
                 {/* Description */}
-                {instruction.description && (
-                    <p className="mt-3 dark:text-slate-400 text-slate-600 whitespace-pre-line">
-                        {instruction.description}
-                    </p>
-                )}
+                {instruction.description_en && instruction.description_ar && instruction.description_fr && (
+                        <>
+                            <p className="mt-3 dark:text-slate-400 text-slate-600 whitespace-pre-line">
+                                {instruction.description_en}
+                            </p>
+                        </>
+                    )}
 
                 {/* Code */}
                 {instruction.code && (
@@ -51,7 +53,13 @@ export const InstructionCard = ({ instruction }) => {
                                 <>
                                     <div className="flex justify-between items-center mb-6">
                                         <div className="mb-1 flex items-center justify-between gap-3 mt-3">
-                                            <span>{instruction.premium == 1 ? <Premium /> : <Free />}</span>
+                                            <span>
+                                                {instruction.premium == 1 ? (
+                                                    <Premium />
+                                                ) : (
+                                                    <Free />
+                                                )}
+                                            </span>
                                         </div>
                                         <div
                                             onClick={handleCopy}
@@ -60,18 +68,24 @@ export const InstructionCard = ({ instruction }) => {
                                             {isCopied ? (
                                                 <>
                                                     <i className="fa-solid fa-check"></i>
-                                                    <span>{translations.Copied}!</span>
+                                                    <span>
+                                                        {translations.Copied}!
+                                                    </span>
                                                 </>
                                             ) : (
                                                 <>
                                                     <i className="fa-solid fa-copy"></i>
-                                                    <span>{translations.Copy}</span>
+                                                    <span>
+                                                        {translations.Copy}
+                                                    </span>
                                                 </>
                                             )}
                                         </div>
                                     </div>
                                     <strong>
-                                        <Code language={instruction.language}>{instruction.code}</Code>
+                                        <Code language={instruction.language}>
+                                            {instruction.code}
+                                        </Code>
                                     </strong>
                                 </>
                             ) : (
@@ -81,7 +95,13 @@ export const InstructionCard = ({ instruction }) => {
                             <>
                                 <div className="flex justify-between items-center mb-6">
                                     <div className="mb-1 flex items-center justify-between gap-3 mt-3">
-                                        <span>{instruction.premium == 1 ? <Premium /> : <Free />}</span>
+                                        <span>
+                                            {instruction.premium == 1 ? (
+                                                <Premium />
+                                            ) : (
+                                                <Free />
+                                            )}
+                                        </span>
                                     </div>
                                     <div
                                         onClick={handleCopy}
@@ -90,7 +110,9 @@ export const InstructionCard = ({ instruction }) => {
                                         {isCopied ? (
                                             <>
                                                 <i className="fa-solid fa-check"></i>
-                                                <span>{translations.Copied}!</span>
+                                                <span>
+                                                    {translations.Copied}!
+                                                </span>
                                             </>
                                         ) : (
                                             <>
@@ -101,7 +123,9 @@ export const InstructionCard = ({ instruction }) => {
                                     </div>
                                 </div>
                                 <strong>
-                                    <Code language={instruction.language}>{instruction.code}</Code>
+                                    <Code language={instruction.language}>
+                                        {instruction.code}
+                                    </Code>
                                 </strong>
                             </>
                         )}

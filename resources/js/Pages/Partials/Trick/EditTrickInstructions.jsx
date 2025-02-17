@@ -17,8 +17,12 @@ import { InstructionCard } from "../Instruction/InstructionCard";
 function EditTrickInstructions({ trick, createdBy }) {
     // add logic
     const { data, setData, post, processing, errors, reset } = useForm({
-        title: "",
-        description: "",
+        title_en: "",
+        title_ar: "",
+        title_fr: "",
+        description_en: "",
+        description_ar: "",
+        description_fr: "",
         code: "",
         trick_id: trick.id,
         premium: false,
@@ -54,7 +58,10 @@ function EditTrickInstructions({ trick, createdBy }) {
 
             <div className="p-3 sm:p-6 lg:p-12 rounded-lg _border">
                 <header className="mb-3 sm:mb-6 lg:mb-12">
-                    <NavLink href={route("tricks.index")} active={route().current("tricks.index")}>
+                    <NavLink
+                        href={route("tricks.index")}
+                        active={route().current("tricks.index")}
+                    >
                         <i className="fa-solid fa-arrow-left-long me-2 text-lg"></i>
                         Back to tricks list
                     </NavLink>
@@ -78,32 +85,132 @@ function EditTrickInstructions({ trick, createdBy }) {
                     <div className="p-3 sm:p-6 lg:p-12 rounded-lg _border">
                         <div className="flex justify-between items-center mb-6">
                             <h2 className="text-xl font-bold leading-tight dark:text-slate-400 text-slate-600">
-                                Add new <span className="dark:text-slate-200 text-slate-600">Instruction</span>
+                                Add new{" "}
+                                <span className="dark:text-slate-200 text-slate-600">
+                                    Instruction
+                                </span>
                             </h2>
-                            <ButtonCircle icon="times" action={closeFormAddInstruction} />
+                            <ButtonCircle
+                                icon="times"
+                                action={closeFormAddInstruction}
+                            />
                         </div>
 
                         <form onSubmit={submit}>
-                            <div className="mb-6">
-                                <InputLabel value="instruction title" isRequired />
-                                <TextInput
-                                    placeholder="instruction title"
-                                    value={data.title}
-                                    onError={errors.title}
-                                    onChange={(e) => setData("title", e.target.value)}
-                                />
-                                {errors.title && <InputError message={errors.title} />}
+                            {/* TITLES INPUT */}
+                            <div className="mb-16">
+                                <div className="mb-6">
+                                    <InputLabel
+                                        value="instruction English title"
+                                        isRequired
+                                    />
+                                    <TextInput
+                                        placeholder="instruction english title"
+                                        value={data.title_en}
+                                        onError={errors.title_en}
+                                        onChange={(e) =>
+                                            setData("title_en", e.target.value)
+                                        }
+                                    />
+                                    {errors.title_en && (
+                                        <InputError message={errors.title_en} />
+                                    )}
+                                </div>
+                                <div className="mb-6">
+                                    <InputLabel
+                                        value="instruction Arabic title"
+                                        isRequired
+                                    />
+                                    <TextInput
+                                        placeholder="instruction arabic title"
+                                        value={data.title_ar}
+                                        onError={errors.title_ar}
+                                        onChange={(e) =>
+                                            setData("title_ar", e.target.value)
+                                        }
+                                    />
+                                    {errors.title_ar && (
+                                        <InputError message={errors.title_ar} />
+                                    )}
+                                </div>
+                                <div className="mb-6">
+                                    <InputLabel
+                                        value="instruction French title"
+                                        isRequired
+                                    />
+                                    <TextInput
+                                        placeholder="instruction french title"
+                                        value={data.title_fr}
+                                        onError={errors.title_fr}
+                                        onChange={(e) =>
+                                            setData("title_fr", e.target.value)
+                                        }
+                                    />
+                                    {errors.title_fr && (
+                                        <InputError message={errors.title_fr} />
+                                    )}
+                                </div>
                             </div>
 
-                            <div className="mb-6">
-                                <InputLabel value="instruction description" />
-                                <TextArea
-                                    placeholder="instruction description"
-                                    value={data.description}
-                                    onError={errors.description}
-                                    onChange={(e) => setData("description", e.target.value)}
-                                />
-                                {errors.description && <InputError message={errors.description} />}
+                            {/* DESCRIPTION INPUT */}
+                            <div className="mb-16">
+                                <div className="mb-6">
+                                    <InputLabel value="instruction English description" />
+                                    <TextArea
+                                        placeholder="instruction english description"
+                                        value={data.description_en}
+                                        onError={errors.description_en}
+                                        onChange={(e) =>
+                                            setData(
+                                                "description_en",
+                                                e.target.value
+                                            )
+                                        }
+                                    />
+                                    {errors.description_en && (
+                                        <InputError
+                                            message={errors.description_en}
+                                        />
+                                    )}
+                                </div>
+                                <div className="mb-6">
+                                    <InputLabel value="instruction Arabic description" />
+                                    <TextArea
+                                        placeholder="instruction arabic description"
+                                        value={data.description_ar}
+                                        onError={errors.description_ar}
+                                        onChange={(e) =>
+                                            setData(
+                                                "description_ar",
+                                                e.target.value
+                                            )
+                                        }
+                                    />
+                                    {errors.description_ar && (
+                                        <InputError
+                                            message={errors.description_ar}
+                                        />
+                                    )}
+                                </div>
+                                <div className="mb-6">
+                                    <InputLabel value="instruction French description" />
+                                    <TextArea
+                                        placeholder="instruction french description"
+                                        value={data.description_fr}
+                                        onError={errors.description_fr}
+                                        onChange={(e) =>
+                                            setData(
+                                                "description_fr",
+                                                e.target.value
+                                            )
+                                        }
+                                    />
+                                    {errors.description_fr && (
+                                        <InputError
+                                            message={errors.description_fr}
+                                        />
+                                    )}
+                                </div>
                             </div>
 
                             <div className="mb-6">
@@ -113,9 +220,13 @@ function EditTrickInstructions({ trick, createdBy }) {
                                     placeholder="instruction code"
                                     value={data.code}
                                     onError={errors.code}
-                                    onChange={(e) => setData("code", e.target.value)}
+                                    onChange={(e) =>
+                                        setData("code", e.target.value)
+                                    }
                                 />
-                                {errors.code && <InputError message={errors.code} />}
+                                {errors.code && (
+                                    <InputError message={errors.code} />
+                                )}
                             </div>
 
                             <div className="mb-6">
@@ -124,14 +235,21 @@ function EditTrickInstructions({ trick, createdBy }) {
                                     <Checkbox
                                         id="premium"
                                         checked={data.premium}
-                                        onChange={(e) => setData("premium", e.target.checked)} // Pass boolean value
+                                        onChange={(e) =>
+                                            setData("premium", e.target.checked)
+                                        } // Pass boolean value
                                         label="premium"
                                     />
-                                    {errors.premium && <InputError message={errors.premium} />}
+                                    {errors.premium && (
+                                        <InputError message={errors.premium} />
+                                    )}
                                 </div>
                             </div>
 
-                            <PrimaryButton type="submit" className="flex items-center gap-2">
+                            <PrimaryButton
+                                type="submit"
+                                className="flex items-center gap-2"
+                            >
                                 {processing ? (
                                     <>
                                         <i className="fa-solid fa-spinner animate-spin"></i>
@@ -148,7 +266,10 @@ function EditTrickInstructions({ trick, createdBy }) {
                 <div className="grid grid-cols-1 gap-6">
                     {trick.instructions &&
                         trick.instructions.map((instruction) => (
-                            <InstructionCard instruction={instruction} key={instruction.id} />
+                            <InstructionCard
+                                instruction={instruction}
+                                key={instruction.id}
+                            />
                         ))}
                 </div>
             </div>

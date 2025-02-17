@@ -63,8 +63,12 @@ class InstructionController extends Controller
 
             // Create a new instruction
             Instruction::create([
-                'title' => $validatedData['title'],
-                'description' => $validatedData['description'],
+                'title_en' => $validatedData['title_en'],
+                'title_ar' => $validatedData['title_ar'],
+                'title_fr' => $validatedData['title_fr'],
+                'description_en' => $validatedData['description_en'],
+                'description_ar' => $validatedData['description_ar'],
+                'description_fr' => $validatedData['description_fr'],
                 'code' => $validatedData['code'],
                 'premium' => $validatedData['premium'],
                 'trick_id' => $validatedData['trick_id'],

@@ -47,20 +47,26 @@ export const InstructionCard = ({ instruction }) => {
         <>
             <div className="pb-6 last:pb-0">
                 <div className="mb-1 flex items-center gap-3">
-                    <ButtonCircle icon="trash" action={confirmInstructionDeletion} />
+                    <ButtonCircle
+                        icon="trash"
+                        action={confirmInstructionDeletion}
+                    />
                     <h3 className="text-2xl font-normal leading-tight dark:text-slate-600 text-slate-400">
-                        {instruction.title}
+                        {instruction.title_en}
                     </h3>
                     <div className="flex items-center">
-                        <HandlePremium item={instruction} actionRoute="handleInstructionPremium" />
+                        <HandlePremium
+                            item={instruction}
+                            actionRoute="handleInstructionPremium"
+                        />
                         {instruction.premium == 1 ? <Premium /> : <Free />}
                     </div>
                 </div>
 
                 {/* Description */}
-                {instruction.description && (
+                {instruction.description_en && (
                     <p className="mt-6 dark:text-slate-400 text-slate-600 whitespace-pre-line">
-                        {instruction.description}
+                        {instruction.description_en}
                     </p>
                 )}
 
@@ -89,7 +95,9 @@ export const InstructionCard = ({ instruction }) => {
                             </div>
                         </div>
                         <strong>
-                            <Code language={instruction.language}>{instruction.code}</Code>
+                            <Code language={instruction.language}>
+                                {instruction.code}
+                            </Code>
                         </strong>
                     </p>
                 )}
@@ -99,7 +107,10 @@ export const InstructionCard = ({ instruction }) => {
                 <form onSubmit={submit} className="p-6 text-center">
                     <h2 className="text-lg font-medium text-slate-500 dark:text-slate-500">
                         Are you sure you want to delete the{" "}
-                        <span className="text-slate-700 dark:text-slate-300">{instruction.title}</span> instruction?
+                        <span className="text-slate-700 dark:text-slate-300">
+                            {instruction.title_en}
+                        </span>{" "}
+                        instruction?
                     </h2>
 
                     <div className="mt-6 flex gap-6 justify-center">
@@ -108,7 +119,10 @@ export const InstructionCard = ({ instruction }) => {
                             Cancel
                         </SecondaryButton>
 
-                        <PrimaryButton type="submit" className="flex items-center gap-2">
+                        <PrimaryButton
+                            type="submit"
+                            className="flex items-center gap-2"
+                        >
                             {processing ? (
                                 <>
                                     <i className="fa-solid fa-spinner me-2 animate-spin"></i>
@@ -116,7 +130,8 @@ export const InstructionCard = ({ instruction }) => {
                                 </>
                             ) : (
                                 <>
-                                    <i className="fa-solid fa-check me-2"></i> Yes, delete
+                                    <i className="fa-solid fa-check me-2"></i>{" "}
+                                    Yes, delete
                                 </>
                             )}
                         </PrimaryButton>
