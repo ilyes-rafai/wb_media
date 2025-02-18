@@ -57,7 +57,9 @@ class TrickController extends Controller
 
             // Create a new trick
             $trick = Trick::create([
-                'title' => $validatedData['title'],
+                'title_en' => $validatedData['title_en'],
+                'title_ar' => $validatedData['title_ar'],
+                'title_fr' => $validatedData['title_fr'],
                 'user_id' => Auth::id(),
             ]);
 
@@ -165,7 +167,9 @@ class TrickController extends Controller
 
             // Update the trick fields (excluding topics)
             $trick->update([
-                'title' => $validatedData['title'],
+                'title_en' => $validatedData['title_en'],
+                'title_ar' => $validatedData['title_ar'],
+                'title_fr' => $validatedData['title_fr'],
                 'premium' => $validatedData['premium'] ?? false, // Handle premium if it's part of the form
             ]);
 

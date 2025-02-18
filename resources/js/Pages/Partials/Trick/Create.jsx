@@ -14,7 +14,9 @@ import React, { useState } from "react";
 function Create({ topics }) {
     // add logic
     const { data, setData, post, processing, errors } = useForm({
-        title: "",
+        title_en: "",
+        title_ar: "",
+        title_fr: "",
         topics: [],
     });
 
@@ -52,14 +54,32 @@ function Create({ topics }) {
                 <div className="">
                     <form onSubmit={submit}>
                         <div className="mb-6">
-                            <InputLabel value="title" isRequired />
+                            <InputLabel value="English title" isRequired />
                             <TextInput
-                                placeholder="title"
-                                value={data.title}
-                                onError={errors.title}
-                                onChange={(e) => setData("title", e.target.value)}
+                                placeholder="english title"
+                                value={data.title_en}
+                                onError={errors.title_en}
+                                onChange={(e) => setData("title_en", e.target.value)}
                             />
-                            {errors.title && <InputError message={errors.title} />}
+                            {errors.title_en && <InputError message={errors.title_en} />}
+
+                            <InputLabel value="Arabic title" isRequired />
+                            <TextInput
+                                placeholder="arabic title"
+                                value={data.title_ar}
+                                onError={errors.title_ar}
+                                onChange={(e) => setData("title_ar", e.target.value)}
+                            />
+                            {errors.title_ar && <InputError message={errors.title_ar} />}
+
+                            <InputLabel value="Frech title" isRequired />
+                            <TextInput
+                                placeholder="frech title"
+                                value={data.title_fr}
+                                onError={errors.title_fr}
+                                onChange={(e) => setData("title_fr", e.target.value)}
+                            />
+                            {errors.title_fr && <InputError message={errors.title_fr} />}
                         </div>
 
                         {/* topics */}

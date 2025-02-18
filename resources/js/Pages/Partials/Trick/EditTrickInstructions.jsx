@@ -72,7 +72,7 @@ function EditTrickInstructions({ trick, createdBy }) {
                             <i className="fa-solid fa-quote-left"></i>
                         </sup>
                         <span>Trick :</span>
-                        <span className="mx-2">{trick.title}</span>
+                        <span className="mx-2">{trick.title_en}</span>
                         <sub className="text-ilyes">
                             <i className="fa-solid fa-quote-right"></i>
                         </sub>

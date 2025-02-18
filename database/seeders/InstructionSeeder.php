@@ -612,5 +612,520 @@ Instruction::create([
     'user_id' => 1,
     'trick_id' => 9,
 ]);
+// Trick ID 11: Creating a Responsive Login Form with TailwindCSS
+Instruction::create([
+    'title_en' => 'Set Up Basic HTML Structure',
+    'title_ar' => 'إعداد هيكل HTML الأساسي',
+    'title_fr' => 'Configurer la structure HTML de base',
+    'description_en' => 'Create a basic HTML file with a form element.',
+    'description_ar' => 'إنشاء ملف HTML أساسي مع عنصر النموذج.',
+    'description_fr' => 'Créez un fichier HTML de base avec un élément de formulaire.',
+    'code' => '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <title>Login Form</title>\n    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">\n</head>\n<body class="bg-gray-100">\n    <div class="flex justify-center items-center min-h-screen">\n        <form class="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">\n            <!-- Form fields will go here -->\n        </form>\n    </div>\n</body>\n</html>',
+    'language' => 'html',
+    'premium' => false,
+    'user_id' => 1,
+    'trick_id' => 11,
+]);
+
+Instruction::create([
+    'title_en' => 'Add Input Fields',
+    'title_ar' => 'إضافة حقول الإدخال',
+    'title_fr' => 'Ajouter des champs de saisie',
+    'description_en' => 'Add email and password input fields to the form.',
+    'description_ar' => 'إضافة حقول إدخال البريد الإلكتروني وكلمة المرور إلى النموذج.',
+    'description_fr' => 'Ajoutez des champs de saisie pour l\'e-mail et le mot de passe au formulaire.',
+    'code' => '<div>\n    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>\n    <input type="email" id="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="you@example.com">\n</div>\n<div class="mt-4">\n    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>\n    <input type="password" id="password" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">\n</div>',
+    'language' => 'html',
+    'premium' => false,
+    'user_id' => 1,
+    'trick_id' => 11,
+]);
+
+Instruction::create([
+    'title_en' => 'Add Submit Button',
+    'title_ar' => 'إضافة زر إرسال',
+    'title_fr' => 'Ajouter un bouton d\'envoi',
+    'description_en' => 'Add a submit button to the form.',
+    'description_ar' => 'إضافة زر إرسال إلى النموذج.',
+    'description_fr' => 'Ajoutez un bouton d\'envoi au formulaire.',
+    'code' => '<div class="mt-6">\n    <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">\n        Sign In\n    </button>\n</div>',
+    'language' => 'html',
+    'premium' => false,
+    'user_id' => 1,
+    'trick_id' => 11,
+]);
+
+// Trick ID 12: Building a RESTful API with Node.js and Express.js
+Instruction::create([
+    'title_en' => 'Initialize Node.js Project',
+    'title_ar' => 'تهيئة مشروع Node.js',
+    'title_fr' => 'Initialiser un projet Node.js',
+    'description_en' => 'Create a new Node.js project and install necessary packages.',
+    'description_ar' => 'إنشاء مشروع Node.js جديد وإعادة تثبيت الحزم اللازمة.',
+    'description_fr' => 'Créer un nouveau projet Node.js et installer les paquets nécessaires.',
+    'code' => 'mkdir my-api\n cd my-api\n npm init -y\n npm install express mongoose dotenv',
+    'language' => 'bash',
+    'premium' => true,
+    'user_id' => 4,
+    'trick_id' => 12,
+]);
+
+Instruction::create([
+    'title_en' => 'Set Up Express Server',
+    'title_ar' => 'إعداد خادم Express',
+    'title_fr' => 'Configurer le serveur Express',
+    'description_en' => 'Create an Express server and define routes.',
+    'description_ar' => 'إنشاء خادم Express وتحديد المسارات.',
+    'description_fr' => 'Créer un serveur Express et définir les itinéraires.',
+    'code' => 'const express = require("express");\nconst app = express();\nconst PORT = process.env.PORT || 3000;\n\napp.use(express.json());\n\napp.get("/", (req, res) => {\n    res.send("Hello World!");\n});\n\napp.listen(PORT, () => {\n    console.log(`Server is running on port ${PORT}`);\n});',
+    'language' => 'javascript',
+    'premium' => true,
+    'user_id' => 4,
+    'trick_id' => 12,
+]);
+
+Instruction::create([
+    'title_en' => 'Connect to MongoDB',
+    'title_ar' => 'الاتصال بـ MongoDB',
+    'title_fr' => 'Se connecter à MongoDB',
+    'description_en' => 'Connect your Express app to a MongoDB database.',
+    'description_ar' => 'ربط تطبيق Express الخاص بك بقاعدة بيانات MongoDB.',
+    'description_fr' => 'Connectez votre application Express à une base de données MongoDB.',
+    'code' => 'const mongoose = require("mongoose");\nrequire("dotenv").config();\n\nmongoose.connect(process.env.MONGODB_URI, {\n    useNewUrlParser: true,\n    useUnifiedTopology: true,\n}).then(() => {\n    console.log("Connected to MongoDB");\n}).catch(err => {\n    console.error("Error connecting to MongoDB", err);\n});',
+    'language' => 'javascript',
+    'premium' => true,
+    'user_id' => 4,
+    'trick_id' => 12,
+]);
+
+// Trick ID 13: Deploying Laravel Applications with Docker
+Instruction::create([
+    'title_en' => 'Create Dockerfile',
+    'title_ar' => 'إنشاء ملف Dockerfile',
+    'title_fr' => 'Créer un fichier Dockerfile',
+    'description_en' => 'Create a Dockerfile to define the environment for your Laravel app.',
+    'description_ar' => 'إنشاء ملف Dockerfile لتحديد البيئة لنظام تطبيق Laravel الخاص بك.',
+    'description_fr' => 'Créer un fichier Dockerfile pour définir l\'environnement de votre application Laravel.',
+    'code' => 'FROM php:8.1-fpm\n\n# Install system dependencies\nRUN apt-get update && apt-get install -y \n    git \n    curl \n    libpng-dev \n    libonig-dev \n    libxml2-dev \n    zip \n    unzip\n\n# Clear cache\nRUN apt-get clean && rm -rf /var/lib/apt/lists/*\n\n# Install PHP extensions\nRUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd\n\n# Get latest Composer\nCOPY --from=composer:latest /usr/bin/composer /usr/bin/composer\n\n# Set working directory\nWORKDIR /var/www\n\n# Install dependencies (for production)\nCOPY composer.json composer.lock ./\nRUN composer install --no-dev --no-scripts --optimize-autoloader\n\n# Copy existing application directory contents\nCOPY . ./\n\n# Expose port 9000 and start php-fpm server\nEXPOSE 9000\nCMD ["php-fpm"]',
+    'language' => 'dockerfile',
+    'premium' => true,
+    'user_id' => 4,
+    'trick_id' => 13,
+]);
+
+Instruction::create([
+    'title_en' => 'Create docker-compose.yml',
+    'title_ar' => 'إنشاء ملف docker-compose.yml',
+    'title_fr' => 'Créer un fichier docker-compose.yml',
+    'description_en' => 'Define services in docker-compose.yml to run your Laravel app.',
+    'description_ar' => 'تحديد الخدمات في ملف docker-compose.yml لتشغيل تطبيق Laravel الخاص بك.',
+    'description_fr' => 'Définissez les services dans docker-compose.yml pour exécuter votre application Laravel.',
+    'code' => 'version: "3.8"\nservices:\n  app:\n    build:\n      context: .\n    volumes:\n      - .:/var/www\n    ports:\n      - "9000:9000"\n    environment:\n      - APP_KEY=\n      - DB_CONNECTION=mysql\n      - DB_HOST=db\n      - DB_PORT=3306\n      - DB_DATABASE=homestead\n      - DB_USERNAME=root\n      - DB_PASSWORD=\n  db:\n    image: mysql:5.7\n    volumes:\n      - dbdata:/var/lib/mysql\n    environment:\n      - MYSQL_ROOT_PASSWORD=\n      - MYSQL_DATABASE=homestead\nvolumes:\n  dbdata:',
+    'language' => 'yaml',
+    'premium' => true,
+    'user_id' => 4,
+    'trick_id' => 13,
+]);
+
+Instruction::create([
+    'title_en' => 'Run Docker Containers',
+    'title_ar' => 'تشغيل عبارة Docker',
+    'title_fr' => 'Exécuter les conteneurs Docker',
+    'description_en' => 'Build and run your Docker containers.',
+    'description_ar' => 'بناء وتشغيل عبارات Docker الخاصة بك.',
+    'description_fr' => 'Construire et exécuter vos conteneurs Docker.',
+    'code' => 'docker-compose up --build',
+    'language' => 'bash',
+    'premium' => true,
+    'user_id' => 4,
+    'trick_id' => 13,
+]);
+
+// Trick ID 14: Version Control with Git and GitHub
+Instruction::create([
+    'title_en' => 'Initialize Git Repository',
+    'title_ar' => 'تهيئة مستودع Git',
+    'title_fr' => 'Initialiser un dépôt Git',
+    'description_en' => 'Initialize a new Git repository in your project directory.',
+    'description_ar' => 'تهيئة مستودع Git جديد في دليل المشروع الخاص بك.',
+    'description_fr' => 'Initialiser un nouveau dépôt Git dans votre répertoire de projet.',
+    'code' => 'git init',
+    'language' => 'bash',
+    'premium' => false,
+    'user_id' => 4,
+    'trick_id' => 14,
+]);
+
+Instruction::create([
+    'title_en' => 'Add Remote Repository',
+    'title_ar' => 'إضافة مستودع بعيد',
+    'title_fr' => 'Ajouter un dépôt distant',
+    'description_en' => 'Add a remote repository on GitHub.',
+    'description_ar' => 'إضافة مستودع بعيد على GitHub.',
+    'description_fr' => 'Ajoutez un dépôt distant sur GitHub.',
+    'code' => 'git remote add origin https://github.com/yourusername/your-repo.git',
+    'language' => 'bash',
+    'premium' => false,
+    'user_id' => 4,
+    'trick_id' => 14,
+]);
+
+Instruction::create([
+    'title_en' => 'Commit and Push Changes',
+    'title_ar' => 'التزام والتزام التغييرات',
+    'title_fr' => 'Engager et pousser les changements',
+    'description_en' => 'Commit your changes and push them to the remote repository.',
+    'description_ar' => 'التزام التغييرات وتوصيلها بالمستودع البعيد.',
+    'description_fr' => 'Engagez vos modifications et poussez-les vers le dépôt distant.',
+    'code' => 'git add .\ngit commit -m "Initial commit"\ngit push -u origin master',
+    'language' => 'bash',
+    'premium' => false,
+    'user_id' => 4,
+    'trick_id' => 14,
+]);
+
+// Trick ID 15: Building a Weather Application with React and OpenWeather API
+Instruction::create([
+    'title_en' => 'Set Up React App',
+    'title_ar' => 'إعداد تطبيق React',
+    'title_fr' => 'Configurer une application React',
+    'description_en' => 'Create a new React app and install Axios for HTTP requests.',
+    'description_ar' => 'إنشاء تطبيق React جديد وتثبيت Axios لإرسال طلبات HTTP.',
+    'description_fr' => 'Créez une nouvelle application React et installez Axios pour les requêtes HTTP.',
+    'code' => 'npx create-react-app weather-app\ncd weather-app\nnpm install axios',
+    'language' => 'bash',
+    'premium' => true,
+    'user_id' => 4,
+    'trick_id' => 15,
+]);
+
+Instruction::create([
+    'title_en' => 'Fetch Weather Data',
+    'title_ar' => 'استرجاع بيانات الطقس',
+    'title_fr' => 'Récupérer les données météorologiques',
+    'description_en' => 'Fetch weather data from the OpenWeather API.',
+    'description_ar' => 'استرجاع بيانات الطقس من واجهة برمجة تطبيقات OpenWeather.',
+    'description_fr' => 'Récupérer les données météorologiques depuis l\'API OpenWeather.',
+    'code' => 'import React, { useState } from "react";\nimport axios from "axios";\n\nfunction WeatherApp() {\n    const [weather, setWeather] = useState(null);\n    const [city, setCity] = useState("");\n\n    const fetchWeather = async () => {\n        const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=YOUR_API_KEY&units=metric`);\n        setWeather(response.data);\n    };\n\n    return (\n        <div>\n            <input type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder="Enter city" />\n            <button onClick={fetchWeather}>Get Weather</button>\n            {weather && (\n                <div>\n                    <h1>{weather.name}</h1>\n                    <p>Temperature: {weather.main.temp}°C</p>\n                    <p>Condition: {weather.weather[0].main}</p>\n                </div>\n            )}\n        </div>\n    );\n}\n\nexport default WeatherApp;',
+    'language' => 'javascript',
+    'premium' => true,
+    'user_id' => 4,
+    'trick_id' => 15,
+]);
+
+Instruction::create([
+    'title_en' => 'Style the Application',
+    'title_ar' => 'تنسيق التطبيق',
+    'title_fr' => 'Styliser l\'application',
+    'description_en' => 'Add some basic styling to your weather app.',
+    'description_ar' => 'إضافة بعض التصميم الأساسي لموقعك الجوي.',
+    'description_fr' => 'Ajoutez quelques styles de base à votre application météo.',
+    'code' => 'import "./WeatherApp.css";\n\n/* WeatherApp.css */\ndiv {\n    text-align: center;\n    margin-top: 50px;\n}\n\ninput {\n    padding: 10px;\n    margin-right: 10px;\n}\n\nbutton {\n    padding: 10px 20px;\n    background-color: #007bff;\n    color: white;\n    border: none;\n    cursor: pointer;\n}\n\nbutton:hover {\n    background-color: #0056b3;\n}',
+    'language' => 'css',
+    'premium' => true,
+    'user_id' => 4,
+    'trick_id' => 15,
+]);
+
+// Trick ID 16: Creating a Multi-Language Website with Laravel Localization
+Instruction::create([
+    'title_en' => 'Install Laravel Lang Package',
+    'title_ar' => 'تركيب حزمة ترجمة Laravel',
+    'title_fr' => 'Installer le package de traduction Laravel',
+    'description_en' => 'Install the Laravel Lang package for localization.',
+    'description_ar' => 'تركيب حزمة ترجمة Laravel للترجيم.',
+    'description_fr' => 'Installez le package de traduction Laravel pour la localisation.',
+    'code' => 'composer require laravel-lang/lang',
+    'language' => 'bash',
+    'premium' => true,
+    'user_id' => 4,
+    'trick_id' => 16,
+]);
+
+Instruction::create([
+    'title_en' => 'Configure Supported Languages',
+    'title_ar' => 'تكوين اللغات المدعومة',
+    'title_fr' => 'Configurer les langues prises en charge',
+    'description_en' => 'Configure supported languages in config/app.php.',
+    'description_ar' => 'تكوين اللغات المدعومة في ملف config/app.php.',
+    'description_fr' => 'Configurer les langues prises en charge dans config/app.php.',
+    'code' => "'locale' => 'en',\n'fallback_locale' => 'en',\n'supported_locales' => ['en', 'ar', 'fr'],",
+    'language' => 'php',
+    'premium' => true,
+    'user_id' => 4,
+    'trick_id' => 16,
+]);
+
+Instruction::create([
+    'title_en' => 'Create Language Files',
+    'title_ar' => 'إنشاء ملفات اللغة',
+    'title_fr' => 'Créer des fichiers de langue',
+    'description_en' => 'Create language files for each supported language.',
+    'description_ar' => 'إنشاء ملفات لغة لكل لغة مدعومة.',
+    'description_fr' => 'Créer des fichiers de langue pour chaque langue prise en charge.',
+    'code' => 'resources/lang/en/messages.php\nresources/lang/ar/messages.php\nresources/lang/fr/messages.php',
+    'language' => 'plaintext',
+    'premium' => true,
+    'user_id' => 4,
+    'trick_id' => 16,
+]);
+
+// Trick ID 17: Optimizing MySQL Queries for Better Performance
+Instruction::create([
+    'title_en' => 'Use Indexes',
+    'title_ar' => 'استخدام مؤشرات',
+    'title_fr' => 'Utiliser des index',
+    'description_en' => 'Add indexes to frequently queried columns.',
+    'description_ar' => 'إضافة مؤشرات لأعمدة يتم الاستعلام عنها بشكل متكرر.',
+    'description_fr' => 'Ajoutez des index aux colonnes fréquemment interrogées.',
+    'code' => 'ALTER TABLE users ADD INDEX idx_email (email);',
+    'language' => 'sql',
+    'premium' => true,
+    'user_id' => 1,
+    'trick_id' => 17,
+]);
+
+Instruction::create([
+    'title_en' => 'Optimize Joins',
+    'title_ar' => 'تحسين الاندماجات',
+    'title_fr' => 'Optimiser les jointures',
+    'description_en' => 'Ensure that joins are optimized by using appropriate keys.',
+    'description_ar' => 'تأكد من أن الاندماجات محسنة باستخدام المفاتيح المناسبة.',
+    'description_fr' => 'Assurez-vous que les jointures sont optimisées en utilisant les clés appropriées.',
+    'code' => 'SELECT * FROM orders INNER JOIN customers ON orders.customer_id = customers.id;',
+    'language' => 'sql',
+    'premium' => true,
+    'user_id' => 1,
+    'trick_id' => 17,
+]);
+
+Instruction::create([
+    'title_en' => 'Limit Result Sets',
+    'title_ar' => 'حد النتائج',
+    'title_fr' => 'Limiter les ensembles de résultats',
+    'description_en' => 'Limit the number of results returned by queries.',
+    'description_ar' => 'حد عدد النتائج التي يتم عودتها بواسطة الاستعلامات.',
+    'description_fr' => 'Limitez le nombre de résultats retournés par les requêtes.',
+    'code' => 'SELECT * FROM products LIMIT 10 OFFSET 20;',
+    'language' => 'sql',
+    'premium' => true,
+    'user_id' => 1,
+    'trick_id' => 17,
+]);
+
+// Trick ID 18: Designing a Modern Dashboard with TailwindCSS
+Instruction::create([
+    'title_en' => 'Set Up Basic HTML Structure',
+    'title_ar' => 'إعداد هيكل HTML الأساسي',
+    'title_fr' => 'Configurer la structure HTML de base',
+    'description_en' => 'Create a basic HTML file with a dashboard layout.',
+    'description_ar' => 'إنشاء ملف HTML أساسي مع تخطيط لوحة التحكم.',
+    'description_fr' => 'Créez un fichier HTML de base avec un plan de tableau de bord.',
+    'code' => '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <title>Modern Dashboard</title>\n    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">\n</head>\n<body class="bg-gray-100">\n    <div class="flex h-screen">\n        <!-- Sidebar -->\n        <div class="bg-gray-800 text-white w-64">\n            <!-- Sidebar content -->\n        </div>\n        <!-- Main Content -->\n        <div class="flex-1 p-4">\n            <!-- Main content -->\n        </div>\n    </div>\n</body>\n</html>',
+    'language' => 'html',
+    'premium' => false,
+    'user_id' => 1,
+    'trick_id' => 18,
+]);
+
+Instruction::create([
+    'title_en' => 'Add Cards for Data Visualization',
+    'title_ar' => 'إضافة بطاقات لتصور البيانات',
+    'title_fr' => 'Ajouter des cartes pour la visualisation des données',
+    'description_en' => 'Add cards to display data in a visually appealing way.',
+    'description_ar' => 'إضافة بطاقات لعرض البيانات بطريقة جذابة بصرياً.',
+    'description_fr' => 'Ajoutez des cartes pour afficher les données de manière visuellement attrayante.',
+    'code' => '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">\n    <div class="bg-white p-6 rounded-lg shadow-md">\n        <h2 class="text-xl font-bold mb-4">Total Users</h2>\n        <p class="text-4xl font-bold text-blue-600">1,234</p>\n    </div>\n    <div class="bg-white p-6 rounded-lg shadow-md">\n        <h2 class="text-xl font-bold mb-4">Active Users</h2>\n        <p class="text-4xl font-bold text-green-600">876</p>\n    </div>\n    <div class="bg-white p-6 rounded-lg shadow-md">\n        <h2 class="text-xl font-bold mb-4">Inactive Users</h2>\n        <p class="text-4xl font-bold text-red-600">358</p>\n    </div>\n</div>',
+    'language' => 'html',
+    'premium' => false,
+    'user_id' => 1,
+    'trick_id' => 18,
+]);
+
+Instruction::create([
+    'title_en' => 'Style the Dashboard',
+    'title_ar' => 'تنسيق لوحة التحكم',
+    'title_fr' => 'Styliser le tableau de bord',
+    'description_en' => 'Add some custom styles to enhance the dashboard appearance.',
+    'description_ar' => 'إضافة بعض الأنماط المخصصة لتحسين مظهر لوحة التحكم.',
+    'description_fr' => 'Ajoutez quelques styles personnalisés pour améliorer l\'apparence du tableau de bord.',
+    'code' => '/* Custom styles */\nbody {\n    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;\n}\n\n.sidebar {\n    height: 100vh;\n    overflow-y: auto;\n}\n\n.card {\n    transition: transform 0.2s ease;\n}\n\n.card:hover {\n    transform: translateY(-5px);\n}',
+    'language' => 'css',
+    'premium' => false,
+    'user_id' => 1,
+    'trick_id' => 18,
+]);
+
+// Trick ID 19: Implementing Authentication in React Applications
+Instruction::create([
+    'title_en' => 'Set Up React App',
+    'title_ar' => 'إعداد تطبيق React',
+    'title_fr' => 'Configurer une application React',
+    'description_en' => 'Create a new React app and install necessary packages.',
+    'description_ar' => 'إنشاء تطبيق React جديد وتثبيت الحزم اللازمة.',
+    'description_fr' => 'Créer une nouvelle application React et installer les paquets nécessaires.',
+    'code' => 'npx create-react-app auth-app\ncd auth-app\nnpm install react-router-dom axios',
+    'language' => 'bash',
+    'premium' => true,
+    'user_id' => 1,
+    'trick_id' => 19,
+]);
+
+Instruction::create([
+    'title_en' => 'Create Authentication Context',
+    'title_ar' => 'إنشاء سياق المصادقة',
+    'title_fr' => 'Créer un contexte d\'authentification',
+    'description_en' => 'Create an authentication context to manage user state.',
+    'description_ar' => 'إنشاء سياق للمصادقة لإدارة حالة المستخدم.',
+    'description_fr' => 'Créer un contexte d\'authentification pour gérer l\'état de l\'utilisateur.',
+    'code' => 'import React, { createContext, useState } from "react";\n\nexport const AuthContext = createContext();\n\nexport const AuthProvider = ({ children }) => {\n    const [user, setUser] = useState(null);\n\n    const login = (userData) => {\n        setUser(userData);\n    };\n\n    const logout = () => {\n        setUser(null);\n    };\n\n    return (\n        <AuthContext.Provider value={{ user, login, logout }}>\n            {children}\n        </AuthContext.Provider>\n    );\n};',
+    'language' => 'javascript',
+    'premium' => true,
+    'user_id' => 1,
+    'trick_id' => 19,
+]);
+
+Instruction::create([
+    'title_en' => 'Protect Routes',
+    'title_ar' => 'حماية المسارات',
+    'title_fr' => 'Protéger les itinéraires',
+    'description_en' => 'Protect routes to ensure only authenticated users can access them.',
+    'description_ar' => 'حماية المسارات لضمان الوصول فقط للمستخدمين المصادق عليهم.',
+    'description_fr' => 'Protégez les itinéraires pour vous assurer que seuls les utilisateurs authentifiés y ont accès.',
+    'code' => 'import React, { useContext } from "react";\nimport { Redirect, Route } from "react-router-dom";\nimport { AuthContext } from "./AuthContext";\n\nconst PrivateRoute = ({ component: Component, ...rest }) => {\n    const { user } = useContext(AuthContext);\n\n    return (\n        <Route\n            {...rest}\n            render={(props) =>\n                user ? <Component {...props} /> : <Redirect to="/login" />\n            }\n        />\n    );\n};\n\nexport default PrivateRoute;',
+    'language' => 'javascript',
+    'premium' => true,
+    'user_id' => 1,
+    'trick_id' => 19,
+]);
+
+// Trick ID 20: Managing State in React with Redux
+Instruction::create([
+    'title_en' => 'Set Up React App',
+    'title_ar' => 'إعداد تطبيق React',
+    'title_fr' => 'Configurer une application React',
+    'description_en' => 'Create a new React app and install Redux and React-Redux.',
+    'description_ar' => 'إنشاء تطبيق React جديد وتثبيت Redux و React-Redux.',
+    'description_fr' => 'Créer une nouvelle application React et installer Redux et React-Redux.',
+    'code' => 'npx create-react-app redux-app\ncd redux-app\nnpm install redux react-redux',
+    'language' => 'bash',
+    'premium' => true,
+    'user_id' => 1,
+    'trick_id' => 20,
+]);
+
+Instruction::create([
+    'title_en' => 'Create Redux Store',
+    'title_ar' => 'إنشاء متجر Redux',
+    'title_fr' => 'Créer un magasin Redux',
+    'description_en' => 'Create a Redux store to manage the state of your application.',
+    'description_ar' => 'إنشاء متجر Redux لإدارة حالة تطبيقك.',
+    'description_fr' => 'Créer un magasin Redux pour gérer l\'état de votre application.',
+    'code' => 'import { createStore } from "redux";\nimport rootReducer from "./reducers";\n\nconst store = createStore(rootReducer);\n\nexport default store;',
+    'language' => 'javascript',
+    'premium' => true,
+    'user_id' => 1,
+    'trick_id' => 20,
+]);
+
+Instruction::create([
+    'title_en' => 'Connect Redux to React',
+    'title_ar' => 'ربط Redux بـ React',
+    'title_fr' => 'Connecter Redux à React',
+    'description_en' => 'Connect your React app to the Redux store.',
+    'description_ar' => 'ربط تطبيق React الخاص بك بمتجر Redux.',
+    'description_fr' => 'Connectez votre application React au magasin Redux.',
+    'code' => 'import React from "react";\nimport ReactDOM from "react-dom";\nimport { Provider } from "react-redux";\nimport store from "./store";\nimport App from "./App";\n\nReactDOM.render(\n    <Provider store={store}>\n        <App />\n    </Provider>,\n    document.getElementById("root")\n);',
+    'language' => 'javascript',
+    'premium' => true,
+    'user_id' => 1,
+    'trick_id' => 20,
+]);
+
+// Trick ID 21: Creating a File Upload System with Laravel
+Instruction::create([
+    'title_en' => 'Set Up Laravel Project',
+    'title_ar' => 'إعداد مشروع Laravel',
+    'title_fr' => 'Configurer un projet Laravel',
+    'description_en' => 'Create a new Laravel project and configure file storage.',
+    'description_ar' => 'إنشاء مشروع Laravel جديد وتكوين تخزين الملفات.',
+    'description_fr' => 'Créer un nouveau projet Laravel et configurer le stockage de fichiers.',
+    'code' => 'composer create-project --prefer-dist laravel/laravel file-upload\nphp artisan storage:link',
+    'language' => 'bash',
+    'premium' => true,
+    'user_id' => 1,
+    'trick_id' => 21,
+]);
+
+Instruction::create([
+    'title_en' => 'Create Upload Form',
+    'title_ar' => 'إنشاء نموذج تحميل',
+    'title_fr' => 'Créer un formulaire de téléchargement',
+    'description_en' => 'Create a form to upload files.',
+    'description_ar' => 'إنشاء نموذج لتحميل الملفات.',
+    'description_fr' => 'Créer un formulaire de téléchargement de fichiers.',
+    'code' => '<form action="{{ route(\'upload\') }}" method="POST" enctype="multipart/form-data">\n    @csrf\n    <input type="file" name="file" required>\n    <button type="submit">Upload</button>\n</form>',
+    'language' => 'blade',
+    'premium' => true,
+    'user_id' => 1,
+    'trick_id' => 21,
+]);
+
+Instruction::create([
+    'title_en' => 'Handle File Upload in Controller',
+    'title_ar' => 'معالجة تحميل الملف في المتحكم',
+    'title_fr' => 'Gérer le téléchargement de fichiers dans le contrôleur',
+    'description_en' => 'Handle file upload logic in a controller method.',
+    'description_ar' => 'معالجة منطق تحميل الملف في طريقة المتحكم.',
+    'description_fr' => 'Gérer la logique de téléchargement de fichiers dans une méthode de contrôleur.',
+    'code' => 'public function upload(Request $request)\n{\n    $request->validate([\n        \'file\' => \'required|mimes:jpg,jpeg,png,pdf|max:2048\',\n    ]);\n\n    $path = $request->file(\'file\')->store(\'uploads\', \'public\');\n\n    return back()->with(\'success\', \'File has been uploaded.\');\n}',
+    'language' => 'php',
+    'premium' => true,
+    'user_id' => 1,
+    'trick_id' => 21,
+]);
+
+// Trick ID 22: Automating Tasks with Laravel Queues
+Instruction::create([
+    'title_en' => 'Configure Queue Driver',
+    'title_ar' => 'تكوين محرك الطوابير',
+    'title_fr' => 'Configurer le pilote de file d\'attente',
+    'description_en' => 'Configure a queue driver in .env file.',
+    'description_ar' => 'تكوين محرك طوابير في ملف .env.',
+    'description_fr' => 'Configurer un pilote de file d\'attente dans le fichier .env.',
+    'code' => 'QUEUE_CONNECTION=database',
+    'language' => 'plaintext',
+    'premium' => true,
+    'user_id' => 4,
+    'trick_id' => 22,
+]);
+
+Instruction::create([
+    'title_en' => 'Create Job Class',
+    'title_ar' => 'إنشاء فصل الوظيفة',
+    'title_fr' => 'Créer une classe de travail',
+    'description_en' => 'Create a job class to handle asynchronous tasks.',
+    'description_ar' => 'إنشاء فصل وظيفة لإدارة المهام غير المتزامنة.',
+    'description_fr' => 'Créer une classe de travail pour gérer les tâches asynchrones.',
+    'code' => 'php artisan make:job ProcessPodcast',
+    'language' => 'bash',
+    'premium' => true,
+    'user_id' => 4,
+    'trick_id' => 22,
+]);
+
+Instruction::create([
+    'title_en' => 'Dispatch Job',
+    'title_ar' => 'إرسال الوظيفة',
+    'title_fr' => 'Envoyer le travail',
+    'description_en' => 'Dispatch the job from a controller or event listener.',
+    'description_ar' => 'إرسال الوظيفة من المتحكم أو مستمع الأحداث.',
+    'description_fr' => 'Envoyer le travail à partir d\'un contrôleur ou d\'écouteur d\'événements.',
+    'code' => 'use App\\Jobs\\ProcessPodcast;\n\nProcessPodcast::dispatch($podcast);',
+    'language' => 'php',
+    'premium' => true,
+    'user_id' => 4,
+    'trick_id' => 22,
+]);
 }
 }

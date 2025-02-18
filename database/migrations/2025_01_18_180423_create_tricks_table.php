@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('tricks', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('title');
+            $table->string('title_en');
+            $table->string('title_ar');
+            $table->string('title_fr');
             $table->boolean('premium')->default(false);
             $table->timestamps();
         });

@@ -22,7 +22,9 @@ class UpdateTrickRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'string', 'max:255'], // Title is required, must be a string, and has a max length of 255 characters
+            'title_en' => ['required', 'string', 'max:255'], // Title is required, must be a string, and has a max length of 255 characters
+            'title_ar' => ['required', 'string', 'max:255'], // Title is required, must be a string, and has a max length of 255 characters
+            'title_fr' => ['required', 'string', 'max:255'], // Title is required, must be a string, and has a max length of 255 characters
             'premium' => ['boolean'], // Title is required, must be a string, and has a max length of 255 characters
             'topics' => 'required|array',
             'topics.*' => 'integer|exists:topics,id',

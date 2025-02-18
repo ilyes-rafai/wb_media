@@ -45,7 +45,7 @@ class DashboardController extends Controller
             ->take($perPage)
             ->get();
 
-        $tricks = Trick::select('id', 'title', 'premium', 'user_id', 'created_at')
+        $tricks = Trick::select('id', 'title_en', 'title_ar','title_fr', 'premium', 'user_id', 'created_at')
             ->orderBy('created_at', 'desc')
             ->with([
                 'user' => function ($query) {
@@ -159,7 +159,7 @@ class DashboardController extends Controller
 
     public function trickList()
     {
-        $tricks = Trick::select('id', 'title', 'premium', 'user_id', 'created_at')
+        $tricks = Trick::select('id', 'title_en', 'title_ar','title_fr', 'premium', 'user_id', 'created_at')
             ->orderBy('created_at', 'desc')
             ->with([
                 'user' => function ($query) {

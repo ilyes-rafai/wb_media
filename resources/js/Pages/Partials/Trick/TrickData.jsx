@@ -30,12 +30,15 @@ function TrickData({ trick }) {
 
     return (
         <>
-            <TableData>{trick.title}</TableData>
+            <TableData>{trick.title_en}</TableData>
             <TableData>{trick.instructions_count}</TableData>
             <TableData scope="row">
                 <div className="flex flex-wrap gap-3">
                     {trick.topics.map((topic, index) => (
-                        <div className="border dark:border-slate-800 px-2 rounded-full" key={index}>
+                        <div
+                            className="border dark:border-slate-800 px-2 rounded-full"
+                            key={index}
+                        >
                             <span className="">{topic.name}</span>
                         </div>
                     ))}
@@ -43,7 +46,10 @@ function TrickData({ trick }) {
             </TableData>
             <TableData>
                 <div className="flex items-center">
-                    <HandlePremium item={trick} actionRoute="handleTrickPremium" />
+                    <HandlePremium
+                        item={trick}
+                        actionRoute="handleTrickPremium"
+                    />
                     {trick.premium ? <Premium /> : <Free />}
                 </div>
             </TableData>
@@ -86,7 +92,10 @@ function TrickData({ trick }) {
                             Cancel
                         </SecondaryButton>
 
-                        <PrimaryButton type="submit" className="flex items-center gap-2">
+                        <PrimaryButton
+                            type="submit"
+                            className="flex items-center gap-2"
+                        >
                             {processing ? (
                                 <>
                                     <i className="fa-solid fa-spinner me-2 animate-spin"></i>
@@ -94,7 +103,8 @@ function TrickData({ trick }) {
                                 </>
                             ) : (
                                 <>
-                                    <i className="fa-solid fa-check me-2"></i> Yes, delete
+                                    <i className="fa-solid fa-check me-2"></i>{" "}
+                                    Yes, delete
                                 </>
                             )}
                         </PrimaryButton>

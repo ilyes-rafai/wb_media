@@ -22,7 +22,9 @@ class StoreTrickRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'string', 'max:255'], // Title is required, must be a string, and has a max length of 255 characters
+            'title_en' => ['required', 'string', 'max:255'], // Title is required, must be a string, and has a max length of 255 characters
+            'title_ar' => ['required', 'string', 'max:255'], // Title is required, must be a string, and has a max length of 255 characters
+            'title_fr' => ['required', 'string', 'max:255'], // Title is required, must be a string, and has a max length of 255 characters
             'topics' => 'array|required', // Ensure topics are an array, and nullable if no topics are selected
             'topics.*' => 'exists:topics,id', // Validate that each topic ID exists in the topics table                'user_id' => Auth::id(),
         ];

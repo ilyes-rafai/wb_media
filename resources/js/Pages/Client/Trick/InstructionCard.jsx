@@ -26,21 +26,33 @@ export const InstructionCard = ({ instruction }) => {
     };
 
     const { translations } = useContext(TranslationContext);
-
+let lang = localStorage.getItem("lang") || "en";
+let title =
+    lang === "fr"
+        ? instruction.title_fr
+        : lang === "ar"
+        ? instruction.title_ar
+        : instruction.title_en;
+let description =
+    lang === "fr"
+        ? instruction.description_fr
+        : lang === "ar"
+        ? instruction.description_ar
+        : instruction.description_en;
     return (
         <>
             <div className="pb-6 last:pb-0">
                 <div className="">
                     <h3 className="text-2xl font-normal leading-tight dark:text-slate-400 text-slate-600">
-                        {instruction.title_en}
+                        {title}
                     </h3>
                 </div>
 
                 {/* Description */}
-                {instruction.description_en && instruction.description_ar && instruction.description_fr && (
+                {description && (
                         <>
                             <p className="mt-3 dark:text-slate-400 text-slate-600 whitespace-pre-line">
-                                {instruction.description_en}
+                                {description}
                             </p>
                         </>
                     )}

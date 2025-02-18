@@ -14,17 +14,22 @@ function TrickCard({ trick }) {
     const abilities = usePage().props.auth.abilities;
 
     const { translations } = useContext(TranslationContext);
-
+    let lang = localStorage.getItem("lang") || "en";
+    let title =
+        lang === "fr"
+            ? trick.title_fr
+            : lang === "ar"
+            ? trick.title_ar
+            : trick.title_en;
+    
     return (
         <Card key={trick.id}>
             {trick.premium ? <Premium /> : <Free />}
 
             {/* title */}
             <h4 className="text-balance dark:text-slate-300 text-slate-800 text-lg dark:font-medium font-semibold break-words mb-3 group-hover:text-red-500">
-                {trick.title}
+                {title}
             </h4>
-            {/* description */}
-            <p className="text-balance dark:text-slate-500 text-slate-600 break-words">{trick.description}</p>
 
             {/* topics */}
             <div className="mb-6 mt-3 flex flex-wrap gap-3">
@@ -34,7 +39,9 @@ function TrickCard({ trick }) {
                             <div className="w-6 aspect-square rounded-full">
                                 <img
                                     className="w-full aspect-square object-contain"
-                                    src={`${import.meta.env.VITE_APP_URL}/${topic.svg}`}
+                                    src={`${import.meta.env.VITE_APP_URL}/${
+                                        topic.svg
+                                    }`}
                                     alt={topic.name}
                                 />
                             </div>
@@ -74,9 +81,19 @@ function TrickCard({ trick }) {
             <div className="flex md:items-center gap-3">
                 {/* avatar */}
                 {trick.user.avatar ? (
-                    <Avatar src={trick.user.avatar} alt={trick.user.username} width={10} height={10} />
+                    <Avatar
+                        src={trick.user.avatar}
+                        alt={trick.user.username}
+                        width={10}
+                        height={10}
+                    />
                 ) : (
-                    <AvatarInconu user={trick.user} width={10} height={10} size={2} />
+                    <AvatarInconu
+                        user={trick.user}
+                        width={10}
+                        height={10}
+                        size={2}
+                    />
                 )}
                 {/* <div className="rounded-full p-[2px] w-10 h-10">
                     </div> */}

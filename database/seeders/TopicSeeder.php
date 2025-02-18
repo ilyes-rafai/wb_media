@@ -301,5 +301,33 @@ class TopicSeeder extends Seeder
             'description' => 'CLI Tool Access',
             'svg' => 'img/topics/terminal.png',
         ]);
+
+        Topic::create([
+            'user_id' => 1,
+            'name' => 'Express.js',
+            'description' => 'Fast, unopinionated, minimalist web framework for Node.js',
+            'svg' => 'img/topics/expressjs.png',
+        ]);
+
+        Topic::create([
+    'user_id' => 1,
+    'name' => 'Docker',
+    'description' => 'Platform for developing, shipping, and running applications',
+    'svg' => 'img/topics/docker.png',
+]);
+
+Topic::create([
+    'user_id' => 1,
+    'name' => 'GraphQL',
+    'description' => 'Query language for APIs and a runtime for executing those queries',
+    'svg' => 'img/topics/graphql.png',
+]);
+
+Topic::create([
+    'user_id' => 1,
+    'name' => 'Prisma',
+    'description' => 'Type-safe database toolkit for Node.js and TypeScript',
+    'svg' => 'img/topics/prisma.png',
+]);
     }
 }
