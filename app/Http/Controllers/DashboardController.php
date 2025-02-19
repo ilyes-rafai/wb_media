@@ -58,6 +58,16 @@ class DashboardController extends Controller
             ->take($perPage)
             ->get();
 
+        $quizzes = Quiz::select('id','title_en', 'title_ar','title_fr', 'description_en' , 'description_ar', 'description_fr', 'difficulty', 'topic_id', 'created_at' )
+            ->orderBy('created_at', 'desc')
+            ->with([
+                'topic' => function ($query) {
+                    $query->select('topics.id', 'topics.name', 'topics.svg');
+                },
+            ])
+            ->take($perPage)
+            ->get();
+
         $courses = Course::select('id', 'title', 'premium', 'user_id', 'created_at')
             ->orderBy('created_at', 'desc')
             ->with([
@@ -72,11 +82,11 @@ class DashboardController extends Controller
             ->get();
 
 
-
         return Inertia::render('Dashboard', [
             'posts' => $posts,
             'courses' => $courses,
             'tricks' => $tricks,
+            'quizzes' => $quizzes,
         ]);
     }
 
