@@ -8,7 +8,9 @@ import React from "react";
 
 function AddOption({ question }) {
     const { data, setData, post, processing, errors } = useForm({
-        title: "",
+        title_en: "",
+        title_ar: "",
+        title_fr: "",
         question_id: question.id,
         is_correct: false,
     });
@@ -22,18 +24,34 @@ function AddOption({ question }) {
 
     return (
         <form onSubmit={submit} className="">
-            <div className="mb-6">
-                <InputLabel value="option" isRequired />
+            <div className="mb-14">
+                <InputLabel value="option in english" isRequired />
                 <TextInput
-                    placeholder="option"
-                    value={data.title}
-                    onError={errors.title}
-                    onChange={(e) => setData("title", e.target.value)}
+                    placeholder="option in english"
+                    value={data.title_en}
+                    onError={errors.title_en}
+                    onChange={(e) => setData("title_en", e.target.value)}
                 />
-                {errors.title && <InputError message={errors.title} />}
+                {errors.title_en && <InputError message={errors.title_en} />}
+                <InputLabel value="option in arabic" isRequired />
+                <TextInput
+                    placeholder="option in arabic"
+                    value={data.title_ar}
+                    onError={errors.title_ar}
+                    onChange={(e) => setData("title_ar", e.target.value)}
+                />
+                {errors.title_ar && <InputError message={errors.title_ar} />}
+                <InputLabel value="option in french" isRequired />
+                <TextInput
+                    placeholder="option in french"
+                    value={data.title_fr}
+                    onError={errors.title_fr}
+                    onChange={(e) => setData("title_fr", e.target.value)}
+                />
+                {errors.title_fr && <InputError message={errors.title_fr} />}
             </div>
 
-            <div className="mb-6">
+            <div className="mb-14">
                 <InputLabel value="is the correct option" isRequired />
                 <Checkbox
                     checked={data.is_correct} // Use 'checked' to bind checkbox state

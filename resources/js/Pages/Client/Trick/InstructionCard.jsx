@@ -26,19 +26,19 @@ export const InstructionCard = ({ instruction }) => {
     };
 
     const { translations } = useContext(TranslationContext);
-let lang = localStorage.getItem("lang") || "en";
-let title =
-    lang === "fr"
-        ? instruction.title_fr
-        : lang === "ar"
-        ? instruction.title_ar
-        : instruction.title_en;
-let description =
-    lang === "fr"
-        ? instruction.description_fr
-        : lang === "ar"
-        ? instruction.description_ar
-        : instruction.description_en;
+    let lang = localStorage.getItem("lang") || "en";
+    let title =
+        lang === "fr"
+            ? instruction.title_fr
+            : lang === "ar"
+            ? instruction.title_ar
+            : instruction.title_en;
+    let description =
+        lang === "fr"
+            ? instruction.description_fr
+            : lang === "ar"
+            ? instruction.description_ar
+            : instruction.description_en;
     return (
         <>
             <div className="pb-6 last:pb-0">
@@ -50,12 +50,12 @@ let description =
 
                 {/* Description */}
                 {description && (
-                        <>
-                            <p className="mt-3 dark:text-slate-400 text-slate-600 whitespace-pre-line">
-                                {description}
-                            </p>
-                        </>
-                    )}
+                    <>
+                        <p className="mt-3 dark:text-slate-400 text-slate-600 whitespace-pre-line">
+                            {description}
+                        </p>
+                    </>
+                )}
 
                 {/* Code */}
                 {instruction.code && (
@@ -94,7 +94,7 @@ let description =
                                             )}
                                         </div>
                                     </div>
-                                    <strong>
+                                    <strong dir="ltr">
                                         <Code language={instruction.language}>
                                             {instruction.code}
                                         </Code>
@@ -134,7 +134,7 @@ let description =
                                         )}
                                     </div>
                                 </div>
-                                <strong>
+                                <strong dir="ltr">
                                     <Code language={instruction.language}>
                                         {instruction.code}
                                     </Code>

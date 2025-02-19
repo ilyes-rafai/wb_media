@@ -22,7 +22,9 @@ class StoreQuestionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required',
+            'title_en' => 'required',
+            'title_ar' => 'required',
+            'title_fr' => 'required',
             'quiz_id' => 'required|exists:quizzes,id',
         ];
     }

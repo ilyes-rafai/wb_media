@@ -17,10 +17,14 @@ import React, { useEffect, useState } from "react";
 function Edit({ quiz, topics }) {
     // add logic
     const { data, setData, put, processing, errors } = useForm({
-        title: quiz.title || "",
+        title: quiz.title_en || "",
+        title: quiz.title_ar || "",
+        title: quiz.title_fr || "",
         is_published: quiz.is_published == 1 ? true : false,
         topic_id: quiz.topic_id || "",
-        description: quiz.description || "",
+        description: quiz.description_en || "",
+        description: quiz.description_ar || "",
+        description: quiz.description_fr || "",
         difficulty: quiz.difficulty || "",
     });
 
@@ -48,19 +52,35 @@ function Edit({ quiz, topics }) {
 
                 <div className="">
                     <form onSubmit={submit}>
-                        <div className="mb-6">
-                            <InputLabel value="title" isRequired />
+                        <div className="mb-14">
+                            <InputLabel value="title_en" isRequired />
                             <TextInput
-                                placeholder="title"
-                                value={data.title}
-                                onError={errors.title}
-                                onChange={(e) => setData("title", e.target.value)}
+                                placeholder="title_en"
+                                value={data.title_en}
+                                onError={errors.title_en}
+                                onChange={(e) => setData("title_en", e.target.value)}
                             />
-                            {errors.title && <InputError message={errors.title} />}
+                            {errors.title_en && <InputError message={errors.title_en} />}
+                            <InputLabel value="title_ar" isRequired />
+                            <TextInput
+                                placeholder="title_ar"
+                                value={data.title_ar}
+                                onError={errors.title_ar}
+                                onChange={(e) => setData("title_ar", e.target.value)}
+                            />
+                            {errors.title_ar && <InputError message={errors.title_ar} />}
+                            <InputLabel value="title_fr" isRequired />
+                            <TextInput
+                                placeholder="title_fr"
+                                value={data.title_fr}
+                                onError={errors.title_fr}
+                                onChange={(e) => setData("title_fr", e.target.value)}
+                            />
+                            {errors.title_fr && <InputError message={errors.title_fr} />}
                         </div>
 
                         {/* topics */}
-                        <div className="mb-6">
+                        <div className="mb-14">
                             <InputLabel value="Select a topic" isRequired />
                             <SearchableSelect
                                 data={topics}
@@ -72,17 +92,33 @@ function Edit({ quiz, topics }) {
                         </div>
 
                         <div className="mb-6">
-                            <InputLabel value="description" />
+                            <InputLabel value="description_en" />
                             <TextArea
-                                placeholder="description"
-                                value={data.description}
-                                onError={errors.description}
-                                onChange={(e) => setData("description", e.target.value)}
+                                placeholder="description_en"
+                                value={data.description_en}
+                                onError={errors.description_en}
+                                onChange={(e) => setData("description_en", e.target.value)}
                             />
-                            {errors.description && <InputError message={errors.description} />}
+                            {errors.description_en && <InputError message={errors.description_en} />}
+                            <InputLabel value="description_ar" />
+                            <TextArea
+                                placeholder="description_ar"
+                                value={data.description_ar}
+                                onError={errors.description_ar}
+                                onChange={(e) => setData("description_ar", e.target.value)}
+                            />
+                            {errors.description_ar && <InputError message={errors.description_ar} />}
+                            <InputLabel value="description_fr" />
+                            <TextArea
+                                placeholder="description_fr"
+                                value={data.description_fr}
+                                onError={errors.description_fr}
+                                onChange={(e) => setData("description_fr", e.target.value)}
+                            />
+                            {errors.description_fr && <InputError message={errors.description_fr} />}
                         </div>
 
-                        <div className="mb-6">
+                        <div className="mb-14">
                             <InputLabel value="difficulty" isRequired />
                             <div className="flex gap-4">
                                 <Radio

@@ -17,7 +17,9 @@ import { QuestionCard } from "./Question/Questioncard";
 function EditQuizQuestions({ quiz }) {
     // add logic
     const { data, setData, post, processing, errors, reset } = useForm({
-        title: "",
+        title_en: "",
+        title_ar: "",
+        title_fr: "",
         quiz_id: quiz.id,
     });
 
@@ -63,7 +65,7 @@ function EditQuizQuestions({ quiz }) {
                             <i className="fa-solid fa-quote-left"></i>
                         </sup>
                         <span>Quiz :</span>
-                        <span className="mx-2">{quiz.title}</span>
+                        <span className="mx-2">{quiz.title_en}</span>
                         <sub className="text-ilyes">
                             <i className="fa-solid fa-quote-right"></i>
                         </sub>
@@ -82,15 +84,31 @@ function EditQuizQuestions({ quiz }) {
                         </div>
 
                         <form onSubmit={submit}>
-                            <div className="mb-6">
-                                <InputLabel value="question title" isRequired />
+                            <div className="mb-14">
+                                <InputLabel value="question english title" isRequired />
                                 <TextInput
-                                    placeholder="question title"
-                                    value={data.title}
-                                    onError={errors.title}
-                                    onChange={(e) => setData("title", e.target.value)}
+                                    placeholder="question english title"
+                                    value={data.title_en}
+                                    onError={errors.title_en}
+                                    onChange={(e) => setData("title_en", e.target.value)}
                                 />
-                                {errors.title && <InputError message={errors.title} />}
+                                {errors.title_en && <InputError message={errors.title_en} />}
+                                <InputLabel value="question arabic title" isRequired />
+                                <TextInput
+                                    placeholder="question arabic title"
+                                    value={data.title_ar}
+                                    onError={errors.title_ar}
+                                    onChange={(e) => setData("title_ar", e.target.value)}
+                                />
+                                {errors.title_ar && <InputError message={errors.title_ar} />}
+                                <InputLabel value="question french title" isRequired />
+                                <TextInput
+                                    placeholder="question french title"
+                                    value={data.title_fr}
+                                    onError={errors.title_fr}
+                                    onChange={(e) => setData("title_fr", e.target.value)}
+                                />
+                                {errors.title_fr && <InputError message={errors.title_fr} />}
                             </div>
 
                             <PrimaryButton type="submit" className="flex items-center gap-2">

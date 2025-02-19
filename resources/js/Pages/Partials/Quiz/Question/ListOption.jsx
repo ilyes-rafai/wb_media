@@ -10,7 +10,7 @@ function ListOption({ options }) {
                         <HandleCorrectOption option={option} />
                         <span className="w-3">{index + 1 + ". "}</span>
 
-                        <span className="text-slate-700 dark:text-slate-300">{option.title}</span>
+                        <span className="text-slate-700 dark:text-slate-300">{option.title_en}</span>
                     </p>
                 ))}
         </div>

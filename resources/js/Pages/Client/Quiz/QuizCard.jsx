@@ -21,7 +21,19 @@ function QuizCard({ quiz }) {
     }
 
     const { translations } = useContext(TranslationContext);
-
+    let lang = localStorage.getItem("lang") || "en";
+    let title =
+        lang === "fr"
+            ? quiz.title_fr
+            : lang === "ar"
+            ? quiz.title_ar
+            : quiz.title_en;
+    let description =
+        lang === "fr"
+            ? quiz.description_fr
+            : lang === "ar"
+            ? quiz.description_ar
+            : quiz.description_en;
     return (
         <Card key={quiz.id}>
             <span className="text-ilyes bg-ilyes/10 rounded-full font-medium px-2 text-xs whitespace-nowrap tracking-wide capitalize">
@@ -36,11 +48,11 @@ function QuizCard({ quiz }) {
 
             {/* title */}
             <h4 className="text-balance dark:text-slate-300 text-slate-800 text-lg dark:font-medium font-semibold break-words mb-3 mt-6 group-hover:text-red-500">
-                {quiz.title}
+                {title}
             </h4>
 
             {/* description */}
-            <p className="text-balance dark:text-slate-500 text-slate-600 break-words">{quiz.description}</p>
+            <p className="text-balance dark:text-slate-500 text-slate-600 break-words">{description}</p>
 
             {/* topics */}
             <div className="mt-3 flex flex-wrap gap-3">

@@ -77,7 +77,7 @@ function Show({ quiz }) {
 
     return (
         <Layout header="Quizzes">
-            <Head title={quiz.title} />
+            <Head title={quiz.title_en} />
 
             <div className="p-3 sm:p-6 rounded-lg _border">
                 <header className="mb-3 sm:mb-6">

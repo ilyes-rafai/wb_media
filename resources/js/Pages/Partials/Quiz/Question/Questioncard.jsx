@@ -48,7 +48,7 @@ export const QuestionCard = ({ question }) => {
                 <div className="flex items-center gap-3 mb-6">
                     <ButtonCircle icon="trash" action={confirmQuestionDeletion} />
                     <h3 className="text-2xl font-normal leading-tight dark:text-slate-600 text-slate-400">
-                        {question.title}
+                        {question.title_en}
                     </h3>
                     <ButtonCircle icon="plus" action={openFormAddOption} />
                 </div>
@@ -58,7 +58,7 @@ export const QuestionCard = ({ question }) => {
                         <div className="flex justify-between items-center mb-6">
                             <h2 className="text-xl font-bold leading-tight dark:text-slate-400 text-slate-600 flex gap-2">
                                 Add new <span className="dark:text-slate-200 text-slate-600">Option</span>
-                                to <span className="dark:text-slate-200 text-slate-600">{question.title}</span>
+                                to <span className="dark:text-slate-200 text-slate-600">{question.title_en}</span>
                             </h2>
                             <ButtonCircle icon="times" action={closeFormAddOption} />
                         </div>

@@ -83,7 +83,7 @@ class DashboardController extends Controller
     public function quizList()
     {
         $quizzes = Quiz::where("is_published", 1)
-            ->select('id', 'title', 'description', 'difficulty', 'topic_id', 'created_at')
+            ->select('id', 'title_en', 'title_ar', 'title_fr', 'description_en', 'description_ar', 'description_fr', 'difficulty', 'topic_id', 'created_at')
             ->orderBy('created_at', 'desc')
             ->with([
                 'topic' => function ($query) {
@@ -97,55 +97,56 @@ class DashboardController extends Controller
         ]);
     }
 
-    public function quizShow(Quiz $quiz)
-    {
-        // Check if the quiz is published
-        if ($quiz->is_published == 1) {
-            // Get the authenticated user ID
-            $userId = auth()->id();
+public function quizShow(Quiz $quiz)
+{
+    // Check if the quiz is published
+    if ($quiz->is_published == 1) {
+        // Get the authenticated user ID
+        $userId = auth()->id();
+        // Check if the quiz is already attached to the user
+        $isAttached = $quiz->users()->where('user_id', $userId)->exists();
 
-            // Check if the quiz is already attached to the user
-            $isAttached = $quiz->users()->where('user_id', $userId)->exists();
-
-            if (!$isAttached) { // Ensure the user has NOT taken the quiz before rendering
-                $quiz = Quiz::whereId($quiz->id)
-                    ->with([
-                        'topic' => function ($query) {
-                            $query->select('id', 'name', 'svg');
-                        },
-                        'questions' => function ($query) {
-                            $query->select('id', 'title', 'quiz_id');
-                        },
-                        'questions.options' => function ($query) {
-                            $query->select('id', 'title', 'is_correct', 'question_id');
-                        },
-                    ])
-                    ->first();
-            } else {
-                $quiz = Quiz::whereId($quiz->id)
-                    ->with([
-                        'topic' => function ($query) {
-                            $query->select('id', 'name', 'svg');
-                        },
-                        'questions' => function ($query) {
-                            $query->select('id', 'title', 'quiz_id');
-                        },
-                        'questions.options' => function ($query) {
-                            $query->select('id', 'title', 'is_correct', 'question_id');
-                        },
-                        'users' => function ($query) {
-                            $query->select('quiz_user.correctCount', 'quiz_user.totalCount', 'quiz_user.answers');
-                        }
-                    ])
-                    ->first();
-            }
-            return Inertia::render('Client/Quiz/Show', [
-                'quiz' => $quiz,
-            ]);
+        if (!$isAttached) { // Ensure the user has NOT taken the quiz before rendering
+            $quiz = Quiz::whereId($quiz->id)
+                ->with([
+                    'topic' => function ($query) {
+                        $query->select('id', 'name', 'svg');
+                    },
+                    'questions' => function ($query) {
+                        $query->select('id', 'title_en', 'title_ar', 'title_fr', 'quiz_id');
+                    },
+                    'questions.options' => function ($query) {
+                        $query->select('id', 'title_en', 'title_ar', 'title_fr', 'is_correct', 'question_id');
+                    },
+                ])
+                ->first();
         } else {
-            abort(404); // Quiz is not published
+            $quiz = Quiz::whereId($quiz->id)
+                ->with([
+                    'topic' => function ($query) {
+                        $query->select('id', 'name', 'svg');
+                    },
+                    'questions' => function ($query) {
+                        $query->select('id', 'title_en', 'title_ar', 'title_fr', 'quiz_id');
+                    },
+                    'questions.options' => function ($query) {
+                        $query->select('id', 'title_en', 'title_ar', 'title_fr', 'is_correct', 'question_id');
+                    },
+                    'users' => function ($query) use ($userId) {
+                        $query->select('quiz_user.user_id', 'quiz_user.quiz_id', 'quiz_user.correctCount', 'quiz_user.totalCount', 'quiz_user.answers')
+                              ->where('quiz_user.user_id', $userId);
+                    }
+                ])
+                ->first();
         }
+
+        return Inertia::render('Client/Quiz/Show', [
+            'quiz' => $quiz,
+        ]);
+    } else {
+        abort(404); // Quiz is not published
     }
+}
 
     public function exerciceList()
     {

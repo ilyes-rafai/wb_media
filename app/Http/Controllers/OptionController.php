@@ -41,7 +41,9 @@ class OptionController extends Controller
 
             // Create the new option
             $option = Option::create([
-                'title' => $validatedData['title'],
+                'title_en' => $validatedData['title_en'],
+                'title_ar' => $validatedData['title_ar'],
+                'title_fr' => $validatedData['title_fr'],
                 'question_id' => $validatedData['question_id'],
                 'is_correct' => $validatedData['is_correct'] ?? false, // Default to false if not specified
             ]);

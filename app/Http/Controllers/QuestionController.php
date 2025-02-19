@@ -39,7 +39,9 @@ class QuestionController extends Controller
 
             // Create a new question
             $question = Question::create([
-                'title' => $validatedData['title'],
+                'title_en' => $validatedData['title_en'],
+                'title_ar' => $validatedData['title_ar'],
+                'title_fr' => $validatedData['title_fr'],
                 'quiz_id' => $validatedData['quiz_id'],
             ]);
 

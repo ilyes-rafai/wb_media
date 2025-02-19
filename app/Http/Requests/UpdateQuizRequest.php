@@ -23,8 +23,12 @@ class UpdateQuizRequest extends FormRequest
     {
         return [
             'topic_id' => 'required|exists:topics,id',
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
+            'title_en' => 'required|string|max:255',
+            'title_ar' => 'required|string|max:255',
+            'title_fr' => 'required|string|max:255',
+            'description_en' => 'nullable|string',
+            'description_ar' => 'nullable|string',
+            'description_fr' => 'nullable|string',
             'difficulty' => 'required|in:1,2,3',
             'is_published' => 'boolean',
         ];

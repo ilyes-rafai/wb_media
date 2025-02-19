@@ -18,8 +18,12 @@ function Create({ topics }) {
     // add logic
     const { data, setData, post, processing, errors } = useForm({
         topic_id: "",
-        title: "",
-        description: "",
+        title_en: "",
+        title_ar: "",
+        title_fr: "",
+        description_en: "",
+        description_ar: "",
+        description_fr: "",
         difficulty: "",
         is_published: false,
     });
@@ -49,19 +53,35 @@ function Create({ topics }) {
 
                 <div className="">
                     <form onSubmit={submit}>
-                        <div className="mb-6">
-                            <InputLabel value="title" isRequired />
+                        <div className="mb-14">
+                            <InputLabel value="title in english" isRequired />
                             <TextInput
-                                placeholder="title"
-                                value={data.title}
-                                onError={errors.title}
-                                onChange={(e) => setData("title", e.target.value)}
+                                placeholder="title in english"
+                                value={data.title_en}
+                                onError={errors.title_en}
+                                onChange={(e) => setData("title_en", e.target.value)}
                             />
-                            {errors.title && <InputError message={errors.title} />}
+                            {errors.title_en && <InputError message={errors.title_en} />}
+                            <InputLabel value="title in arabic" isRequired />
+                            <TextInput
+                                placeholder="title in arabic"
+                                value={data.title_ar}
+                                onError={errors.title_ar}
+                                onChange={(e) => setData("title_ar", e.target.value)}
+                            />
+                            {errors.title_ar && <InputError message={errors.title_ar} />}
+                            <InputLabel value="title in french" isRequired />
+                            <TextInput
+                                placeholder="title in french"
+                                value={data.title_fr}
+                                onError={errors.title_fr}
+                                onChange={(e) => setData("title_fr", e.target.value)}
+                            />
+                            {errors.title_fr && <InputError message={errors.title_fr} />}
                         </div>
 
                         {/* topics */}
-                        <div className="mb-6">
+                        <div className="mb-14">
                             <InputLabel value="Select a topic" isRequired />
                             <SearchableSelect
                                 data={topics}
@@ -72,15 +92,31 @@ function Create({ topics }) {
                             {errors.topic_id && <InputError message={errors.topic_id} />}
                         </div>
 
-                        <div className="mb-6">
-                            <InputLabel value="description" />
+                        <div className="mb-14">
+                            <InputLabel value="description in english" />
                             <TextArea
-                                placeholder="description"
-                                value={data.description}
-                                onError={errors.description}
-                                onChange={(e) => setData("description", e.target.value)}
+                                placeholder="description in english"
+                                value={data.description_en}
+                                onError={errors.description_en}
+                                onChange={(e) => setData("description_en", e.target.value)}
                             />
-                            {errors.description && <InputError message={errors.description} />}
+                            {errors.description_en && <InputError message={errors.description_en} />}
+                            <InputLabel value="description in arabic" />
+                            <TextArea
+                                placeholder="description in arabic"
+                                value={data.description_ar}
+                                onError={errors.description_ar}
+                                onChange={(e) => setData("description_ar", e.target.value)}
+                            />
+                            {errors.description_ar && <InputError message={errors.description_ar} />}
+                            <InputLabel value="description in french" />
+                            <TextArea
+                                placeholder="description in french"
+                                value={data.description_fr}
+                                onError={errors.description_fr}
+                                onChange={(e) => setData("description_fr", e.target.value)}
+                            />
+                            {errors.description_fr && <InputError message={errors.description_fr} />}
                         </div>
 
                         <div className="mb-6">

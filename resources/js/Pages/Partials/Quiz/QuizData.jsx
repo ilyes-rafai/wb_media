@@ -36,9 +36,9 @@ function QuizData({ quiz }) {
 
     return (
         <>
-            <TableData>{quiz.title}</TableData>
+            <TableData>{quiz.title_en}</TableData>
 
-            <TableData>{quiz.description}</TableData>
+            <TableData>{quiz.description_en}</TableData>
 
             <TableData>
                 {quiz.difficulty == 1

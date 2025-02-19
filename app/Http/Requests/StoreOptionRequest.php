@@ -22,7 +22,9 @@ class StoreOptionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required',
+            'title_en' => 'required',
+            'title_ar' => 'required',
+            'title_fr' => 'required',
             'question_id' => 'required|exists:questions,id',
             'is_correct' => 'boolean',
         ];

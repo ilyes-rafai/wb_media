@@ -78,9 +78,13 @@ class QuizController extends Controller
 
             // Create a new quiz
             $quiz = Quiz::create([
-                'title' => $validatedData['title'],
+                'title_en' => $validatedData['title_en'],
+                'title_ar' => $validatedData['title_ar'],
+                'title_fr' => $validatedData['title_fr'],
                 'topic_id' => $validatedData['topic_id'],
-                'description' => $validatedData['description'],
+                'description_en' => $validatedData['description_en'],
+                'description_ar' => $validatedData['description_ar'],
+                'description_fr' => $validatedData['description_fr'],
                 'difficulty' => $validatedData['difficulty'],
                 'is_published' => $validatedData['is_published'],
             ]);
@@ -136,9 +140,13 @@ class QuizController extends Controller
 
             // Update the quiz fields (excluding topics)
             $quiz->update([
-                'title' => $validatedData['title'],
+                'title_en' => $validatedData['title_en'],
+                'title_ar' => $validatedData['title_ar'],
+                'title_fr' => $validatedData['title_fr'],
                 'topic_id' => $validatedData['topic_id'],
-                'description' => $validatedData['description'],
+                'description_en' => $validatedData['description_en'],
+                'description_ar' => $validatedData['description_ar'],
+                'description_fr' => $validatedData['description_fr'],
                 'difficulty' => $validatedData['difficulty'],
                 'is_published' => $validatedData['is_published'] ?? false, // Handle is_published if it's part of the form
             ]);
