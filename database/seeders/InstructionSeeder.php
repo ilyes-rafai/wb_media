@@ -21,7 +21,19 @@ public function run(): void
         'description_en' => 'Basic structure with a <nav> element for navigation links and a <div> for the burger menu.',
         'description_ar' => 'الهيكل الأساسي مع عنصر <nav> لروابط التنقل و <div> لقائمة البرجر.',
         'description_fr' => 'Structure de base avec un élément <nav> pour les liens de navigation et un <div> pour le menu burger.',
-        'code' => '<nav class="navbar">\n<ul class="nav-links">\n<li>Home</li>\n<li>Services</li>\n<li>About</li>\n<li>Contact</li>\n</ul>\n<div class="burger">\n<div class="line"></div>\n<div class="line"></div>\n<div class="line"></div>\n</div>\n</nav>',
+        'code' => '<nav class="navbar">
+<ul class="nav-links">
+<li>Home</li>
+<li>Services</li>
+<li>About</li>
+<li>Contact</li>
+</ul>
+<div class="burger">
+<div class="line"></div>
+<div class="line"></div>
+<div class="line"></div>
+</div>
+</nav>',
         'language' => 'html',
         'premium' => false,
         'user_id' => 1,
@@ -31,10 +43,46 @@ public function run(): void
         'title_en' => 'CSS styles',
         'title_ar' => 'واجهة CSS',
         'title_fr' => 'styles CSS',
-        'description_en' => "✓ Uses Flexbox for layout.\n✓ Hides the menu on mobile and shows it with .nav-active.\n✓ Smooth transitions for a better user experience.",
-        'description_ar' => "✓ يستخدم Flexbox للتصميم.\n✓ يخفي القائمة على الأجهزة المحمولة ويظهرها باستخدام .nav-active.\n✓ انتقالات سلسة لتجربة مستخدم أفضل.",
-        'description_fr' => "✓ Utilise Flexbox pour la mise en page.\n✓ Masque le menu sur mobile et l'affiche avec .nav-active.\n✓ Transitions fluides pour une meilleure expérience utilisateur.",
-        'code' => '/* Reset */\n* {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\n/* Navbar */\n.navbar {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    background: #333;\n    color: white;\n    padding: 15px 20px;\n    position: fixed;\n    width: 100%;\n    top: 0;\n    left: 0;\n    z-index: 1000;\n}\n\n/* Responsive */\n@media screen and (max-width: 768px) {\n    .nav-links {\n        display: none;\n    }\n    .burger {\n        display: block;\n    }\n}',
+        'description_en' => "✓ Uses Flexbox for layout.
+        ✓ Hides the menu on mobile and shows it with .nav-active.
+        ✓ Smooth transitions for a better user experience.",
+        'description_ar' => "✓ يستخدم Flexbox للتصميم.
+        ✓ يخفي القائمة على الأجهزة المحمولة ويظهرها باستخدام .nav-active.
+        ✓ انتقالات سلسة لتجربة مستخدم أفضل.",
+        'description_fr' => "✓ Utilise Flexbox pour la mise en page.
+        ✓ Masque le menu sur mobile et l'affiche avec .nav-active.
+        ✓ Transitions fluides pour une meilleure expérience utilisateur.",
+        'code' => '/* Reset */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+/* Navbar */
+.navbar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+background: #333;
+color: white;
+padding: 15px 20px;
+position: fixed;
+width: 100%;
+top: 0;
+left: 0;
+z-index: 1000;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+.nav-links {
+display: none;
+}
+.burger {
+display: block;
+}
+}',
         'language' => 'css',
         'premium' => false,
         'user_id' => 1,
@@ -47,7 +95,14 @@ public function run(): void
         'description_en' => 'Adds/removes the .nav-active class when the burger menu is clicked.',
         'description_ar' => 'يضيف/يُزيل فئة .nav-active عندما يتم النقر على قائمة البرجر.',
         'description_fr' => 'Ajoute/supprime la classe .nav-active lorsque le menu burger est cliqué.',
-        'code' => 'document.addEventListener("DOMContentLoaded", () => {\n    const burger = document.querySelector(".burger");\n    const nav = document.querySelector(".nav-links");\n\n    burger.addEventListener("click", () => {\n        nav.classList.toggle("nav-active");\n    });\n});',
+        'code' => 'document.addEventListener("DOMContentLoaded", () => {
+const burger = document.querySelector(".burger");
+const nav = document.querySelector(".nav-links");
+
+burger.addEventListener("click", () => {
+nav.classList.toggle("nav-active");
+});
+});',
         'language' => 'javascript',
         'premium' => false,
         'user_id' => 1,
@@ -88,7 +143,12 @@ public function run(): void
         'description_en' => 'Set application URL and database connection parameters.',
         'description_ar' => 'قم بضبط عنوان التطبيق وبارامترات اتصال قاعدة البيانات.',
         'description_fr' => 'Définissez l\'URL de l\'application et les paramètres de connexion à la base de données.',
-        'code' => "APP_URL=http://localhost:8000\nDB_HOST=127.0.0.1\nDB_PORT=3306\nDB_DATABASE=db_name\nDB_USERNAME=root\nDB_PASSWORD=",
+        'code' => "APP_URL=http://localhost:8000
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=db_name
+DB_USERNAME=root
+DB_PASSWORD=",
         'language' => 'plaintext',
         'premium' => false,
         'user_id' => 1,
@@ -113,9 +173,18 @@ public function run(): void
         'title_en' => 'SETUP Project',
         'title_ar' => 'إعداد المشروع',
         'title_fr' => 'Configuration du projet',
-        'description_en' => "Create a folder named 'TODO Application'. Inside this folder, create the following three files:\n\t✔️index.html\n\t✔️style.css\n\t✔️script.js",
-        'description_ar' => "إنشاء مجلد باسم 'TODO Application'. داخل هذا المجلد، إنشاء الملفات الثلاثة التالية:\n\t✔️index.html\n\t✔️style.css\n\t✔️script.js",
-        'description_fr' => "Créez un dossier nommé 'TODO Application'. À l'intérieur de ce dossier, créez les trois fichiers suivants:\n\t✔️index.html\n\t✔️style.css\n\t✔️script.js",
+        'description_en' => "Create a folder named 'TODO Application'. Inside this folder, create the following three files:
+        \t✔️index.html
+        \t✔️style.css
+        \t✔️script.js",
+        'description_ar' => "إنشاء مجلد باسم 'TODO Application'. داخل هذا المجلد، إنشاء الملفات الثلاثة التالية:
+        \t✔️index.html
+        \t✔️style.css
+        \t✔️script.js",
+        'description_fr' => "Créez un dossier nommé 'TODO Application'. À l'intérieur de ce dossier, créez les trois fichiers suivants:
+        \t✔️index.html
+        \t✔️style.css
+        \t✔️script.js",
         'code' => '',
         'language' => 'plaintext',
         'premium' => false,
@@ -129,7 +198,23 @@ public function run(): void
         'description_en' => 'Create the basic structure of the TODO application with an input field and a button.',
         'description_ar' => 'إنشاء الهيكل الأساسي لتطبيق TODO مع حقل إدخال وزر.',
         'description_fr' => 'Créer la structure de base de l\'application TODO avec un champ de saisie et un bouton.',
-        'code' => '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <title>TODO App</title>\n    <link rel="stylesheet" href="style.css">\n</head>\n<body>\n    <div class="todo-container">\n        <input type="text" id="taskInput" placeholder="Enter a task">\n        <button id="addTask">Add Task</button>\n        <ul id="taskList"></ul>\n    </div>\n    <script src="script.js"></script>\n</body>\n</html>',
+        'code' => '<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TODO App</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="todo-container">
+<input type="text" id="taskInput" placeholder="Enter a task">
+<button id="addTask">Add Task</button>
+<ul id="taskList"></ul>
+</div>
+<script src="script.js"></script>
+</body>
+</html>',
         'language' => 'html',
         'premium' => false,
         'user_id' => 1,
@@ -142,7 +227,40 @@ public function run(): void
         'description_en' => 'Style the TODO application with a clean and modern design.',
         'description_ar' => 'تصميم تطبيق TODO بنمط نظيف ومعاصر.',
         'description_fr' => 'Styler l\'application TODO avec un design propre et moderne.',
-        'code' => 'body {\n    font-family: Arial, sans-serif;\n    background-color: #f4f4f4;\n    margin: 0;\n    padding: 0;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 100vh;\n}\n.todo-container {\n    background: #fff;\n    padding: 20px;\n    border-radius: 8px;\n    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n}\n#taskInput {\n    width: 100%;\n    padding: 10px;\n    margin-bottom: 10px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n}\n#addTask {\n    padding: 10px 20px;\n    background: #007bff;\n    color: #fff;\n    border: none;\n    border-radius: 4px;\n    cursor: pointer;\n}\n#addTask:hover {\n    background: #0056b3;\n}',
+        'code' => 'body {
+font-family: Arial, sans-serif;
+background-color: #f4f4f4;
+margin: 0;
+padding: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+}
+.todo-container {
+background: #fff;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+#taskInput {
+width: 100%;
+padding: 10px;
+margin-bottom: 10px;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+#addTask {
+padding: 10px 20px;
+background: #007bff;
+color: #fff;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+#addTask:hover {
+background: #0056b3;
+}',
         'language' => 'css',
         'premium' => false,
         'user_id' => 1,
@@ -155,7 +273,36 @@ public function run(): void
         'description_en' => 'Add tasks dynamically and store them in LocalStorage.',
         'description_ar' => 'أضف المهام ديناميكيًا واحفظها في LocalStorage.',
         'description_fr' => 'Ajoutez des tâches dynamiquement et stockez-les dans LocalStorage.',
-        'code' => 'document.addEventListener("DOMContentLoaded", () => {\n    const taskInput = document.getElementById("taskInput");\n    const addTaskButton = document.getElementById("addTask");\n    const taskList = document.getElementById("taskList");\n\n    // Load tasks from LocalStorage\n    const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];\n    savedTasks.forEach(task => addTaskToList(task));\n\n    addTaskButton.addEventListener("click", () => {\n        const taskText = taskInput.value.trim();\n        if (taskText !== "") {\n            addTaskToList(taskText);\n            saveTaskToLocalStorage(taskText);\n            taskInput.value = "";\n        }\n    });\n\n    function addTaskToList(taskText) {\n        const listItem = document.createElement("li");\n        listItem.textContent = taskText;\n        taskList.appendChild(listItem);\n    }\n\n    function saveTaskToLocalStorage(taskText) {\n        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];\n        tasks.push(taskText);\n        localStorage.setItem("tasks", JSON.stringify(tasks));\n    }\n});',
+        'code' => 'document.addEventListener("DOMContentLoaded", () => {
+const taskInput = document.getElementById("taskInput");
+const addTaskButton = document.getElementById("addTask");
+const taskList = document.getElementById("taskList");
+
+// Load tasks from LocalStorage
+const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+savedTasks.forEach(task => addTaskToList(task));
+
+addTaskButton.addEventListener("click", () => {
+const taskText = taskInput.value.trim();
+if (taskText !== "") {
+addTaskToList(taskText);
+saveTaskToLocalStorage(taskText);
+taskInput.value = "";
+}
+});
+
+function addTaskToList(taskText) {
+const listItem = document.createElement("li");
+listItem.textContent = taskText;
+taskList.appendChild(listItem);
+}
+
+function saveTaskToLocalStorage(taskText) {
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+tasks.push(taskText);
+localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+});',
         'language' => 'javascript',
         'premium' => false,
         'user_id' => 1,
@@ -196,7 +343,11 @@ Instruction::create([
     'description_en' => 'Add fields like name, price, and description to the products table.',
     'description_ar' => 'أضف حقولًا مثل الاسم، السعر، والوصف إلى جدول المنتجات.',
     'description_fr' => 'Ajoutez des champs comme le nom, le prix et la description au tableau des produits.',
-    'code' => '$table->id();\n$table->string("name");\n$table->decimal("price", 8, 2);\n$table->text("description")->nullable();\n$table->timestamps();',
+    'code' => '$table->id();
+$table->string("name");
+$table->decimal("price", 8, 2);
+$table->text("description")->nullable();
+$table->timestamps();',
     'language' => 'php',
     'premium' => true,
     'user_id' => 1,
@@ -261,7 +412,16 @@ Instruction::create([
     'description_en' => 'Create views for displaying, adding, editing, and deleting products.',
     'description_ar' => 'قم بإنشاء العروض لعرض، إضافة، تعديل، وحذف المنتجات.',
     'description_fr' => 'Créez des vues pour afficher, ajouter, modifier et supprimer des produits.',
-    'code' => '@extends("layouts.app")\n\n@section("content")\n<h1>Products</h1>\n<ul>\n@foreach($products as $product)\n    <li>{{ $product->name }} - {{ $product->price }}</li>\n@endforeach\n</ul>\n@endsection',
+    'code' => '@extends("layouts.app")
+    
+@section("content")
+<h1>Products</h1>
+<ul>
+@foreach($products as $product)
+<li>{{ $product->name }} - {{ $product->price }}</li>
+@endforeach
+</ul>
+@endsection',
     'language' => 'blade',
     'premium' => true,
     'user_id' => 1,
@@ -302,7 +462,8 @@ Instruction::create([
     'description_en' => 'Create a React app and install necessary dependencies.',
     'description_ar' => 'قم بإنشاء تطبيق React وتثبيت التبعيات اللازمة.',
     'description_fr' => 'Créez une application React et installez les dépendances nécessaires.',
-    'code' => 'npx create-react-app my-app\nnpm install axios',
+    'code' => 'npx create-react-app my-app
+npm install axios',
     'language' => 'bash',
     'premium' => true,
     'user_id' => 1,
@@ -315,7 +476,28 @@ Instruction::create([
     'description_en' => 'Create a React component for the dynamic form.',
     'description_ar' => 'قم بإنشاء مكون React لنموذج ديناميكي.',
     'description_fr' => 'Créez un composant React pour le formulaire dynamique.',
-    'code' => 'import React, { useState } from "react";\nimport axios from "axios";\n\nfunction App() {\n    const [formData, setFormData] = useState({ name: "", email: "" });\n\n    const handleSubmit = async (e) => {\n        e.preventDefault();\n        await axios.post("/api/submit-form", formData);\n        alert("Form submitted!");\n    };\n\n    return (\n        <form onSubmit={handleSubmit}>\n            <input type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />\n            <input type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />\n            <button type="submit">Submit</button>\n        </form>\n    );\n}\n\nexport default App;',
+    'code' => 'import React, { useState } from "react";
+import axios from "axios";
+
+function App() {
+const [formData, setFormData] = useState({ name: "", email: "" });
+
+const handleSubmit = async (e) => {
+e.preventDefault();
+await axios.post("/api/submit-form", formData);
+alert("Form submitted!");
+};
+
+return (
+<form onSubmit={handleSubmit}>
+<input type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
+<input type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+<button type="submit">Submit</button>
+</form>
+);
+}
+
+export default App;',
     'language' => 'javascript',
     'premium' => true,
     'user_id' => 1,
@@ -328,7 +510,8 @@ Instruction::create([
     'description_en' => 'Run both the Laravel backend and React frontend to test the integration.',
     'description_ar' => 'قم بتشغيل الخلفية بلارافيل والجهة الأمامية برياكت لاختبار التكامل.',
     'description_fr' => 'Exécutez à la fois l\'API Laravel et le frontend React pour tester l\'intégration.',
-    'code' => 'php artisan serve\nnpm start',
+    'code' => 'php artisan serve
+npm start',
     'language' => 'bash',
     'premium' => true,
     'user_id' => 1,
@@ -356,7 +539,10 @@ Instruction::create([
     'description_en' => 'Add Pusher credentials to the .env file.',
     'description_ar' => 'أضف بيانات اعتماد Pusher إلى ملف .env.',
     'description_fr' => 'Ajoutez les identifiants Pusher au fichier .env.',
-    'code' => 'PUSHER_APP_ID=your_app_id\nPUSHER_APP_KEY=your_app_key\nPUSHER_APP_SECRET=your_app_secret\nPUSHER_APP_CLUSTER=mt1',
+    'code' => 'PUSHER_APP_ID=your_app_id
+PUSHER_APP_KEY=your_app_key
+PUSHER_APP_SECRET=your_app_secret
+PUSHER_APP_CLUSTER=mt1',
     'language' => 'plaintext',
     'premium' => true,
     'user_id' => 1,
@@ -395,7 +581,10 @@ Instruction::create([
     'description_en' => 'Broadcast the chat message event to all connected users.',
     'description_ar' => 'قم ببث حدث رسالة الدردشة إلى جميع المستخدمين المتصلين.',
     'description_fr' => 'Diffusez l\'événement de message de chat à tous les utilisateurs connectés.',
-    'code' => 'public function broadcastOn()\n{\n    return new Channel("chat");\n}',
+    'code' => 'public function broadcastOn()
+{
+return new Channel("chat");
+}',
     'language' => 'php',
     'premium' => true,
     'user_id' => 1,
@@ -408,7 +597,9 @@ Instruction::create([
     'description_en' => 'Listen for incoming chat messages and update the UI dynamically.',
     'description_ar' => 'استمع إلى الرسائل الواردة لتحديث واجهة المستخدم ديناميكيًا.',
     'description_fr' => 'Écoutez les messages de chat entrants et mettez à jour l\'interface utilisateur dynamiquement.',
-    'code' => 'Pusher.pusher.subscribe("chat").bind("message-sent", function(data) {\n    console.log(data.message);\n});',
+    'code' => 'Pusher.pusher.subscribe("chat").bind("message-sent", function(data) {
+console.log(data.message);
+});',
     'language' => 'javascript',
     'premium' => true,
     'user_id' => 1,
@@ -448,7 +639,12 @@ Instruction::create([
     'description_en' => 'Add fields like name, price, description, and image_url to the products table.',
     'description_ar' => 'أضف حقولًا مثل الاسم، السعر، الوصف، والصورة إلى جدول المنتجات.',
     'description_fr' => 'Ajoutez des champs comme le nom, le prix, la description et l\'URL de l\'image au tableau des produits.',
-    'code' => '$table->id();\n$table->string("name");\n$table->decimal("price", 8, 2);\n$table->text("description")->nullable();\n$table->string("image_url")->nullable();\n$table->timestamps();',
+    'code' => '$table->id();
+$table->string("name");
+$table->decimal("price", 8, 2);
+$table->text("description")->nullable();
+$table->string("image_url")->nullable();
+$table->timestamps();',
     'language' => 'php',
     'premium' => true,
     'user_id' => 1,
@@ -474,7 +670,8 @@ Instruction::create([
     'description_en' => 'Create a React app and install necessary dependencies.',
     'description_ar' => 'قم بإنشاء تطبيق React وتثبيت التبعيات اللازمة.',
     'description_fr' => 'Créez une application React et installez les dépendances nécessaires.',
-    'code' => 'npx create-react-app e-commerce-frontend\nnpm install axios react-router-dom',
+    'code' => 'npx create-react-app e-commerce-frontend
+npm install axios react-router-dom',
     'language' => 'bash',
     'premium' => true,
     'user_id' => 1,
@@ -487,7 +684,30 @@ Instruction::create([
     'description_en' => 'Fetch product data from the Laravel API and display it in a grid layout.',
     'description_ar' => 'استرداد بيانات المنتج من API Laravel وإظهارها في تخطيط شبكة.',
     'description_fr' => 'Récupérez les données du produit depuis l\'API Laravel et affichez-les dans un format grille.',
-    'code' => 'import React, { useEffect, useState } from "react";\nimport axios from "axios";\n\nfunction ProductList() {\n    const [products, setProducts] = useState([]);\n\n    useEffect(() => {\n        axios.get("/api/products").then((response) => setProducts(response.data));\n    }, []);\n\n    return (\n        <div>\n            {products.map((product) => (\n                <div key={product.id}>\n                    <h3>{product.name}</h3>\n                    <p>{product.price}</p>\n                    <img src={product.image_url} alt={product.name} />\n                </div>\n            ))}\n        </div>\n    );\n}\n\nexport default ProductList;',
+    'code' => 'import React, { useEffect, useState } from "react";
+import axios from "axios";
+
+function ProductList() {
+const [products, setProducts] = useState([]);
+
+useEffect(() => {
+axios.get("/api/products").then((response) => setProducts(response.data));
+}, []);
+
+return (
+<div>
+{products.map((product) => (
+<div key={product.id}>
+<h3>{product.name}</h3>
+<p>{product.price}</p>
+<img src={product.image_url} alt={product.name} />
+</div>
+))}
+</div>
+);
+}
+
+export default ProductList;',
     'language' => 'javascript',
     'premium' => true,
     'user_id' => 1,
@@ -514,7 +734,30 @@ Instruction::create([
     'description_en' => 'Create the basic structure of the blog website.',
     'description_ar' => 'إنشاء الهيكل الأساسي لموقع المدونة.',
     'description_fr' => 'Créer la structure de base du site de blog.',
-    'code' => '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <title>My Blog</title>\n    <link rel="stylesheet" href="style.css">\n</head>\n<body>\n    <header>\n        <h1>My Blog</h1>\n    </header>\n    <main>\n        <article>\n            <h2>First Post</h2>\n            <p>This is my first blog post.</p>\n        </article>\n    </main>\n    <footer>\n        <p>&copy; 2023 My Blog</p>\n    </footer>\n    <script src="script.js"></script>\n</body>\n</html>',
+    'code' => '<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Blog</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>My Blog</h1>
+</header>
+<main>
+<article>
+<h2>First Post</h2>
+<p>This is my first blog post.</p>
+</article>
+</main>
+<footer>
+<p>&copy; 2023 My Blog</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>',
     'language' => 'html',
     'premium' => false,
     'user_id' => 1,
@@ -527,7 +770,31 @@ Instruction::create([
     'description_en' => 'Style the blog website with a clean and modern design.',
     'description_ar' => 'تصميم موقع المدونة بنمط نظيف ومعاصر.',
     'description_fr' => 'Styler le site de blog avec un design propre et moderne.',
-    'code' => 'body {\n    font-family: Arial, sans-serif;\n    margin: 0;\n    padding: 0;\n    background-color: #f4f4f4;\n}\nheader {\n    background: #007bff;\n    color: white;\n    text-align: center;\n    padding: 20px;\n}\nmain {\n    max-width: 800px;\n    margin: 20px auto;\n    padding: 20px;\n    background: white;\n    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n}\nfooter {\n    text-align: center;\n    padding: 10px;\n    background: #007bff;\n    color: white;\n}',
+    'code' => 'body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+background-color: #f4f4f4;
+}
+header {
+background: #007bff;
+color: white;
+text-align: center;
+padding: 20px;
+}
+main {
+max-width: 800px;
+margin: 20px auto;
+padding: 20px;
+background: white;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+footer {
+text-align: center;
+padding: 10px;
+background: #007bff;
+color: white;
+}',
     'language' => 'css',
     'premium' => false,
     'user_id' => 1,
@@ -540,7 +807,15 @@ Instruction::create([
     'description_en' => 'Add interactive features like dark mode toggle.',
     'description_ar' => 'أضف ميزات تفاعلية مثل تشغيل/إيقاف الوضع المظلم.',
     'description_fr' => 'Ajoutez des fonctionnalités interactives comme le basculement du mode sombre.',
-    'code' => 'document.addEventListener("DOMContentLoaded", () => {\n    const toggleButton = document.createElement("button");\n    toggleButton.textContent = "Toggle Dark Mode";\n    document.body.appendChild(toggleButton);\n\n    toggleButton.addEventListener("click", () => {\n        document.body.classList.toggle("dark-mode");\n    });\n});',
+    'code' => 'document.addEventListener("DOMContentLoaded", () => {
+const toggleButton = document.createElement("button");
+toggleButton.textContent = "Toggle Dark Mode";
+document.body.appendChild(toggleButton);
+
+toggleButton.addEventListener("click", () => {
+document.body.classList.toggle("dark-mode");
+});
+});',
     'language' => 'javascript',
     'premium' => false,
     'user_id' => 1,
@@ -553,7 +828,14 @@ Instruction::create([
     'description_en' => 'Make the blog website responsive for mobile devices.',
     'description_ar' => 'اجعل موقع المدونة متجاوبًا للأجهزة المحمولة.',
     'description_fr' => 'Rendez le site de blog responsive pour les appareils mobiles.',
-    'code' => '@media (max-width: 600px) {\n    header h1 {\n        font-size: 1.5rem;\n    }\n    main {\n        padding: 10px;\n    }\n}',
+    'code' => '@media (max-width: 600px) {
+header h1 {
+font-size: 1.5rem;
+}
+main {
+padding: 10px;
+}
+}',
     'language' => 'css',
     'premium' => false,
     'user_id' => 1,
@@ -567,7 +849,9 @@ Instruction::create([
     'description_en' => 'Create a new React app and install TailwindCSS.',
     'description_ar' => 'قم بإنشاء تطبيق React جديد وتثبيت TailwindCSS.',
     'description_fr' => 'Créez une nouvelle application React et installez TailwindCSS.',
-    'code' => 'npx create-react-app portfolio\nnpm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init',
+    'code' => 'npx create-react-app portfolio
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init',
     'language' => 'bash',
     'premium' => true,
     'user_id' => 1,
@@ -580,7 +864,15 @@ Instruction::create([
     'description_en' => 'Set up TailwindCSS by modifying the configuration file.',
     'description_ar' => 'قم بإعداد TailwindCSS عن طريق تعديل ملف التكوين.',
     'description_fr' => 'Configurez TailwindCSS en modifiant le fichier de configuration.',
-    'code' => 'module.exports = {\n    content: [\n        "./src/**/*.{js,jsx,ts,tsx}",\n    ],\n    theme: {\n        extend: {},\n    },\n    plugins: [],\n};',
+    'code' => 'module.exports = {
+content: [
+"./src/**/*.{js,jsx,ts,tsx}",
+],
+theme: {
+extend: {},
+},
+plugins: [],
+};',
     'language' => 'javascript',
     'premium' => true,
     'user_id' => 1,
@@ -593,7 +885,18 @@ Instruction::create([
     'description_en' => 'Design the home page using TailwindCSS classes.',
     'description_ar' => 'تصميم الصفحة الرئيسية باستخدام فئات TailwindCSS.',
     'description_fr' => 'Concevez la page d\'accueil à l\'aide des classes TailwindCSS.',
-    'code' => 'import React from "react";\n\nfunction HomePage() {\n    return (\n        <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center">\n            <h1 className="text-4xl font-bold text-blue-600">My Portfolio</h1>\n            <p className="text-lg text-gray-600 mt-4">Welcome to my portfolio website!</p>\n        </div>\n    );\n}\n\nexport default HomePage;',
+    'code' => 'import React from "react";
+
+function HomePage() {
+return (
+<div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center">
+<h1 className="text-4xl font-bold text-blue-600">My Portfolio</h1>
+<p className="text-lg text-gray-600 mt-4">Welcome to my portfolio website!</p>
+</div>
+);
+}
+
+export default HomePage;',
     'language' => 'javascript',
     'premium' => true,
     'user_id' => 1,
@@ -606,7 +909,27 @@ Instruction::create([
     'description_en' => 'Display a list of your projects with images and descriptions.',
     'description_ar' => 'عرض قائمة بمشاريعك مع الصور والوصف.',
     'description_fr' => 'Affichez une liste de vos projets avec des images et des descriptions.',
-    'code' => 'function ProjectsSection() {\n    const projects = [\n        { title: "Project 1", description: "Description of project 1", image: "project1.jpg" },\n        { title: "Project 2", description: "Description of project 2", image: "project2.jpg" },\n    ];\n\n    return (\n        <div className="container mx-auto py-10">\n            <h2 className="text-3xl font-bold mb-6">My Projects</h2>\n            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">\n                {projects.map((project) => (\n                    <div key={project.title} className="bg-white shadow-md rounded-lg p-6">\n                        <img src={project.image} alt={project.title} className="w-full rounded-md mb-4" />\n                        <h3 className="text-xl font-semibold">{project.title}</h3>\n                        <p>{project.description}</p>\n                    </div>\n                ))}\n            </div>\n        </div>\n    );\n}',
+    'code' => 'function ProjectsSection() {
+const projects = [
+{ title: "Project 1", description: "Description of project 1", image: "project1.jpg" },
+{ title: "Project 2", description: "Description of project 2", image: "project2.jpg" },
+];
+
+return (
+<div className="container mx-auto py-10">
+<h2 className="text-3xl font-bold mb-6">My Projects</h2>
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+{projects.map((project) => (
+<div key={project.title} className="bg-white shadow-md rounded-lg p-6">
+<img src={project.image} alt={project.title} className="w-full rounded-md mb-4" />
+<h3 className="text-xl font-semibold">{project.title}</h3>
+<p>{project.description}</p>
+</div>
+))}
+</div>
+</div>
+);
+}',
     'language' => 'javascript',
     'premium' => true,
     'user_id' => 1,
@@ -620,7 +943,22 @@ Instruction::create([
     'description_en' => 'Create a basic HTML file with a form element.',
     'description_ar' => 'إنشاء ملف HTML أساسي مع عنصر النموذج.',
     'description_fr' => 'Créez un fichier HTML de base avec un élément de formulaire.',
-    'code' => '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <title>Login Form</title>\n    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">\n</head>\n<body class="bg-gray-100">\n    <div class="flex justify-center items-center min-h-screen">\n        <form class="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">\n            <!-- Form fields will go here -->\n        </form>\n    </div>\n</body>\n</html>',
+    'code' => '<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Form</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+<div class="flex justify-center items-center min-h-screen">
+<form class="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
+<!-- Form fields will go here -->
+</form>
+</div>
+</body>
+</html>',
     'language' => 'html',
     'premium' => false,
     'user_id' => 1,
@@ -634,7 +972,14 @@ Instruction::create([
     'description_en' => 'Add email and password input fields to the form.',
     'description_ar' => 'إضافة حقول إدخال البريد الإلكتروني وكلمة المرور إلى النموذج.',
     'description_fr' => 'Ajoutez des champs de saisie pour l\'e-mail et le mot de passe au formulaire.',
-    'code' => '<div>\n    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>\n    <input type="email" id="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="you@example.com">\n</div>\n<div class="mt-4">\n    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>\n    <input type="password" id="password" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">\n</div>',
+    'code' => '<div>
+<label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+<input type="email" id="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="you@example.com">
+</div>
+<div class="mt-4">
+<label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+<input type="password" id="password" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+</div>',
     'language' => 'html',
     'premium' => false,
     'user_id' => 1,
@@ -648,7 +993,11 @@ Instruction::create([
     'description_en' => 'Add a submit button to the form.',
     'description_ar' => 'إضافة زر إرسال إلى النموذج.',
     'description_fr' => 'Ajoutez un bouton d\'envoi au formulaire.',
-    'code' => '<div class="mt-6">\n    <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">\n        Sign In\n    </button>\n</div>',
+    'code' => '<div class="mt-6">
+<button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+Sign In
+</button>
+</div>',
     'language' => 'html',
     'premium' => false,
     'user_id' => 1,
@@ -663,8 +1012,11 @@ Instruction::create([
     'description_en' => 'Create a new Node.js project and install necessary packages.',
     'description_ar' => 'إنشاء مشروع Node.js جديد وإعادة تثبيت الحزم اللازمة.',
     'description_fr' => 'Créer un nouveau projet Node.js et installer les paquets nécessaires.',
-    'code' => 'mkdir my-api\n cd my-api\n npm init -y\n npm install express mongoose dotenv',
-    'language' => 'bash',
+    'code' => 'mkdir my-api
+cd my-api
+npm init -y
+npm install express mongoose dotenv',
+'language' => 'bash',
     'premium' => true,
     'user_id' => 4,
     'trick_id' => 12,
@@ -677,7 +1029,19 @@ Instruction::create([
     'description_en' => 'Create an Express server and define routes.',
     'description_ar' => 'إنشاء خادم Express وتحديد المسارات.',
     'description_fr' => 'Créer un serveur Express et définir les itinéraires.',
-    'code' => 'const express = require("express");\nconst app = express();\nconst PORT = process.env.PORT || 3000;\n\napp.use(express.json());\n\napp.get("/", (req, res) => {\n    res.send("Hello World!");\n});\n\napp.listen(PORT, () => {\n    console.log(`Server is running on port ${PORT}`);\n});',
+    'code' => 'const express = require("express");
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(express.json());
+
+app.get("/", (req, res) => {
+res.send("Hello World!");
+});
+
+app.listen(PORT, () => {
+console.log(`Server is running on port ${PORT}`);
+});',
     'language' => 'javascript',
     'premium' => true,
     'user_id' => 4,
@@ -691,7 +1055,17 @@ Instruction::create([
     'description_en' => 'Connect your Express app to a MongoDB database.',
     'description_ar' => 'ربط تطبيق Express الخاص بك بقاعدة بيانات MongoDB.',
     'description_fr' => 'Connectez votre application Express à une base de données MongoDB.',
-    'code' => 'const mongoose = require("mongoose");\nrequire("dotenv").config();\n\nmongoose.connect(process.env.MONGODB_URI, {\n    useNewUrlParser: true,\n    useUnifiedTopology: true,\n}).then(() => {\n    console.log("Connected to MongoDB");\n}).catch(err => {\n    console.error("Error connecting to MongoDB", err);\n});',
+    'code' => 'const mongoose = require("mongoose");
+require("dotenv").config();
+
+mongoose.connect(process.env.MONGODB_URI, {
+useNewUrlParser: true,
+useUnifiedTopology: true,
+}).then(() => {
+console.log("Connected to MongoDB");
+}).catch(err => {
+console.error("Error connecting to MongoDB", err);
+});',
     'language' => 'javascript',
     'premium' => true,
     'user_id' => 4,
@@ -706,7 +1080,40 @@ Instruction::create([
     'description_en' => 'Create a Dockerfile to define the environment for your Laravel app.',
     'description_ar' => 'إنشاء ملف Dockerfile لتحديد البيئة لنظام تطبيق Laravel الخاص بك.',
     'description_fr' => 'Créer un fichier Dockerfile pour définir l\'environnement de votre application Laravel.',
-    'code' => 'FROM php:8.1-fpm\n\n# Install system dependencies\nRUN apt-get update && apt-get install -y \n    git \n    curl \n    libpng-dev \n    libonig-dev \n    libxml2-dev \n    zip \n    unzip\n\n# Clear cache\nRUN apt-get clean && rm -rf /var/lib/apt/lists/*\n\n# Install PHP extensions\nRUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd\n\n# Get latest Composer\nCOPY --from=composer:latest /usr/bin/composer /usr/bin/composer\n\n# Set working directory\nWORKDIR /var/www\n\n# Install dependencies (for production)\nCOPY composer.json composer.lock ./\nRUN composer install --no-dev --no-scripts --optimize-autoloader\n\n# Copy existing application directory contents\nCOPY . ./\n\n# Expose port 9000 and start php-fpm server\nEXPOSE 9000\nCMD ["php-fpm"]',
+    'code' => 'FROM php:8.1-fpm
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y 
+git 
+curl 
+libpng-dev 
+libonig-dev 
+libxml2-dev 
+zip 
+unzip
+
+# Clear cache
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Install PHP extensions
+RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
+
+# Get latest Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Set working directory
+WORKDIR /var/www
+
+# Install dependencies (for production)
+COPY composer.json composer.lock ./
+RUN composer install --no-dev --no-scripts --optimize-autoloader
+
+# Copy existing application directory contents
+COPY . ./
+
+# Expose port 9000 and start php-fpm server
+EXPOSE 9000
+CMD ["php-fpm"]',
     'language' => 'dockerfile',
     'premium' => true,
     'user_id' => 4,
@@ -720,7 +1127,32 @@ Instruction::create([
     'description_en' => 'Define services in docker-compose.yml to run your Laravel app.',
     'description_ar' => 'تحديد الخدمات في ملف docker-compose.yml لتشغيل تطبيق Laravel الخاص بك.',
     'description_fr' => 'Définissez les services dans docker-compose.yml pour exécuter votre application Laravel.',
-    'code' => 'version: "3.8"\nservices:\n  app:\n    build:\n      context: .\n    volumes:\n      - .:/var/www\n    ports:\n      - "9000:9000"\n    environment:\n      - APP_KEY=\n      - DB_CONNECTION=mysql\n      - DB_HOST=db\n      - DB_PORT=3306\n      - DB_DATABASE=homestead\n      - DB_USERNAME=root\n      - DB_PASSWORD=\n  db:\n    image: mysql:5.7\n    volumes:\n      - dbdata:/var/lib/mysql\n    environment:\n      - MYSQL_ROOT_PASSWORD=\n      - MYSQL_DATABASE=homestead\nvolumes:\n  dbdata:',
+    'code' => 'version: "3.8"
+services:
+app:
+build:
+context: .
+volumes:
+- .:/var/www
+ports:
+- "9000:9000"
+environment:
+- APP_KEY=
+- DB_CONNECTION=mysql
+- DB_HOST=db
+- DB_PORT=3306
+- DB_DATABASE=homestead
+- DB_USERNAME=root
+- DB_PASSWORD=
+db:
+image: mysql:5.7
+volumes:
+- dbdata:/var/lib/mysql
+environment:
+- MYSQL_ROOT_PASSWORD=
+- MYSQL_DATABASE=homestead
+volumes:
+dbdata:',
     'language' => 'yaml',
     'premium' => true,
     'user_id' => 4,
@@ -777,7 +1209,9 @@ Instruction::create([
     'description_en' => 'Commit your changes and push them to the remote repository.',
     'description_ar' => 'التزام التغييرات وتوصيلها بالمستودع البعيد.',
     'description_fr' => 'Engagez vos modifications et poussez-les vers le dépôt distant.',
-    'code' => 'git add .\ngit commit -m "Initial commit"\ngit push -u origin master',
+    'code' => 'git add .
+git commit -m "Initial commit"
+git push -u origin master',
     'language' => 'bash',
     'premium' => false,
     'user_id' => 4,
@@ -792,7 +1226,9 @@ Instruction::create([
     'description_en' => 'Create a new React app and install Axios for HTTP requests.',
     'description_ar' => 'إنشاء تطبيق React جديد وتثبيت Axios لإرسال طلبات HTTP.',
     'description_fr' => 'Créez une nouvelle application React et installez Axios pour les requêtes HTTP.',
-    'code' => 'npx create-react-app weather-app\ncd weather-app\nnpm install axios',
+    'code' => 'npx create-react-app weather-app
+cd weather-app
+npm install axios',
     'language' => 'bash',
     'premium' => true,
     'user_id' => 4,
@@ -806,7 +1242,34 @@ Instruction::create([
     'description_en' => 'Fetch weather data from the OpenWeather API.',
     'description_ar' => 'استرجاع بيانات الطقس من واجهة برمجة تطبيقات OpenWeather.',
     'description_fr' => 'Récupérer les données météorologiques depuis l\'API OpenWeather.',
-    'code' => 'import React, { useState } from "react";\nimport axios from "axios";\n\nfunction WeatherApp() {\n    const [weather, setWeather] = useState(null);\n    const [city, setCity] = useState("");\n\n    const fetchWeather = async () => {\n        const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=YOUR_API_KEY&units=metric`);\n        setWeather(response.data);\n    };\n\n    return (\n        <div>\n            <input type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder="Enter city" />\n            <button onClick={fetchWeather}>Get Weather</button>\n            {weather && (\n                <div>\n                    <h1>{weather.name}</h1>\n                    <p>Temperature: {weather.main.temp}°C</p>\n                    <p>Condition: {weather.weather[0].main}</p>\n                </div>\n            )}\n        </div>\n    );\n}\n\nexport default WeatherApp;',
+    'code' => 'import React, { useState } from "react";
+import axios from "axios";
+
+function WeatherApp() {
+const [weather, setWeather] = useState(null);
+const [city, setCity] = useState("");
+
+const fetchWeather = async () => {
+const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=YOUR_API_KEY&units=metric`);
+setWeather(response.data);
+};
+
+return (
+<div>
+<input type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder="Enter city" />
+<button onClick={fetchWeather}>Get Weather</button>
+{weather && (
+<div>
+<h1>{weather.name}</h1>
+<p>Temperature: {weather.main.temp}°C</p>
+<p>Condition: {weather.weather[0].main}</p>
+</div>
+)}
+</div>
+);
+}
+
+export default WeatherApp;',
     'language' => 'javascript',
     'premium' => true,
     'user_id' => 4,
@@ -820,7 +1283,30 @@ Instruction::create([
     'description_en' => 'Add some basic styling to your weather app.',
     'description_ar' => 'إضافة بعض التصميم الأساسي لموقعك الجوي.',
     'description_fr' => 'Ajoutez quelques styles de base à votre application météo.',
-    'code' => 'import "./WeatherApp.css";\n\n/* WeatherApp.css */\ndiv {\n    text-align: center;\n    margin-top: 50px;\n}\n\ninput {\n    padding: 10px;\n    margin-right: 10px;\n}\n\nbutton {\n    padding: 10px 20px;\n    background-color: #007bff;\n    color: white;\n    border: none;\n    cursor: pointer;\n}\n\nbutton:hover {\n    background-color: #0056b3;\n}',
+    'code' => 'import "./WeatherApp.css";
+
+/* WeatherApp.css */
+div {
+text-align: center;
+margin-top: 50px;
+}
+
+input {
+padding: 10px;
+margin-right: 10px;
+}
+
+button {
+padding: 10px 20px;
+background-color: #007bff;
+color: white;
+border: none;
+cursor: pointer;
+}
+
+button:hover {
+background-color: #0056b3;
+}',
     'language' => 'css',
     'premium' => true,
     'user_id' => 4,
@@ -849,7 +1335,9 @@ Instruction::create([
     'description_en' => 'Configure supported languages in config/app.php.',
     'description_ar' => 'تكوين اللغات المدعومة في ملف config/app.php.',
     'description_fr' => 'Configurer les langues prises en charge dans config/app.php.',
-    'code' => "'locale' => 'en',\n'fallback_locale' => 'en',\n'supported_locales' => ['en', 'ar', 'fr'],",
+    'code' => "'locale' => 'en',
+'fallback_locale' => 'en',
+'supported_locales' => ['en', 'ar', 'fr'],",
     'language' => 'php',
     'premium' => true,
     'user_id' => 4,
@@ -863,7 +1351,9 @@ Instruction::create([
     'description_en' => 'Create language files for each supported language.',
     'description_ar' => 'إنشاء ملفات لغة لكل لغة مدعومة.',
     'description_fr' => 'Créer des fichiers de langue pour chaque langue prise en charge.',
-    'code' => 'resources/lang/en/messages.php\nresources/lang/ar/messages.php\nresources/lang/fr/messages.php',
+    'code' => 'resources/lang/en/messages.php
+resources/lang/ar/messages.php
+resources/lang/fr/messages.php',
     'language' => 'plaintext',
     'premium' => true,
     'user_id' => 4,
@@ -921,7 +1411,27 @@ Instruction::create([
     'description_en' => 'Create a basic HTML file with a dashboard layout.',
     'description_ar' => 'إنشاء ملف HTML أساسي مع تخطيط لوحة التحكم.',
     'description_fr' => 'Créez un fichier HTML de base avec un plan de tableau de bord.',
-    'code' => '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <title>Modern Dashboard</title>\n    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">\n</head>\n<body class="bg-gray-100">\n    <div class="flex h-screen">\n        <!-- Sidebar -->\n        <div class="bg-gray-800 text-white w-64">\n            <!-- Sidebar content -->\n        </div>\n        <!-- Main Content -->\n        <div class="flex-1 p-4">\n            <!-- Main content -->\n        </div>\n    </div>\n</body>\n</html>',
+    'code' => '<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Dashboard</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+<div class="flex h-screen">
+<!-- Sidebar -->
+<div class="bg-gray-800 text-white w-64">
+<!-- Sidebar content -->
+</div>
+<!-- Main Content -->
+<div class="flex-1 p-4">
+<!-- Main content -->
+</div>
+</div>
+</body>
+</html>',
     'language' => 'html',
     'premium' => false,
     'user_id' => 1,
@@ -935,7 +1445,20 @@ Instruction::create([
     'description_en' => 'Add cards to display data in a visually appealing way.',
     'description_ar' => 'إضافة بطاقات لعرض البيانات بطريقة جذابة بصرياً.',
     'description_fr' => 'Ajoutez des cartes pour afficher les données de manière visuellement attrayante.',
-    'code' => '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">\n    <div class="bg-white p-6 rounded-lg shadow-md">\n        <h2 class="text-xl font-bold mb-4">Total Users</h2>\n        <p class="text-4xl font-bold text-blue-600">1,234</p>\n    </div>\n    <div class="bg-white p-6 rounded-lg shadow-md">\n        <h2 class="text-xl font-bold mb-4">Active Users</h2>\n        <p class="text-4xl font-bold text-green-600">876</p>\n    </div>\n    <div class="bg-white p-6 rounded-lg shadow-md">\n        <h2 class="text-xl font-bold mb-4">Inactive Users</h2>\n        <p class="text-4xl font-bold text-red-600">358</p>\n    </div>\n</div>',
+    'code' => '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<div class="bg-white p-6 rounded-lg shadow-md">
+<h2 class="text-xl font-bold mb-4">Total Users</h2>
+<p class="text-4xl font-bold text-blue-600">1,234</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+<h2 class="text-xl font-bold mb-4">Active Users</h2>
+<p class="text-4xl font-bold text-green-600">876</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+<h2 class="text-xl font-bold mb-4">Inactive Users</h2>
+<p class="text-4xl font-bold text-red-600">358</p>
+</div>
+</div>',
     'language' => 'html',
     'premium' => false,
     'user_id' => 1,
@@ -949,7 +1472,23 @@ Instruction::create([
     'description_en' => 'Add some custom styles to enhance the dashboard appearance.',
     'description_ar' => 'إضافة بعض الأنماط المخصصة لتحسين مظهر لوحة التحكم.',
     'description_fr' => 'Ajoutez quelques styles personnalisés pour améliorer l\'apparence du tableau de bord.',
-    'code' => '/* Custom styles */\nbody {\n    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;\n}\n\n.sidebar {\n    height: 100vh;\n    overflow-y: auto;\n}\n\n.card {\n    transition: transform 0.2s ease;\n}\n\n.card:hover {\n    transform: translateY(-5px);\n}',
+    'code' => '/* Custom styles */
+body {
+font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sidebar {
+height: 100vh;
+overflow-y: auto;
+}
+
+.card {
+transition: transform 0.2s ease;
+}
+
+.card:hover {
+transform: translateY(-5px);
+}',
     'language' => 'css',
     'premium' => false,
     'user_id' => 1,
@@ -964,7 +1503,9 @@ Instruction::create([
     'description_en' => 'Create a new React app and install necessary packages.',
     'description_ar' => 'إنشاء تطبيق React جديد وتثبيت الحزم اللازمة.',
     'description_fr' => 'Créer une nouvelle application React et installer les paquets nécessaires.',
-    'code' => 'npx create-react-app auth-app\ncd auth-app\nnpm install react-router-dom axios',
+    'code' => 'npx create-react-app auth-app
+cd auth-app
+npm install react-router-dom axios',
     'language' => 'bash',
     'premium' => true,
     'user_id' => 1,
@@ -978,7 +1519,27 @@ Instruction::create([
     'description_en' => 'Create an authentication context to manage user state.',
     'description_ar' => 'إنشاء سياق للمصادقة لإدارة حالة المستخدم.',
     'description_fr' => 'Créer un contexte d\'authentification pour gérer l\'état de l\'utilisateur.',
-    'code' => 'import React, { createContext, useState } from "react";\n\nexport const AuthContext = createContext();\n\nexport const AuthProvider = ({ children }) => {\n    const [user, setUser] = useState(null);\n\n    const login = (userData) => {\n        setUser(userData);\n    };\n\n    const logout = () => {\n        setUser(null);\n    };\n\n    return (\n        <AuthContext.Provider value={{ user, login, logout }}>\n            {children}\n        </AuthContext.Provider>\n    );\n};',
+    'code' => 'import React, { createContext, useState } from "react";
+
+export const AuthContext = createContext();
+
+export const AuthProvider = ({ children }) => {
+const [user, setUser] = useState(null);
+
+const login = (userData) => {
+setUser(userData);
+};
+
+const logout = () => {
+setUser(null);
+};
+
+return (
+<AuthContext.Provider value={{ user, login, logout }}>
+{children}
+</AuthContext.Provider>
+);
+};',
     'language' => 'javascript',
     'premium' => true,
     'user_id' => 1,
@@ -992,7 +1553,24 @@ Instruction::create([
     'description_en' => 'Protect routes to ensure only authenticated users can access them.',
     'description_ar' => 'حماية المسارات لضمان الوصول فقط للمستخدمين المصادق عليهم.',
     'description_fr' => 'Protégez les itinéraires pour vous assurer que seuls les utilisateurs authentifiés y ont accès.',
-    'code' => 'import React, { useContext } from "react";\nimport { Redirect, Route } from "react-router-dom";\nimport { AuthContext } from "./AuthContext";\n\nconst PrivateRoute = ({ component: Component, ...rest }) => {\n    const { user } = useContext(AuthContext);\n\n    return (\n        <Route\n            {...rest}\n            render={(props) =>\n                user ? <Component {...props} /> : <Redirect to="/login" />\n            }\n        />\n    );\n};\n\nexport default PrivateRoute;',
+    'code' => 'import React, { useContext } from "react";
+import { Redirect, Route } from "react-router-dom";
+import { AuthContext } from "./AuthContext";
+
+const PrivateRoute = ({ component: Component, ...rest }) => {
+const { user } = useContext(AuthContext);
+
+return (
+<Route
+{...rest}
+render={(props) =>
+user ? <Component {...props} /> : <Redirect to="/login" />
+}
+/>
+);
+};
+
+export default PrivateRoute;',
     'language' => 'javascript',
     'premium' => true,
     'user_id' => 1,
@@ -1007,7 +1585,9 @@ Instruction::create([
     'description_en' => 'Create a new React app and install Redux and React-Redux.',
     'description_ar' => 'إنشاء تطبيق React جديد وتثبيت Redux و React-Redux.',
     'description_fr' => 'Créer une nouvelle application React et installer Redux et React-Redux.',
-    'code' => 'npx create-react-app redux-app\ncd redux-app\nnpm install redux react-redux',
+    'code' => 'npx create-react-app redux-app
+cd redux-app
+npm install redux react-redux',
     'language' => 'bash',
     'premium' => true,
     'user_id' => 1,
@@ -1021,7 +1601,12 @@ Instruction::create([
     'description_en' => 'Create a Redux store to manage the state of your application.',
     'description_ar' => 'إنشاء متجر Redux لإدارة حالة تطبيقك.',
     'description_fr' => 'Créer un magasin Redux pour gérer l\'état de votre application.',
-    'code' => 'import { createStore } from "redux";\nimport rootReducer from "./reducers";\n\nconst store = createStore(rootReducer);\n\nexport default store;',
+    'code' => 'import { createStore } from "redux";
+import rootReducer from "./reducers";
+
+const store = createStore(rootReducer);
+
+export default store;',
     'language' => 'javascript',
     'premium' => true,
     'user_id' => 1,
@@ -1035,7 +1620,18 @@ Instruction::create([
     'description_en' => 'Connect your React app to the Redux store.',
     'description_ar' => 'ربط تطبيق React الخاص بك بمتجر Redux.',
     'description_fr' => 'Connectez votre application React au magasin Redux.',
-    'code' => 'import React from "react";\nimport ReactDOM from "react-dom";\nimport { Provider } from "react-redux";\nimport store from "./store";\nimport App from "./App";\n\nReactDOM.render(\n    <Provider store={store}>\n        <App />\n    </Provider>,\n    document.getElementById("root")\n);',
+    'code' => 'import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import store from "./store";
+import App from "./App";
+
+ReactDOM.render(
+<Provider store={store}>
+<App />
+</Provider>,
+document.getElementById("root")
+);',
     'language' => 'javascript',
     'premium' => true,
     'user_id' => 1,
@@ -1050,7 +1646,8 @@ Instruction::create([
     'description_en' => 'Create a new Laravel project and configure file storage.',
     'description_ar' => 'إنشاء مشروع Laravel جديد وتكوين تخزين الملفات.',
     'description_fr' => 'Créer un nouveau projet Laravel et configurer le stockage de fichiers.',
-    'code' => 'composer create-project --prefer-dist laravel/laravel file-upload\nphp artisan storage:link',
+    'code' => 'composer create-project --prefer-dist laravel/laravel file-upload
+php artisan storage:link',
     'language' => 'bash',
     'premium' => true,
     'user_id' => 1,
@@ -1064,7 +1661,11 @@ Instruction::create([
     'description_en' => 'Create a form to upload files.',
     'description_ar' => 'إنشاء نموذج لتحميل الملفات.',
     'description_fr' => 'Créer un formulaire de téléchargement de fichiers.',
-    'code' => '<form action="{{ route(\'upload\') }}" method="POST" enctype="multipart/form-data">\n    @csrf\n    <input type="file" name="file" required>\n    <button type="submit">Upload</button>\n</form>',
+    'code' => '<form action="{{ route(\'upload\') }}" method="POST" enctype="multipart/form-data">
+@csrf
+<input type="file" name="file" required>
+<button type="submit">Upload</button>
+</form>',
     'language' => 'blade',
     'premium' => true,
     'user_id' => 1,
@@ -1078,7 +1679,16 @@ Instruction::create([
     'description_en' => 'Handle file upload logic in a controller method.',
     'description_ar' => 'معالجة منطق تحميل الملف في طريقة المتحكم.',
     'description_fr' => 'Gérer la logique de téléchargement de fichiers dans une méthode de contrôleur.',
-    'code' => 'public function upload(Request $request)\n{\n    $request->validate([\n        \'file\' => \'required|mimes:jpg,jpeg,png,pdf|max:2048\',\n    ]);\n\n    $path = $request->file(\'file\')->store(\'uploads\', \'public\');\n\n    return back()->with(\'success\', \'File has been uploaded.\');\n}',
+    'code' => 'public function upload(Request $request)
+{
+    $request->validate([
+        \'file\' => \'required|mimes:jpg,jpeg,png,pdf|max:2048\',
+    ]);
+
+    $path = $request->file(\'file\')->store(\'uploads\', \'public\');
+
+    return back()->with(\'success\', \'File has been uploaded.\');
+}',
     'language' => 'php',
     'premium' => true,
     'user_id' => 1,
@@ -1121,7 +1731,9 @@ Instruction::create([
     'description_en' => 'Dispatch the job from a controller or event listener.',
     'description_ar' => 'إرسال الوظيفة من المتحكم أو مستمع الأحداث.',
     'description_fr' => 'Envoyer le travail à partir d\'un contrôleur ou d\'écouteur d\'événements.',
-    'code' => 'use App\\Jobs\\ProcessPodcast;\n\nProcessPodcast::dispatch($podcast);',
+    'code' => 'use App\\Jobs\\ProcessPodcast;
+    
+ProcessPodcast::dispatch($podcast);',
     'language' => 'php',
     'premium' => true,
     'user_id' => 4,

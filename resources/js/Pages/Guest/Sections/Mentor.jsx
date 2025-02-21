@@ -69,7 +69,7 @@ function Mentor() {
 
                     <code
                         id="coding"
-                        className="text-xs font-black dark:text-slate-100 text-slate-800 code bg-black/10 backdrop-blur rounded-lg w-72 aspect-video absolute top-8 right-0"
+                        className="text-xs font-black hidden sm:block dark:text-slate-100 text-slate-800 code bg-black/10 backdrop-blur rounded-lg w-72 aspect-video absolute top-8 right-0"
                     ></code>
                 </div>
             </div>
