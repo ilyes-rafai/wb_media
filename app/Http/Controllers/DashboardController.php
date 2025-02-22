@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\Post;
 use App\Models\Quiz;
+use App\Models\Topic;
 use App\Models\Trick;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;

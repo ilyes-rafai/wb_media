@@ -13,7 +13,7 @@ class QuizSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run(): void 
     {
         // Ensure topics are created first
         $topics = [
@@ -25,16 +25,11 @@ class QuizSeeder extends Seeder
             'Bootstrap',
             'C Language',
             'OOP',
-            'Node.js',
+            'Node-js',
             'Express.js',
             'Git',
-            'Tailwind',
+            'Tailwindcss',
             'React',
-            'Docker',
-            'Flask',
-            'GraphQL',
-            'Next.js',
-            'Prisma',
         ];
 
         $topicIds = [];
@@ -2350,7 +2345,7 @@ class QuizSeeder extends Seeder
                     ],
                 ],
             ],
-            //TAILWIND QUIZZES
+            //TAILWINDCSS QUIZZES
             [
                 'title_en' => 'Tailwind CSS Basics',
                 'title_ar' => 'أساسيات Tailwind CSS',
@@ -2359,7 +2354,7 @@ class QuizSeeder extends Seeder
                 'description_ar' => 'اختبار معرفتك الأساسية في Tailwind CSS.',
                 'description_fr' => 'Testez vos connaissances fondamentales en Tailwind CSS.',
                 'difficulty' => 1,
-                'topic' => $topicIds['Tailwind'],
+                'topic' => $topicIds['Tailwindcss'],
                 'is_published' => true,
                 'questions' => [
                     [
@@ -2622,7 +2617,7 @@ class QuizSeeder extends Seeder
                 'description_ar' => 'اختبار معرفتك الوسطى في Tailwind CSS.',
                 'description_fr' => 'Testez vos connaissances intermédiaires en Tailwind CSS.',
                 'difficulty' => 2,
-                'topic' => $topicIds['Tailwind'],
+                'topic' => $topicIds['Tailwindcss'],
                 'is_published' => true,
                 'questions' => [
                     [
@@ -2756,7 +2751,7 @@ class QuizSeeder extends Seeder
                 'description_ar' => 'اختبار معرفتك الأساسية في Node.js.',
                 'description_fr' => 'Testez vos connaissances fondamentales en Node.js.',
                 'difficulty' => 1,
-                'topic' => $topicIds['Node.js'],
+                'topic' => $topicIds['Node-js'],
                 'is_published' => true,
                 'questions' => [
                     [
@@ -3079,7 +3074,7 @@ class QuizSeeder extends Seeder
                 'description_ar' => 'اختبار معرفتك الوسطى في Node.js.',
                 'description_fr' => 'Testez vos connaissances intermédiaires en Node.js.',
                 'difficulty' => 2,
-                'topic' => $topicIds['Node.js'],
+                'topic' => $topicIds['Node-js'],
                 'is_published' => true,
                 'questions' => [
                     [

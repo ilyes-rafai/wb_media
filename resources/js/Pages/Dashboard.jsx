@@ -71,7 +71,7 @@ export default function Dashboard({ posts, courses, tricks, quizzes }) {
                     </div>
                 </Wrapper> */}
 
-                <Wrapper>
+                {/* <Wrapper>
                     <header className="mb-3 sm:mb-6 flex flex-col md:flex-row md:items-center gap-6">
                         <TitleSection title={translations.latest_courses} />
                         <NavLink href={route("courseList")}>
@@ -92,7 +92,7 @@ export default function Dashboard({ posts, courses, tricks, quizzes }) {
                             ))}
                         </div>
                     </div>
-                </Wrapper>
+                </Wrapper> */}
 
                 <Wrapper>
                     <header className="mb-3 sm:mb-6 flex flex-col md:flex-row md:items-center gap-6">

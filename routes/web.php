@@ -45,6 +45,7 @@ Route::middleware('auth')->group(function () {
 
     // topic routes
     Route::resource('topics', TopicController::class)->except(['show']);
+    Route::get('topics-list', [DashboardController::class, 'topicsList'])->name("topicsList");
     Route::get('topics-edit-page-svg/{topic}', [TopicController::class, 'edit_svg'])->name("topics.edit_svg");
     Route::put('topics-update-svg/{topic}', [TopicController::class, 'update_svg'])->name("topics.update_svg");
 
