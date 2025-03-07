@@ -14,7 +14,7 @@ function Hero() {
                 selector: "#htmlCode",
                 strings: [
                     `<span class='text-ilyes'>&lt;h1&gt;</span>Hi, I'm Ilyes RAFAI<span class='text-ilyes'>&lt;/h1&gt;</span>`,
-                    `<span class='text-ilyes'>&lt;p&gt;</span>Welcome to Webilymedia!<span class='text-ilyes'>&lt;/p&gt;</span>`,
+                    `<span class='text-ilyes'>&lt;p&gt;</span>Welcome to wemilia!<span class='text-ilyes'>&lt;/p&gt;</span>`,
                 ],
             },
             {
@@ -32,7 +32,7 @@ function Hero() {
                     `<span class='text-ilyes'>function</span> greet<span class='text-ilyes'>(</span>name<span class='text-ilyes'>)</span> {`,
                     `&ensp;&ensp;console.log<span class='text-ilyes'>(</span>&ldquo;hello&ldquo;, name<span class='text-ilyes'>)</span>;`,
                     `}`,
-                    `greet<span class='text-ilyes'>(</span>'Webilymedia'<span class='text-ilyes'>)</span>;`,
+                    `greet<span class='text-ilyes'>(</span>'wemilia'<span class='text-ilyes'>)</span>;`,
                 ],
             },
             {
@@ -41,7 +41,7 @@ function Hero() {
                     `<span class='text-ilyes'>function</span> greet<span class='text-ilyes'>(</span>name<span class='text-ilyes'>)</span> {`,
                     `&ensp;&ensp;console.log<span class='text-ilyes'>(</span>&ldquo;hello&ldquo;, name<span class='text-ilyes'>)</span>;`,
                     `}`,
-                    `greet<span class='text-ilyes'>(</span>'Webilymedia'<span class='text-ilyes'>)</span>;`,
+                    `greet<span class='text-ilyes'>(</span>'wemilia'<span class='text-ilyes'>)</span>;`,
                 ],
             },
         ];

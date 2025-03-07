@@ -14,7 +14,7 @@ export default {
     theme: {
         extend: {
             colors: {
-                ilyes: "#00E472",
+                ilyes: "#16C60C",
             },
             animation: {
                 "bounce-slow": "bounce 5s linear infinite",

@@ -12,6 +12,7 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VocabularyController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -27,7 +28,7 @@ Route::get('/', function () {
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('/webilymedia', [DashboardController::class, 'dashboard'])->name('dashboard');
+    Route::get('/wemilia', [DashboardController::class, 'dashboard'])->name('dashboard');
 
     // profile routes
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -82,7 +83,7 @@ Route::middleware('auth')->group(function () {
 
     // vocabulary routes
     Route::get('vocabularys-list', [DashboardController::class, 'vocabularyList'])->name("vocabularyList");
-
+    Route::resource('vocabularies', VocabularyController::class)->except(['show']);
 
 
 

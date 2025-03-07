@@ -7,8 +7,8 @@ import { useContext } from "react";
 import Wrapper from "./Admin/Components/Wrapper";
 import CourseCard from "./Client/Course/CourseCard";
 import PostCard from "./Client/Post/PostCard";
-import TrickCard from "./Client/Trick/TrickCard";
 import QuizCard from "./Client/Quiz/QuizCard";
+import TrickCard from "./Client/Trick/TrickCard";
 
 export default function Dashboard({ posts, courses, tricks, quizzes }) {
     const abilities = usePage().props.auth.abilities;

@@ -28,7 +28,7 @@ class RoleSeeder extends Seeder
         $mentor = Role::where('name', 'mentor')->first();
 
         // Users
-        $webilymedia = User::where('username', 'webilymedia')->first();
+        $wemilia = User::where('username', 'wemilia')->first();
         $ilyes = User::where('username', 'ilyes_rafai')->first();
         $imad = User::where('username', 'imad_rafai')->first();
         $moussaoui = User::where('username', 'purple_orca')->first();
@@ -36,8 +36,8 @@ class RoleSeeder extends Seeder
         $subscriberUser = User::where('username', 'subscriber')->first();
 
         // Attach users to roles
-        $webilymedia->roles()->attach($admin);
-        $webilymedia->roles()->attach($mentor);
+        $wemilia->roles()->attach($admin);
+        $wemilia->roles()->attach($mentor);
 
         $imad->roles()->attach($admin);
         $imad->roles()->attach($mentor);

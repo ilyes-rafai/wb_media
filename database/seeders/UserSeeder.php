@@ -14,11 +14,11 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'fullname' => 'Webily Media',
-            'username' => 'webilymedia',
-            'email' => 'webily@wb.com',
+            'fullname' => 'wemilia',
+            'username' => 'wemilia',
+            'email' => 'wemilia@wb.com',
             'password' => bcrypt('password'),
-            'avatar' => "img/users/webilymedia-1/avatar_678d6f10370640.39602155.png",
+            'avatar' => "img/users/wemilia-1/avatar_678d6f10370640.39602155.png",
         ]);
 
         User::create([

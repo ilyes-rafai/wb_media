@@ -35,7 +35,7 @@ export default function Login({ status, canResetPassword }) {
             <div className="my-20 max-w-screen-md mx-auto">
                 <div className="flex items-center justify-center flex-wrap gap-3 md:gap-6 mb-12">
                     <ApplicationLogo className="w-16 md:w-32 fill-current text-ilyes" />
-                    <span className="dark:text-white text-3xl md:text-7xl font-semibold">Webilymedia</span>
+                    <span className="dark:text-white text-3xl md:text-7xl font-semibold">wemilia</span>
                 </div>
 
                 <form onSubmit={submit}>
